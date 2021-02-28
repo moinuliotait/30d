@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7a4d385-a466-45bd-b2e5-d230c152e400" name="Default Changelist" comment="" />
+    <list default="true" id="d7a4d385-a466-45bd-b2e5-d230c152e400" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Zakat/ZakatRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ZakatCalculatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ZakatCalculatorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/BasicRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BasicRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Converter/ConverterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Converter/ConverterRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Namaz/NamazRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Namaz/NamazRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Zakat/ZakatInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -122,6 +153,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1oxfLXdrQQ3GdMYEzx9VjeCAIB3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -131,6 +163,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -147,25 +180,49 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614233106718</updated>
-      <workItem from="1614233107755" duration="12958000" />
+      <workItem from="1614233107755" duration="14339000" />
+      <workItem from="1614484917759" duration="19202000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="-936" y="163" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1614248415304">
+    <state x="-936" y="163" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1614504230749">
       <screen x="-1366" y="4" width="1366" height="738" />
     </state>
-    <state x="-936" y="163" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614248415304" />
-    <state x="-845" y="132" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614248570215">
+    <state x="-936" y="163" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614504230749" />
+    <state x="-845" y="4" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614509567900">
       <screen x="-1366" y="4" width="1366" height="738" />
     </state>
-    <state x="-845" y="132" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614248570215" />
-    <state x="-909" y="80" key="NewPhpClassDialog" timestamp="1614248416304">
+    <state x="-845" y="4" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614509567900" />
+    <state x="-953" y="128" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614509631618">
       <screen x="-1366" y="4" width="1366" height="738" />
     </state>
-    <state x="-909" y="80" key="NewPhpClassDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614248416304" />
+    <state x="-953" y="128" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614509631618" />
+    <state x="-909" y="80" key="NewPhpClassDialog" timestamp="1614504231729">
+      <screen x="-1366" y="4" width="1366" height="738" />
+    </state>
+    <state x="-909" y="80" key="NewPhpClassDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614504231729" />
+    <state x="-1182" y="18" key="SettingsEditor" timestamp="1614486362030">
+      <screen x="-1366" y="4" width="1366" height="738" />
+    </state>
+    <state x="-1182" y="18" key="SettingsEditor/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614486362030" />
+    <state x="-1020" y="63" width="672" height="678" key="search.everywhere.popup" timestamp="1614517329893">
+      <screen x="-1366" y="4" width="1366" height="738" />
+    </state>
+    <state x="-1020" y="63" width="672" height="678" key="search.everywhere.popup/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614517329893" />
   </component>
 </project>

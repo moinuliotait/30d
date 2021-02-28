@@ -4,7 +4,7 @@
 namespace App\Repositories\Namaz;
 
 
-class NamazRepository extends \App\Repositories\BasicRepository implements NamazRepositoryInterface
+class NamazRepository implements NamazRepositoryInterface
 {
 
     public function prayerTimeForSpecificDay($month,$year)
