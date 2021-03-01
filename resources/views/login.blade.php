@@ -23,7 +23,7 @@
           <img src="{{ asset('assets/images/undraw_remotely_2j6y.svg') }}" alt="Image" class="img-fluid">
         </div>
         <div class="col-md-6">
-          <div class="row justify-content-center">
+          <div class="row d-flex justify-content-center align-content-center">
             <div class="col-md-8">
               <div class="mb-4">
               <h3>Log In</h3>

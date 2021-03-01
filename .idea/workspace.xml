@@ -21,9 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d7a4d385-a466-45bd-b2e5-d230c152e400" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ZakatCalculatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ZakatCalculatorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Calculation/CalculationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Calculation/CalculationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/MetalPrice/MetalPriceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/MetalPrice/MetalPriceRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +177,7 @@
       <updated>1614233106718</updated>
       <workItem from="1614233107755" duration="14339000" />
       <workItem from="1614484917759" duration="19426000" />
-      <workItem from="1614570101837" duration="5402000" />
+      <workItem from="1614570101837" duration="7808000" />
     </task>
     <servers />
   </component>
@@ -209,6 +209,22 @@
       <screen x="-1366" y="4" width="1366" height="738" />
     </state>
     <state x="-953" y="128" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614509631618" />
+    <state width="1323" height="175" key="GridCell.Tab.0.bottom" timestamp="1614579330590">
+      <screen x="-1366" y="4" width="1366" height="738" />
+    </state>
+    <state width="1323" height="175" key="GridCell.Tab.0.bottom/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614579330590" />
+    <state width="1323" height="175" key="GridCell.Tab.0.center" timestamp="1614579330590">
+      <screen x="-1366" y="4" width="1366" height="738" />
+    </state>
+    <state width="1323" height="175" key="GridCell.Tab.0.center/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614579330590" />
+    <state width="1323" height="175" key="GridCell.Tab.0.left" timestamp="1614579330589">
+      <screen x="-1366" y="4" width="1366" height="738" />
+    </state>
+    <state width="1323" height="175" key="GridCell.Tab.0.left/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614579330589" />
+    <state width="1323" height="175" key="GridCell.Tab.0.right" timestamp="1614579330590">
+      <screen x="-1366" y="4" width="1366" height="738" />
+    </state>
+    <state width="1323" height="175" key="GridCell.Tab.0.right/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614579330590" />
     <state x="-909" y="80" key="NewPhpClassDialog" timestamp="1614504231729">
       <screen x="-1366" y="4" width="1366" height="738" />
     </state>
