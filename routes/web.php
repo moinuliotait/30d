@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\BaseUserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
+Route::group(['middleware'=>'auth'],function (){
+    Route::get('/',[AdminDashboardController::class,'index'])->name('dashboard');
+    Route::post('/logout',[BaseUserController::class,'logoutUser'])->name('logout');
 });
 
-Route::get('/', function () {
-    return view('pages.dashboard');
-});
+Route::get('/login',[BaseUserController::class,'LoginPageShow'])->name('login');
+Route::post('/login-check',[BaseUserController::class,'userLoginCheck'])->name('login-check');
+
 
 

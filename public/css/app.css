@@ -1,1 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+.LoginPage .loginFrom {
+  height: 100%; }
+  .LoginPage .loginFrom .loginHeader {
+    line-height: 1.5rem;
+    font-size: 32px; }
+
+#logOutbutton {
+  background-color: #f2f6f8;
+  border: none;
+  font-size: 18px; }
+  #logOutbutton:hover {
+    color: #00aced;
+    transition: 1s; }
+
+#userName a {
+  text-transform: capitalize !important; }
 

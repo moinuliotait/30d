@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BaseUserController;
 use App\Http\Controllers\MetalPriceConverterController;
 use App\Http\Controllers\NamazDataFormationController;
 use App\Http\Controllers\ZakatCalculatorController;
@@ -25,3 +26,4 @@ Route::get('/prayer-time/specific-day',[NamazDataFormationController::class,'pra
 Route::get('/monthly-event',[NamazDataFormationController::class,'eachMonthAllEventList']);
 Route::get('/metal-price-update',[MetalPriceConverterController::class,'saveMetalCurrentPriceIntoDB']);
 Route::post('/total-neshab-amount',[ZakatCalculatorController::class,'zakatCalculation']);
+Route::post('/register',[BaseUserController::class,'register']);
