@@ -39,32 +39,69 @@ class CalculationRepository extends BasicRepository implements CalculationReposi
         $silverInGream = (612.36 / 28.3495);
         $nishabSilver = ($silverInGream * $silver); // min 612.36 gram of silver
 
-        return ['silver nisab' => $nishabSilver, 'gold nisab' => $nishabGold]; // return total amount of nishab
+        return ['silver_nishab' => $nishabSilver, 'gold_nishab' => $nishabGold]; // return total amount of nishab
     }
 
-    public function allCalculationForZakat($data)
+    public function allCalculationForZakat($data,$neshab)
     {
         //// for pension
         if (empty($data['pension'])) {
-            $pension = $this->pensionCalculation($data['pension_unknown']);
+            if (isset($data['pension_unknown']))
+                $pension = $this->pensionCalculation($data['pension_unknown']);
         } else {
-            $pension = $data->pension;
+            $pension = $data['pension'] ?? 0;
         }
         /// trust fund
-        $trustCovert = $this->TwentyFivePercentOfMainAmount($data['trust']['stock']);
-        $totallTrust = $trustCovert + $data['trust']['others'];
+       if (isset($data['trust']))
+       {
+           $trustCovert = $this->TwentyFivePercentOfMainAmount($data['trust']['stock']);
+           $totallTrust = $trustCovert + $data['trust']['others'];
+       }
 
         /// share
-        $covertedTrust = $this->TwentyFivePercentOfMainAmount($data['share']['other']);
-        $totallShare = $covertedTrust + $data['share']['capital'];
+        if (isset($data['share']))
+        {
+            $covertedTrust = $this->TwentyFivePercentOfMainAmount($data['share']['other']);
+            $totallShare = $covertedTrust + $data['share']['capital'];
+        }
 
 
-        $cash = $data['cash'];
-        $owe = $data['owe_to_me'];
-        $business = $data['business'];
-        $crypto = $data['crypto'];
-        $finalAdditionalOutput = $this->totalAdditionMoney($cash,$owe,0,$totallShare,$pension,$crypto,$business,$totallTrust);
-        return $finalAdditionalOutput;
+        if (empty($data['gold_money'])) {
+            $gold = $this->convertMetalPriceGramToOunce($data['gold_gram'], 'XAU');
+        } else {
+            $gold = $data['gold_money'] ?? 0;
+        }
+
+        if (empty($data['silver_money'])) {
+            $silver = $this->convertMetalPriceGramToOunce($data['silver_gram'], 'XAG');
+        } else {
+            $silver = $data['siver_money'] ?? 0;
+        }
+
+        $cash = $data['cash'] ?? 0;
+        $owe = $data['owe_to_me'] ?? 0;
+        $business = $data['business'] ?? 0;
+        $crypto = $data['crypto'] ?? 0;
+        $metal = $gold + $silver;
+        $finalAdditionalOutput = $this->totalAdditionMoney($cash, $owe, $metal, $totallShare ?? 0, $pension??0, $crypto, $business, $totallTrust??0);
+        $oweT = $data['owe'] ?? 0;
+        $out = $finalAdditionalOutput - $oweT;
+        $finalResult = $out >= 0 ? $out : 0;
+
+        if ($finalResult > $neshab)
+        {
+            $finalZakat = $finalResult * .25;
+        }
+        else{
+            $finalZakat = 0;
+        }
+
+        return [
+            'add' => round($finalAdditionalOutput,2),
+            'minus' => $oweT,
+            'equal' => round($finalResult,2),
+            'final_zakat'=>round($finalZakat,2)
+        ];
     }
 
     public function totalAdditionMoney($cash = 0, $owed_to_me = 0, $metal = 0, $share = 0, $pension = 0, $crypto = 0, $business = 0, $trust = 0)
@@ -98,5 +135,13 @@ class CalculationRepository extends BasicRepository implements CalculationReposi
     public function TwentyFivePercentOfMainAmount($data)
     {
         return ($data * .25);
+    }
+
+    public function convertMetalPriceGramToOunce($amount, $name)
+    {
+        $value = $this->metalPrice->getMetalPriceInOunce($name);
+        $gramToOunce = $amount / 28.3495;
+        return ($gramToOunce * $value->price);
+
     }
 }

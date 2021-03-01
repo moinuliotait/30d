@@ -20,15 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7a4d385-a466-45bd-b2e5-d230c152e400" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Repositories/Zakat/ZakatRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ZakatCalculatorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ZakatCalculatorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/BasicRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/BasicRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Converter/ConverterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Converter/ConverterRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Namaz/NamazRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Namaz/NamazRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Zakat/ZakatInterface.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Calculation/CalculationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Calculation/CalculationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/MetalPrice/MetalPriceRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/MetalPrice/MetalPriceRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +176,8 @@
       <option name="presentableId" value="Default" />
       <updated>1614233106718</updated>
       <workItem from="1614233107755" duration="14339000" />
-      <workItem from="1614484917759" duration="19202000" />
+      <workItem from="1614484917759" duration="19426000" />
+      <workItem from="1614570101837" duration="4691000" />
     </task>
     <servers />
   </component>
@@ -198,6 +194,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-936" y="163" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1614504230749">

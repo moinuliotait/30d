@@ -39,9 +39,15 @@ class ZakatCalculatorController extends Controller
     public function zakatCalculation(Request $request)
     {
         // pension calculation with condition $data
-       $allCalculation = $this->calculationRepository->allCalculationForZakat($request->data);
         $neshab = $this->calculationRepository->neshabZakatAmount();
-        return ['status'=>1,'total'=>$allCalculation,'total_neshab'=>$neshab,'currency_based'=>'GBP'];
+        $allCalculation = $this->calculationRepository->allCalculationForZakat($request->data,$neshab['silver_nishab']);
+
+        return [
+            'status'=>1,
+            'calculation'=>$allCalculation,
+            'total_neshab'=>$neshab,
+            'currency_based'=>'GBP'
+        ];
     }
 
 }
