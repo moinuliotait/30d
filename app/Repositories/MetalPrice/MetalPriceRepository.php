@@ -20,4 +20,10 @@ class MetalPriceRepository extends \App\Repositories\BasicRepository implements 
     {
         return $this->model->get();
     }
+
+    public function getMetalPriceInOunce($name)
+    {
+        return $this->model->where('metal_code',$name)->first();
+    }
+
 }
