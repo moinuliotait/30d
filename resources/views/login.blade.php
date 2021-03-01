@@ -7,6 +7,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
     <!-- Style -->
@@ -16,27 +17,29 @@
   </head>
   <body>
     {{-- pt-md-5 pt-lg-5 pt-xl-5 pt-sm-5 mt-md-5 mt-lg-5 mt-xl-5 mt-sm-5 --}}
-  <div class="">
+  <div class="LoginPage">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <img src="{{ asset('assets/images/undraw_remotely_2j6y.svg') }}" alt="Image" class="img-fluid">
         </div>
         <div class="col-md-6">
-          <div class="row d-flex justify-content-center align-content-center">
+          <div class="row d-flex justify-content-center align-content-center loginFrom">
             <div class="col-md-8">
-              <div class="mb-4">
-              <h3>Log In</h3>
+              <div class="mb-4 text-center text-uppercase text-body">
+              <h3 class="loginHeader">Log In</h3>
             </div>
-            <form action="#" method="post">
+            <form action="{{route('login-check')}}" method="post">
+                @csrf
+                @method('post')
               <div class="form-group first field--not-empty">
-                <label for="username">Username</label>
-                <input type="text" class="form-control input-field" id="username">
+                <label for="username">Email</label>
+                <input type="text" class="form-control input-field" id="username" name="email">
               </div>
 
               <div class="form-group last mb-4 field--not-empty">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" id="password" name="password">
               </div>
 
               <div class="d-flex mb-5 align-items-center">
@@ -45,7 +48,9 @@
                   <div class="control__indicator"></div>
                 </label>
               </div>
-
+                @error('email')
+                    <p class="text-danger text-center">{{$message}}</p>
+                @enderror
               <input type="submit" value="Log In" class="btn btn-block btn-primary">
             </form>
             </div>
@@ -60,5 +65,6 @@
     <script src="{{ asset('assets/plugins/popper.js/dist/umd/popper.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/login_main.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
   </body>
 </html>

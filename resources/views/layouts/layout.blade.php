@@ -13,7 +13,9 @@
 
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
+{{--    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">--}}
     <!-- chartist CSS -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/chartist-js/dist/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/chartist-js/dist/chartist-init.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css') }}" rel="stylesheet">
@@ -105,11 +107,10 @@
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown" id="userName">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="{{ asset('assets/images/users/1.jpg') }}" alt="user" class="profile-pic m-r-10">Markarn
-                                Doe</a>
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><img
+                                    src="{{ asset('assets/images/users/1.jpg') }}" alt="user" class="profile-pic m-r-10">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
                         </li>
                     </ul>
                 </div>
@@ -172,8 +173,12 @@
                     </div>
                     <div class="col-4 link-wrap">
                         <!-- item-->
-                        <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i
-                                class="mdi mdi-power"></i></a>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            @method('post')
+                            <button class="link" data-toggle="tooltip" title="" data-original-title="Logout" type="submit" id="logOutbutton"><i
+                                    class="mdi mdi-power"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -234,6 +239,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{ asset('assets/plugins/popper.js/dist/umd/popper.min.js') }}"></script>
