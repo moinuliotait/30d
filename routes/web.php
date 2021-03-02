@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BaseUserController;
+use App\Http\Controllers\ContentTypeController;
+use App\Http\Controllers\LifeStyleContentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +21,13 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware'=>'auth'],function (){
     Route::get('/',[AdminDashboardController::class,'index'])->name('dashboard');
     Route::post('/logout',[BaseUserController::class,'logoutUser'])->name('logout');
+    Route::prefix('life-style')->group(function (){
+        Route::get('/',[LifeStyleContentController::class,'index'])->name('life-style');
+        Route::get('/lifeStyle-create-page',[LifeStyleContentController::class,'lifeStyleCreatePageShow'])->name('life-style-create-page');
+        Route::post('/create-life-style',[LifeStyleContentController::class,'createLifeStyle'])->name('create-life-style');
+        Route::get('/edit-life-style/show/{id}',[LifeStyleContentController::class,'editLifeStyleContent'])->name('edit-page-show-life-style');
+        Route::put('/update-life-style',[LifeStyleContentController::class,'updateLifeStyleContent'])->name('life-style-update');
+    });
 });
 
 Route::get('/login',[BaseUserController::class,'LoginPageShow'])->name('login');

@@ -1,0 +1,24 @@
+.contentContainer{
+    background-color: white;
+    border-radius: 8px;
+}
+.listOfContentType{
+    .PillButton{
+        a{
+            font-size: 18px;
+            padding: 5px 20px;
+            background-color: #26c6da;
+            border-radius: 25px;
+            color: white;
+            margin-right: 15px;
+        }
+        .active{
+            background-color: Black;
+        }
+    }
+}
+.inputGroup{
+    label{
+        font-size: 18px;
+    }
+}

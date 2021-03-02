@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\BaseUserController;
+use App\Http\Controllers\ContentCategoryController;
+use App\Http\Controllers\ContentTypeController;
 use App\Http\Controllers\MetalPriceConverterController;
 use App\Http\Controllers\NamazDataFormationController;
 use App\Http\Controllers\ZakatCalculatorController;
@@ -27,3 +29,5 @@ Route::get('/monthly-event',[NamazDataFormationController::class,'eachMonthAllEv
 Route::get('/metal-price-update',[MetalPriceConverterController::class,'saveMetalCurrentPriceIntoDB']);
 Route::post('/total-neshab-amount',[ZakatCalculatorController::class,'zakatCalculation']);
 Route::post('/register',[BaseUserController::class,'register']);
+Route::post('/content-type',[ContentTypeController::class,'insert']);
+Route::post('/content-category',[ContentCategoryController::class,'insert']);

@@ -10,7 +10,7 @@
 
 // Document
 //
-// 1. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
+// 1. Change from `box-sizing: lifeStyle-box` so that `width` is not affected by `padding` or `border`.
 // 2. Change the default font family in all browsers.
 // 3. Correct the line height in all browsers.
 // 4. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
@@ -227,10 +227,10 @@ pre {
   margin-top: 0;
   // Reset browser default of `1em` to use `rem`s
   margin-bottom: 1rem;
-  // Don't allow content to break outside
+  // Don't allow lifeStyle to break outside
   overflow: auto;
   // Disable auto-hiding scrollbar in IE & legacy Edge to avoid overlap,
-  // making it impossible to interact with the content
+  // making it impossible to interact with the lifeStyle
   -ms-overflow-style: scrollbar;
 }
 
@@ -246,7 +246,7 @@ figure {
 
 
 //
-// Images and content
+// Images and lifeStyle
 //
 
 img {
@@ -393,7 +393,7 @@ textarea {
 }
 
 fieldset {
-  // Browsers set a default `min-width: min-content;` on fieldsets,
+  // Browsers set a default `min-width: min-lifeStyle;` on fieldsets,
   // unlike e.g. `<div>`s, which have `min-width: 0;` by default.
   // So we reset that to ensure fieldsets behave more like a standard block element.
   // See https://github.com/twbs/bootstrap/issues/12359

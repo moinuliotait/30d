@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class ContentTypeCategory extends Model
 {
     use HasFactory;
+
+    protected $guarded;
+
+    public function contentType()
+    {
+     return $this->belongsTo(ContentType::class);
+    }
+
+    public function content()
+    {
+        return $this->belongsTo(Content::class);
+    }
 }
