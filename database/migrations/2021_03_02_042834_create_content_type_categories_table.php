@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLifeStylesTable extends Migration
+class CreateContentTypeCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateLifeStylesTable extends Migration
      */
     public function up()
     {
-        Schema::create('life_styles', function (Blueprint $table) {
+        Schema::create('content_type_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('life_style_category');
+            $table->string('category_name');
+            $table->integer('content_type_id');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateLifeStylesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('life_styles');
+        Schema::dropIfExists('content_type_categories');
     }
 }
