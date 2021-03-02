@@ -1877,7 +1877,7 @@ var Chartist = {
   }
 
   /**
-   * This method creates a foreignObject (see https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject) that allows to embed HTML content into a SVG graphic. With the help of foreignObjects you can enable the usage of regular HTML elements inside of SVG where they are subject for SVG positioning and transformation but the Browser will use the HTML rendering capabilities for the containing DOM.
+   * This method creates a foreignObject (see https://developer.mozilla.org/en-US/docs/Web/SVG/Element/foreignObject) that allows to embed HTML lifeStyle into a SVG graphic. With the help of foreignObjects you can enable the usage of regular HTML elements inside of SVG where they are subject for SVG positioning and transformation but the Browser will use the HTML rendering capabilities for the containing DOM.
    *
    * @memberof Chartist.Svg
    * @param {Node|String} content The DOM Node, or HTML string that will be converted to a DOM Node, that is then placed into and wrapped by the foreignObject
@@ -1887,22 +1887,22 @@ var Chartist = {
    * @return {Chartist.Svg} New wrapper object that wraps the foreignObject element
    */
   function foreignObject(content, attributes, className, insertFirst) {
-    // If content is string then we convert it to DOM
-    // TODO: Handle case where content is not a string nor a DOM Node
+    // If lifeStyle is string then we convert it to DOM
+    // TODO: Handle case where lifeStyle is not a string nor a DOM Node
     if(typeof content === 'string') {
       var container = document.createElement('div');
       container.innerHTML = content;
       content = container.firstChild;
     }
 
-    // Adding namespace to content element
+    // Adding namespace to lifeStyle element
     content.setAttribute('xmlns', Chartist.namespaces.xmlns);
 
     // Creating the foreignObject without required extension attribute (as described here
     // http://www.w3.org/TR/SVG/extend.html#ForeignObjectElement)
     var fnObj = this.elem('foreignObject', attributes, className, insertFirst);
 
-    // Add content to foreignObjectElement
+    // Add lifeStyle to foreignObjectElement
     fnObj._node.appendChild(content);
 
     return fnObj;

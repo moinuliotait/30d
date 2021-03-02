@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('content')
+@section('lifeStyle')
 <div class="row">
     <!-- Column -->
     <div class="col-lg-8 col-md-7">

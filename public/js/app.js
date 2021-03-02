@@ -1797,7 +1797,7 @@ function extend(a, b, thisArg) {
  * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
  *
  * @param {string} content with BOM
- * @return {string} content value without BOM
+ * @return {string} lifeStyle value without BOM
  */
 function stripBOM(content) {
   if (content.charCodeAt(0) === 0xFEFF) {
@@ -19295,7 +19295,7 @@ process.umask = function() { return 0; };
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -19308,17 +19308,17 @@ process.umask = function() { return 0; };
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
@@ -19331,7 +19331,7 @@ process.umask = function() { return 0; };
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -19340,14 +19340,14 @@ process.umask = function() { return 0; };
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	__webpack_require__("./resources/js/app.js");
 /******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./resources/sass/app.scss");
-/******/ 	
+/******/
 /******/ })()
 ;

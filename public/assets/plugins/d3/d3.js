@@ -11279,7 +11279,7 @@ var request = function(url, callback) {
       return arguments.length < 1 ? password : (password = value == null ? null : value + "", request);
     },
 
-    // Specify how to convert the response content to a specific type;
+    // Specify how to convert the response lifeStyle to a specific type;
     // changes the callback value on "load" events.
     response: function(value) {
       response = value;
@@ -16471,7 +16471,7 @@ var zoom = function() {
   zoom.clickDistance = function(_) {
     return arguments.length ? (clickDistance2 = (_ = +_) * _, zoom) : Math.sqrt(clickDistance2);
   };
-    
+
   return zoom;
 };
 

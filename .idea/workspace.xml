@@ -21,8 +21,42 @@
   <component name="ChangeListManager">
     <list default="true" id="d7a4d385-a466-45bd-b2e5-d230c152e400" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_01_104512_create_educates_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_01_110827_create_life_styles_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ContentType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ContentType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/ContentTypeCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ContentTypeCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/less/_mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/less/_mixins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/scss/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/scss/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/plugins/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/plugins/bootstrap/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/plugins/bootstrap/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/plugins/chartist-js/dist/chartist.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/chartist-js/dist/chartist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/plugins/d3/d3.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/d3/d3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/plugins/jquery/dist/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/jquery/dist/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/plugins/jquery/dist/jquery.slim.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/jquery/dist/jquery.slim.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/plugins/jquery/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/jquery/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_forms.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_modal.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_navbar.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_print.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_print.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_reboot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_reboot.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_tooltip.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_tooltip.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_breakpoints.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_breakpoints.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_grid.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_screen-reader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_screen-reader.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/icons/font-awesome/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/icons/font-awesome/less/mixins.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/scss/icons/font-awesome/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/icons/font-awesome/scss/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +212,7 @@
       <workItem from="1614484917759" duration="19426000" />
       <workItem from="1614570101837" duration="8136000" />
       <workItem from="1614590087258" duration="10094000" />
-      <workItem from="1614657197700" duration="1910000" />
+      <workItem from="1614657197700" duration="29877000" />
     </task>
     <servers />
   </component>
@@ -198,18 +232,29 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-936" y="163" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1614504230749">
-      <screen x="-1366" y="4" width="1366" height="738" />
+    <state x="-1316" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1614668533393">
+      <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
     <state x="-936" y="163" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614504230749" />
-    <state x="-845" y="4" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614509567900">
-      <screen x="-1366" y="4" width="1366" height="738" />
+    <state x="-1316" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614668533393" />
+    <state x="-1188" y="-78" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614660485217">
+      <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
     <state x="-845" y="4" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614509567900" />
-    <state x="-953" y="128" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614509631618">
-      <screen x="-1366" y="4" width="1366" height="738" />
+    <state x="-1188" y="-78" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614660485217" />
+    <state x="-1340" y="98" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614667689627">
+      <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
     <state x="-953" y="128" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614509631618" />
+    <state x="-1340" y="98" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614667689627" />
+    <state x="-1151" y="214" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0" timestamp="1614687067818">
+      <screen x="-1920" y="-78" width="1920" height="1050" />
+    </state>
+    <state x="-1151" y="214" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614687067818" />
+    <state x="-1151" y="129" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1" timestamp="1614679467731">
+      <screen x="-1920" y="-78" width="1920" height="1050" />
+    </state>
+    <state x="-1151" y="129" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614679467731" />
     <state width="1877" height="277" key="GridCell.Tab.0.bottom" timestamp="1614592254205">
       <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
@@ -230,14 +275,19 @@
     </state>
     <state width="1323" height="175" key="GridCell.Tab.0.right/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614579330590" />
     <state width="1877" height="277" key="GridCell.Tab.0.right/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614592254205" />
-    <state x="-909" y="80" key="NewPhpClassDialog" timestamp="1614504231729">
-      <screen x="-1366" y="4" width="1366" height="738" />
+    <state x="-1278" y="30" key="NewPhpClassDialog" timestamp="1614668534321">
+      <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
     <state x="-909" y="80" key="NewPhpClassDialog/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614504231729" />
+    <state x="-1278" y="30" key="NewPhpClassDialog/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614668534321" />
     <state x="-1182" y="18" key="SettingsEditor" timestamp="1614486362030">
       <screen x="-1366" y="4" width="1366" height="738" />
     </state>
     <state x="-1182" y="18" key="SettingsEditor/0.0.1366.738/-1366.4.1366.738@-1366.4.1366.738" timestamp="1614486362030" />
+    <state x="-1304" y="204" key="run.anything.popup" timestamp="1614683729744">
+      <screen x="-1920" y="-78" width="1920" height="1050" />
+    </state>
+    <state x="-1304" y="204" key="run.anything.popup/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614683729744" />
     <state x="-1020" y="63" width="672" height="678" key="search.everywhere.popup" timestamp="1614517329893">
       <screen x="-1366" y="4" width="1366" height="738" />
     </state>
