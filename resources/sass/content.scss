@@ -1,24 +1,77 @@
-.contentContainer{
+.contentContainer {
     background-color: white;
     border-radius: 8px;
 }
-.listOfContentType{
-    .PillButton{
-        a{
+
+.listOfContentType {
+    .PillButton {
+        a {
             font-size: 18px;
             padding: 5px 20px;
             background-color: #26c6da;
             border-radius: 25px;
             color: white;
             margin-right: 15px;
+            &:hover{
+                background-color: Black;
+                transition: 1.5s;
+            }
         }
-        .active{
+
+        .active {
             background-color: Black;
         }
     }
 }
-.inputGroup{
-    label{
+
+.inputGroup {
+    label {
         font-size: 18px;
+    }
+}
+
+.tpagination {
+   nav{
+       ul{
+           .active {
+               background-color: #26c6da !important;
+           }
+       }
+   }
+}
+.newmodal{
+    position: fixed; /* Stay in place */
+    z-index: 1050; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    min-height: 200%; /* Full height */
+    overflow: hidden; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+#popup {
+    .popup{
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        overflow: hidden;
+        background-color:#ffffff;
+        transform: translate(-50%, -50%);
+        //box-shadow: -5px 8px 14px -5px rgba(0 0 0 / 75%);
+        padding: 60px;
+        z-index: 5;
+        border-radius: 8px;
+        .yes{
+            background-color: darkred;
+            color: #ffffff;
+        }
+        button{
+            text-transform: uppercase;
+        }
+        .no{
+            border:1px solid darkred;
+            text-transform: uppercase;
+        }
     }
 }

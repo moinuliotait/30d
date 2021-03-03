@@ -21,41 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d7a4d385-a466-45bd-b2e5-d230c152e400" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ContentType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ContentType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ContentTypeCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ContentTypeCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/less/_mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/less/_mixins.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/scss/_mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/scss/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/icons/font-awesome/scss/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/bootstrap/dist/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/plugins/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/plugins/bootstrap/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/bootstrap/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/plugins/bootstrap/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/bootstrap/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/plugins/chartist-js/dist/chartist.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/chartist-js/dist/chartist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/plugins/d3/d3.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/d3/d3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/plugins/jquery/dist/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/jquery/dist/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/plugins/jquery/dist/jquery.slim.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/jquery/dist/jquery.slim.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/plugins/jquery/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/plugins/jquery/jquery.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_forms.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_modal.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_navbar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_navbar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_print.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_print.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_reboot.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_reboot.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_tooltip.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_tooltip.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_breakpoints.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_breakpoints.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_grid.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_screen-reader.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/bootstrap/mixins/_screen-reader.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/icons/font-awesome/less/mixins.less" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/icons/font-awesome/less/mixins.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/scss/icons/font-awesome/scss/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/scss/icons/font-awesome/scss/_mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LifeStyleContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LifeStyleContentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Content/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Content/ContentRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/content.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/lifeStyle/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lifeStyle/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +184,8 @@
       <workItem from="1614484917759" duration="19426000" />
       <workItem from="1614570101837" duration="8136000" />
       <workItem from="1614590087258" duration="10094000" />
-      <workItem from="1614657197700" duration="29877000" />
+      <workItem from="1614657197700" duration="30150000" />
+      <workItem from="1614741810077" duration="2793000" />
     </task>
     <servers />
   </component>

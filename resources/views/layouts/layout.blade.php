@@ -287,6 +287,7 @@
             },
         });
     });
+
 </script>
 @yield('script')
 </body>
