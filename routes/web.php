@@ -35,6 +35,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', [HadithContentController::class, 'index'])->name('hadith');
         Route::get('/crate-page-show', [HadithContentController::class, 'createPageShow'])->name('hadith-create-page-show');
         Route::post('/crate-hadith', [HadithContentController::class, 'createHadith'])->name('hadith-create');
+        Route::get('/edit-page-show/{id}',[HadithContentController::class,'editHadithPageShow'])->name('hadith-edit-page');
+        Route::put('/update-hadith',[HadithContentController::class,'updateHadith'])->name('hadith-update');
+        Route::delete('/hadith-delete/{id}',[HadithContentController::class,'deleteHadith'])->name('hadith-delete');
     });
     Route::delete('/content/delete/{id}', [LifeStyleContentController::class, 'deleteContent'])->name('delete-content');
 
