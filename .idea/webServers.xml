@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4d03fd83-6c7e-4ade-aefa-a54e6936384c" name="gotchart" url="http://testiotait@gotcha.id">
+        <fileTransfer rootFolder="/public_html/api" host="testiotait@gotcha.id" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

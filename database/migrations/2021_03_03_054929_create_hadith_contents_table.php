@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContentsTable extends Migration
+class CreateHadithContentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateContentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('hadith_contents', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
             $table->string('title');
-            $table->longText('content');
-            $table->string('short_description')->nullable();
+            $table->string('short_description');
+            $table->string('medium_description');
+            $table->longText('description');
             $table->string('featured_image');
-            $table->string('video_url')->nullable();
+            $table->date('visible_time')->unique();
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateContentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('hadith_contents');
     }
 }
