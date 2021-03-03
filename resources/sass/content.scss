@@ -5,25 +5,47 @@
 
 .listOfContentType {
     .PillButton {
-        a {
-            font-size: 18px;
-            padding: 5px 20px;
-            background-color: #26c6da;
-            border-radius: 25px;
-            color: white;
-            margin-right: 15px;
-            &:hover{
-                background-color: Black;
-                transition: 1.5s;
+        nav{
+            ul{
+                li{
+                    list-style: none;
+                    display: inline-block;
+                    a {
+                        font-size: 18px;
+                        padding: 5px 20px;
+                        background-color: #26c6da;
+                        border-radius: 25px;
+                        color: white;
+                        margin-right: 15px;
+                        &:hover{
+                            background-color: Black;
+                            transition: 1.5s;
+                        }
+                    }
+
+                    .active {
+                        background-color: Black;
+                    }
+                }
             }
         }
 
-        .active {
-            background-color: Black;
+    }
+}
+.card{
+    position: relative;
+    .tag{
+        position: absolute;
+        p{
+            background-color: rgba(46, 42, 44, 0.6);
+            color: white;
+            padding: 8px;
+            font-size: 13px;
+            //height: 1rem;
+            border-radius: 25px 25px 25px 25px ;
         }
     }
 }
-
 .inputGroup {
     label {
         font-size: 18px;

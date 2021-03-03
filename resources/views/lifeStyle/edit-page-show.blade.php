@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('lifeStyle')
+@section('content')
     <div class="contentInputFrom p-3">
         <div class="header">
             <h2>Edit Life Style</h2>

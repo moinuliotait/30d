@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('lifeStyle')
+@section('content')
     <div class="p-3">
         <div class="d-flex justify-content-between align-items-center">
             <div class="header p-2">
@@ -19,16 +19,24 @@
         @endif
         <div class="listOfContentType mt-3">
             <div class="PillButton">
-                <div class="d-flex">
-                    <a href="" class="active">All</a>
-                    <a href="">Sports</a>
-                    <a href="">Voeding</a>
-                </div>
+
+                <nav>
+                    <ul class="p-0">
+                        <li><a class="{{ (request()->is('life-style')) ? 'active':'' }}"
+                               href="{{route('life-style')}}">All</a></li>
+                        <li><a href="{{route('specific-content','Sports')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/Sports' ? 'active':'' )}}">Sports</a></li>
+                        <li><a href="{{route('specific-content','Voeding')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/Voeding' ? 'active':'' )}}">Voeding</a></li>
+                    </ul>
+                </nav>
             </div>
             <div class="row mt-3">
                 @foreach($contents as $content)
+{{--                    {{dd($content)->toArray()}}--}}
                     <div class="col-3 s-12">
                         <div class="card w-100">
+                            <div class="tag p-2">
+                                <p>{{$content->categoryId->category_name}}</p>
+                            </div>
                             <img class="card-img-top w-100"
                                  src="{{asset('storage/'.$content->featured_image)}}"
                                  alt="Card image cap ">
