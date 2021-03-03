@@ -142,7 +142,4 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
             })->OrderBy('created_at', 'desc')
             ->paginate(16);
     }
-
-
-
 }
