@@ -10,6 +10,7 @@
                 li{
                     list-style: none;
                     display: inline-block;
+                    padding-bottom: 15px;
                     a {
                         font-size: 18px;
                         padding: 5px 20px;
@@ -17,6 +18,7 @@
                         border-radius: 25px;
                         color: white;
                         margin-right: 15px;
+
                         &:hover{
                             background-color: Black;
                             transition: 1.5s;

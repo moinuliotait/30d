@@ -6,8 +6,8 @@
                 <h2>Life Style</h2>
             </div>
             <div class="addNew p-2">
-                <a href="{{ route('life-style-create-page') }}" class="btn btn-primary mr-3"><i
-                        class="mdi mr-2 mdi-plus"></i>Add Category</a>
+{{--                <a href="{{ route('life-style-create-page') }}" class="btn btn-primary mr-3"><i--}}
+{{--                        class="mdi mr-2 mdi-plus"></i>Add Category</a>--}}
                 <a href="{{ route('life-style-create-page') }}" class="btn btn-dark"><i class="mdi mr-2 mdi-plus"></i>Add
                     Content</a>
             </div>
@@ -22,17 +22,17 @@
 
                 <nav>
                     <ul class="p-0">
-                        <li><a class="{{ (request()->is('life-style')) ? 'active':'' }}"
+                        <li><a class="{{ (request()->is('life-style')) ? 'active':'' }} mb-3"
                                href="{{route('life-style')}}">All</a></li>
-                        <li><a href="{{route('specific-content','Sports')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/Sports' ? 'active':'' )}}">Sports</a></li>
-                        <li><a href="{{route('specific-content','Voeding')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/Voeding' ? 'active':'' )}}">Voeding</a></li>
+                        <li><a href="{{route('specific-content','Sports')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/Sports' ? 'active':'' )}} mb-3">Sports</a></li>
+                        <li><a href="{{route('specific-content','Voeding')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/Voeding' ? 'active':'' )}} mb-3">Voeding</a></li>
                     </ul>
                 </nav>
             </div>
             <div class="row mt-3">
                 @foreach($contents as $content)
 {{--                    {{dd($content)->toArray()}}--}}
-                    <div class="col-3 s-12">
+                    <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12">
                         <div class="card w-100">
                             <div class="tag p-2">
                                 <p>{{$content->categoryId->category_name}}</p>

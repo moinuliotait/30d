@@ -22,7 +22,8 @@
 
 .listOfContentType .PillButton nav ul li {
   list-style: none;
-  display: inline-block; }
+  display: inline-block;
+  padding-bottom: 15px; }
   .listOfContentType .PillButton nav ul li a {
     font-size: 18px;
     padding: 5px 20px;

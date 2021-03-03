@@ -6,8 +6,8 @@
                 <h2>Educatie</h2>
             </div>
             <div class="addNew p-2">
-                <a href="{{ route('educatie.create') }}" class="btn btn-primary mr-3"><i
-                        class="mdi mr-2 mdi-plus"></i>Add Category</a>
+{{--                <a href="{{ route('educatie.create') }}" class="btn btn-primary mr-3"><i--}}
+{{--                        class="mdi mr-2 mdi-plus"></i>Add Category</a>--}}
                 <a href="{{ route('educatie.create') }}" class="btn btn-dark"><i class="mdi mr-2 mdi-plus"></i>Add
                     Content</a>
             </div>
@@ -32,8 +32,11 @@
 
             <div class="row mt-3">
                 @foreach($contents as $content)
-                    <div class="col-3 s-12">
+                    <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12">
                         <div class="card w-100">
+                            <div class="tag p-2">
+                                <p>{{$content->categoryId->category_name}}</p>
+                            </div>
                             <img class="card-img-top w-100"
                                  src="{{asset('storage/'.$content->featured_image)}}"
                                  alt="Card image cap ">
