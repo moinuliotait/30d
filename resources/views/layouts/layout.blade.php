@@ -51,7 +51,7 @@
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->
-                <a class="navbar-brand ml-4" href="index.html">
+                <a class="navbar-brand ml-4" href="{{ route('dashboard') }}">
                     <!-- Logo icon -->
                     <b class="logo-icon">
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -180,8 +180,8 @@
         </div>
         <!-- End Sidebar scroll-->
         <div class="sidebar-footer">
-            <div class="row">
-                <div class="col-4 link-wrap">
+            <div class="row d-flex justify-content-center" >
+                {{-- <div class="col-4 link-wrap">
                     <!-- item-->
                     <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Settings"><i
                             class="ti-settings"></i></a>
@@ -190,15 +190,15 @@
                     <!-- item-->
                     <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i
                             class="mdi mdi-gmail"></i></a>
-                </div>
-                <div class="col-4 link-wrap">
+                </div> --}}
+                <div class="link-wrap">
                     <!-- item-->
                     <form action="{{route('logout')}}" method="post">
                         @csrf
                         @method('post')
-                        <button class="link" data-toggle="tooltip" title="" data-original-title="Logout" type="submit"
-                                id="logOutbutton"><i
-                                class="mdi mdi-power"></i></button>
+                        <button class="link" data-toggle="tooltip" title="" data-original-title="Logout" type="submit" id="logOutbutton">
+                            <i class="mdi mdi-power"></i>
+                        </button>
                     </form>
                 </div>
             </div>

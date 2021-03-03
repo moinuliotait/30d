@@ -63,7 +63,6 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         $value['content'] = $this->converFIle($data);
 
         $value                      = $this->model->find($data['id']);
-        $delete                     = $this->deteFile($value->content);
         $value['title']             = $data['title'];
         $value['short_description'] = $data['short_description'];
         $value['content']           = $this->converFIle($data);

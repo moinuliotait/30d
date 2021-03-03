@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('edit/{id}', [EducativeController::class, 'edit'])->name('.edit');
         Route::put('update', [EducativeController::class, 'update'])->name('.update');
         Route::delete('delete/{id}', [EducativeController::class, 'delete'])->name('.delete');
+        Route::get('content/{name}', [EducativeController::class, 'educativeContent'])->name('.content');
     });
 });
 
