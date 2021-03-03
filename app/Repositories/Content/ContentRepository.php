@@ -107,33 +107,27 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         return $description;
     }
 
-    protected function converFIle($data)
+    public function converFIle($dataT)
     {
-        $description = $data['content'];
-        $dom         = new \DomDocument();
-        $dom->loadHtml($description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $description = $dataT['content'];
+        $dom = new \DomDocument();
+        @$dom->loadHtml($description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $images = $dom->getElementsByTagName('img');
 
         foreach ($images as $k => $img) {
-            $data  = $img->getattribute('src');
-            $test  = explode('/', $data);
-            $check = Storage::disk('public')->has('/' . $test[2] . '/' . $test[3]);
-            if ($check == false) {
-                $path = $test[2] . '/' . $test[3];
-                Storage::disk('public')->delete($path);
+            $data = $img->getattribute('src');
+            if (strpos($data, 'data') !== false) {
+                list($type, $data) = array_pad(explode(';', $data),2,null);
+                list(, $data) = array_pad(explode(',', $data),2,null);
+                $dataConvert = base64_decode($data);
+                $image_name = time() . $k . '.png';
+
+                Storage::disk('public')->put('content' . DIRECTORY_SEPARATOR . $image_name, $dataConvert);
+                $path = Storage::url('content/' . $image_name);
+
+                $img->removeattribute('src');
+                $img->setattribute('src', $path);
             }
-            list($type, $data) = explode(';', $data);
-            list(, $data)      = explode(',', $data);
-
-            $dataConvert = base64_decode($data);
-            $image_name  = time() . $k . '.png';
-
-            Storage::disk('public')->put('content' . DIRECTORY_SEPARATOR . $image_name, $dataConvert);
-            $path = Storage::url('content/' . $image_name);
-
-            $img->removeattribute('src');
-            $img->setattribute('src', $path);
-
         }
 
         $description = $dom->saveHTML();
@@ -148,5 +142,7 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
             })->OrderBy('created_at', 'desc')
             ->paginate(16);
     }
+
+
 
 }

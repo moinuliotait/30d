@@ -2,7 +2,12 @@
 
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\BaseUserController;
+<<<<<<< HEAD
 use App\Http\Controllers\EducativeController;
+=======
+use App\Http\Controllers\ContentTypeController;
+use App\Http\Controllers\HadithContentController;
+>>>>>>> 6df4d029851d139c8e8e67b9ecd8c6a2c1aabccb
 use App\Http\Controllers\LifeStyleContentController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +33,18 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/update-life-style', [LifeStyleContentController::class, 'updateLifeStyleContent'])->name('life-style-update');
         Route::get('/content/{name}', [LifeStyleContentController::class, 'lifeStyleSportsItem'])->name('specific-content');
     });
+<<<<<<< HEAD
     Route::delete('/content/delete/{id}', [LifeStyleContentController::class, 'deleteContent'])->name('delete-content');
+=======
+
+    Route::prefix('hadith')->group(function (){
+        Route::get('/',[HadithContentController::class,'index'])->name('hadith');
+        Route::get('/crate-page-show',[HadithContentController::class,'createPageShow'])->name('hadith-create-page-show');
+        Route::post('/crate-hadith',[HadithContentController::class,'createHadith'])->name('hadith-create');
+    });
+    Route::delete('/content/delete/{id}',[LifeStyleContentController::class,'deleteContent'])->name('delete-content');
+
+>>>>>>> 6df4d029851d139c8e8e67b9ecd8c6a2c1aabccb
 
     //Educative route
     Route::group(['as' => 'educatie', 'prefix' => 'educatie'], function () {
