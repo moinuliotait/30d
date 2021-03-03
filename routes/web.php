@@ -7,6 +7,8 @@ use App\Http\Controllers\HadithContentController;
 use App\Http\Controllers\LifeStyleContentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EducativeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,17 @@ Route::group(['middleware'=>'auth'],function (){
         Route::post('/crate-hadith',[HadithContentController::class,'createHadith'])->name('hadith-create');
     });
     Route::delete('/content/delete/{id}',[LifeStyleContentController::class,'deleteContent'])->name('delete-content');
+
+
+    //Educative route
+    Route::group(['as' => 'educatie', 'prefix' => 'educatie'] , function (){
+        Route::get('/',[EducativeController::class,'index']);
+        Route::get('/create-educatie',[EducativeController::class, 'create'])->name('.create');
+        Route::post('/store-educatie',[EducativeController::class,'store'])->name('.store');
+        Route::get('/edit-educatie/{id}',[EducativeController::class,'edit'])->name('.edit');
+        Route::put('/update-educatie',[EducativeController::class,'update'])->name('.update');
+
+    });
 });
 
 Route::get('/login',[BaseUserController::class,'LoginPageShow'])->name('login');
