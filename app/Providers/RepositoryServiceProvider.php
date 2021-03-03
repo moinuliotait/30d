@@ -25,6 +25,8 @@ use App\Repositories\Namaz\NamazRepositoryInterface;
 use App\Repositories\Zakat\ZakatRepository;
 use App\Repositories\Zakat\ZakatRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\Educative\EducativeRepository;
+use App\Repositories\Educative\EducativeRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -87,6 +89,14 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->singleton(ContentRepositoryInterface::class, function ($app) {
             return new ContentRepository(new Content(),
                 resolve(ContentTypeCategoryRepositoryInterface::class)
+            );
+        });
+
+        // Educative
+        $this->app->singleton(EducativeRepositoryInterface::class, function ($app) {
+            return new EducativeRepository(
+                resolve(ContentTypeCategoryRepositoryInterface::class),
+                resolve(ContentRepositoryInterface::class)
             );
         });
     }
