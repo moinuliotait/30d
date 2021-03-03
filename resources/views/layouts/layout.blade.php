@@ -142,13 +142,24 @@
                             href="{{route('life-style')}}" aria-expanded="false">
                             <i class="mdi mr-2 mdi-account-check"></i><span class="hide-menu">Life Style</span></a>
                     </li>
-                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                                href="table-basic.html" aria-expanded="false"><i
-                                class="mdi mr-2 mdi-table"></i><span
-                                class="hide-menu">Table</span></a></li>
+
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link
+                            {{ (request()->is('educatie*')) ? 'active':'' }}"
+                                href="{{route('educatie')}}" aria-expanded="false">
+                                <i class="mdi mr-2 mdi-table"></i>
+                                <span class="hide-menu">Educatie</span>
+                        </a>
+                    </li>
+
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link {{ (request()->is('hadith*')) ? 'active':'' }}"
                                                 href="{{route('hadith')}}" aria-expanded="false"><i
                                 class="mdi mr-2 mdi-book-open-variant"></i><span class="hide-menu">Hadith</span></a></li>
+
+                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                                href="icon-material.html" aria-expanded="false"><i
+                                class="mdi mr-2 mdi-emoticon"></i><span class="hide-menu">Icon</span></a></li>
+
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link"
                                                 href="map-google.html" aria-expanded="false"><i
                                 class="mdi mr-2 mdi-earth"></i><span

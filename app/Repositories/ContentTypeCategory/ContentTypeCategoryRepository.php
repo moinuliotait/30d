@@ -41,4 +41,10 @@ class ContentTypeCategoryRepository extends \App\Repositories\BasicRepository im
     {
         return $this->model->find($id);
     }
+
+    public function getEducativeList()
+    {
+        $educative = $this->type->educativeType();
+        return $this->model->where('content_type_id', $educative->id)->get();
+    }
 }
