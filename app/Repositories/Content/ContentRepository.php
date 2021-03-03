@@ -50,8 +50,7 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         $result['short_description'] = $data['short_description'];
         $result['content'] = $description;
         $result['featured_image'] = $data['image']->store('content', 'public');
-        if (!empty($data['video_url']))
-        {
+        if (!empty($data['video_url'])) {
             $result['video_url'] = $data['video_url'];
         }
         $result->save();
@@ -61,20 +60,18 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
     public function updateContent($data)
     {
         $value = $this->model->find($data['id']);
-        $delete = $this->deteFile($value->content);
+//        $delete = $this->deteFile($value->content);
         $value['title'] = $data['title'];
         $value['short_description'] = $data['short_description'];
-        $value['content'] = $this->converFIle($data);
-        if (isset($data['video_url']))
-        {
+        $value['content'] = $this->converUpdateFIle($data);
+        if (isset($data['video_url'])) {
             $value['video_url'] = $data['video_url'];
         }
         $category = $this->category->getWithId($data['category']);
         $value->categoryId()->associate($category);
-        if (isset($data['image']))
-        {
+        if (isset($data['image'])) {
             Storage::disk('public')->delete($data['image']);
-            $value['featured_image'] = $data['image']->store('content','public');
+            $value['featured_image'] = $data['image']->store('content', 'public');
         }
         $value->save();
         return $value;
@@ -88,11 +85,11 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
     public function contentForSpecificItem($name)
     {
         return $this->model->with('categoryId')
-                            ->whereHas('categoryId',function($app) use ($name){
-                                $app->where('category_name',$name);
-                            })
-                            ->OrderBy('created_at','desc')
-                            ->paginate();
+            ->whereHas('categoryId', function ($app) use ($name) {
+                $app->where('category_name', $name);
+            })
+            ->OrderBy('created_at', 'desc')
+            ->paginate();
     }
 
     public function deteFile($data)
@@ -113,39 +110,35 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         return $description;
     }
 
-    protected function converFIle($data)
+    public function converFIle($dataT)
     {
-        $description = $data['content'];
+        $description = $dataT['content'];
         $dom = new \DomDocument();
-        $dom->loadHtml($description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        @$dom->loadHtml($description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $images = $dom->getElementsByTagName('img');
 
         foreach ($images as $k => $img) {
             $data = $img->getattribute('src');
-            $test = explode('/',$data);
-            $check = Storage::disk('public')->has('/'.$test[2].'/'.$test[3]);
-            if ($check == false)
-            {
-                $path = $test[2].'/'.$test[3];
-                Storage::disk('public')->delete($path);
+            if (strpos($data, 'data') !== false) {
+                list($type, $data) = array_pad(explode(';', $data),2,null);
+                list(, $data) = array_pad(explode(',', $data),2,null);
+                $dataConvert = base64_decode($data);
+                $image_name = time() . $k . '.png';
+
+                Storage::disk('public')->put('content' . DIRECTORY_SEPARATOR . $image_name, $dataConvert);
+                $path = Storage::url('content/' . $image_name);
+
+                $img->removeattribute('src');
+                $img->setattribute('src', $path);
             }
-            list($type, $data) = explode(';', $data);
-            list(, $data)      = explode(',', $data);
-
-            $dataConvert = base64_decode($data);
-            $image_name= time().$k.'.png';
-
-            Storage::disk('public')->put('content'.DIRECTORY_SEPARATOR.$image_name,$dataConvert);
-            $path = Storage::url('content/'.$image_name);
-
-            $img->removeattribute('src');
-            $img->setattribute('src',$path);
 
         }
 
         $description = $dom->saveHTML();
         return $description;
     }
+
+
 
 
 }

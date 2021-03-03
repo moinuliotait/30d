@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Content;
 use App\Models\ContentType;
 use App\Models\ContentTypeCategory;
+use App\Models\HadithContent;
 use App\Models\MetalConvertablePrice;
 use App\Repositories\Calculation\CalculationRepository;
 use App\Repositories\Calculation\CalculationRepositoryInterface;
@@ -16,6 +17,8 @@ use App\Repositories\ContentTypeCategory\ContentTypeCategoryRepository;
 use App\Repositories\ContentTypeCategory\ContentTypeCategoryRepositoryInterface;
 use App\Repositories\Converter\ConverterRepository;
 use App\Repositories\Converter\ConverterRepositoryInterface;
+use App\Repositories\Hadith\HadithRepository;
+use App\Repositories\Hadith\HadithRepositoryInterface;
 use App\Repositories\lifeStyle\LifeStyleRepository;
 use App\Repositories\lifeStyle\LifeStyleRepositoryInterface;
 use App\Repositories\MetalPrice\MetalPriceRepository;
@@ -92,6 +95,13 @@ class RepositoryServiceProvider extends ServiceProvider
             );
         });
 
+        // Hadith
+        $this->app->singleton(HadithRepositoryInterface::class, function ($app) {
+            return new HadithRepository(new HadithContent(),
+            resolve(ContentRepositoryInterface::class)
+            );
+        });
+
         // Educative
         $this->app->singleton(EducativeRepositoryInterface::class, function ($app) {
             return new EducativeRepository(
@@ -99,6 +109,7 @@ class RepositoryServiceProvider extends ServiceProvider
                 resolve(ContentRepositoryInterface::class)
             );
         });
+
     }
 
     /**

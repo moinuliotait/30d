@@ -70,6 +70,7 @@ class LifeStyleContentController extends Controller
         }
         catch (\Exception $e)
         {
+            dd($e);
             return redirect()->back()->with('message','Something went wrong,Please try again letter');
         }
     }
