@@ -70,8 +70,14 @@ class LifeStyleContentController extends Controller
         }
         catch (\Exception $e)
         {
-            dd($e);
             return redirect()->back()->with('message','Something went wrong,Please try again letter');
         }
+    }
+
+    public function deleteContent($id)
+    {
+        $delete = $this->content->deleteItem($id);
+        return redirect()->back()->with('message','Item delete successfully');
+
     }
 }

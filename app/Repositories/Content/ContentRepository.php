@@ -50,7 +50,7 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         $result['short_description'] = $data['short_description'];
         $result['content'] = $description;
         $result['featured_image'] = $data['image']->store('content', 'public');
-        if (isset($data['video_url']))
+        if (!empty($data['video_url']))
         {
             $result['video_url'] = $data['video_url'];
         }
@@ -79,6 +79,12 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         $value->save();
         return $value;
     }
+
+    public function deleteItem($id)
+    {
+        return $this->model->find($id)->delete();
+    }
+
     public function deteFile($data)
     {
         $description = $data;

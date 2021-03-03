@@ -27,7 +27,9 @@ Route::group(['middleware'=>'auth'],function (){
         Route::post('/create-life-style',[LifeStyleContentController::class,'createLifeStyle'])->name('create-life-style');
         Route::get('/edit-life-style/show/{id}',[LifeStyleContentController::class,'editLifeStyleContent'])->name('edit-page-show-life-style');
         Route::put('/update-life-style',[LifeStyleContentController::class,'updateLifeStyleContent'])->name('life-style-update');
+
     });
+    Route::delete('/content/delete/{id}',[LifeStyleContentController::class,'deleteContent'])->name('delete-content');
 });
 
 Route::get('/login',[BaseUserController::class,'LoginPageShow'])->name('login');
