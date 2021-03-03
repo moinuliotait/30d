@@ -5,6 +5,7 @@ use App\Http\Controllers\BaseUserController;
 use App\Http\Controllers\EducativeController;
 use App\Http\Controllers\HadithContentController;
 use App\Http\Controllers\LifeStyleContentController;
+use App\Http\Controllers\NewsPortalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [BaseUserController::class, 'logoutUser'])->name('logout');
+    // all life style route are mention bellow
     Route::prefix('life-style')->group(function () {
         Route::get('/', [LifeStyleContentController::class, 'index'])->name('life-style');
         Route::get('/lifeStyle-create-page', [LifeStyleContentController::class, 'lifeStyleCreatePageShow'])->name('life-style-create-page');
@@ -29,15 +31,17 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/update-life-style', [LifeStyleContentController::class, 'updateLifeStyleContent'])->name('life-style-update');
         Route::get('/content/{name}', [LifeStyleContentController::class, 'lifeStyleSportsItem'])->name('specific-content');
     });
+    // all content can delete with this route
     Route::delete('/content/delete/{id}', [LifeStyleContentController::class, 'deleteContent'])->name('delete-content');
 
+    // all hadith route are mention bellow
     Route::prefix('hadith')->group(function () {
         Route::get('/', [HadithContentController::class, 'index'])->name('hadith');
         Route::get('/crate-page-show', [HadithContentController::class, 'createPageShow'])->name('hadith-create-page-show');
         Route::post('/crate-hadith', [HadithContentController::class, 'createHadith'])->name('hadith-create');
-        Route::get('/edit-page-show/{id}',[HadithContentController::class,'editHadithPageShow'])->name('hadith-edit-page');
-        Route::put('/update-hadith',[HadithContentController::class,'updateHadith'])->name('hadith-update');
-        Route::delete('/hadith-delete/{id}',[HadithContentController::class,'deleteHadith'])->name('hadith-delete');
+        Route::get('/edit-page-show/{id}', [HadithContentController::class, 'editHadithPageShow'])->name('hadith-edit-page');
+        Route::put('/update-hadith', [HadithContentController::class, 'updateHadith'])->name('hadith-update');
+        Route::delete('/hadith-delete/{id}', [HadithContentController::class, 'deleteHadith'])->name('hadith-delete');
     });
     Route::delete('/content/delete/{id}', [LifeStyleContentController::class, 'deleteContent'])->name('delete-content');
 
@@ -50,6 +54,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('update', [EducativeController::class, 'update'])->name('.update');
         Route::delete('delete/{id}', [EducativeController::class, 'delete'])->name('.delete');
         Route::get('content/{name}', [EducativeController::class, 'educativeContent'])->name('.content');
+    });
+
+    /// all News Portal Route are mention bellow
+    Route::prefix('news-portal')->group(function () {
+        Route::get('/',[NewsPortalController::class,'index'])->name('news-portal');
     });
 });
 
