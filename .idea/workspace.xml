@@ -20,7 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7a4d385-a466-45bd-b2e5-d230c152e400" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/EducativeController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Content/ContentCreateRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/Content/ContentUpdateRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Educative/EducativeRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Repositories/Educative/EducativeRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/educative/content-create-page.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/educative/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/educative/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Content/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Content/ContentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ContentType/ContentTypeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContentType/ContentTypeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ContentTypeCategory/ContentTypeCategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContentTypeCategory/ContentTypeCategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +200,7 @@
       <workItem from="1614570101837" duration="8136000" />
       <workItem from="1614590087258" duration="10094000" />
       <workItem from="1614657197700" duration="30150000" />
-      <workItem from="1614741810077" duration="20033000" />
+      <workItem from="1614741810077" duration="20409000" />
     </task>
     <servers />
   </component>
