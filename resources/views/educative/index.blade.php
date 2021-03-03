@@ -6,9 +6,9 @@
                 <h2>Educatie</h2>
             </div>
             <div class="addNew p-2">
-                <a href="" class="btn btn-primary mr-3"><i
+                <a href="{{ route('educatie.create') }}" class="btn btn-primary mr-3"><i
                         class="mdi mr-2 mdi-plus"></i>Add Category</a>
-                <a href="" class="btn btn-dark"><i class="mdi mr-2 mdi-plus"></i>Add
+                <a href="{{ route('educatie.create') }}" class="btn btn-dark"><i class="mdi mr-2 mdi-plus"></i>Add
                     Content</a>
             </div>
         </div>
@@ -19,12 +19,17 @@
         @endif
         <div class="listOfContentType mt-3">
             <div class="PillButton">
-                <div class="d-flex">
-                    <a href="" class="active">All</a>
-                    <a href="">Cursussen</a>
-                    <a href="">Voeding</a>
-                </div>
+                <nav>
+                    <ul class="p-0">
+                        <li><a class="{{ (request()->is('educatie')) ? 'active':'' }}"
+                               href="{{route('life-style')}}">All</a></li>
+                        <li><a href="{{route('specific-content','cursussen')}}"  class="{{ (\Request::getRequestUri() == '/educatie/content/Cursussen' ? 'active':'' )}}">Cursussen</a></li>
+                        <li><a href="{{route('specific-content','inspiratie')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/inspiratie' ? 'active':'' )}}">Inspiratie</a></li>
+                        <li><a href="{{route('specific-content','kids')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/kids' ? 'active':'' )}}">Kids</a></li>
+                    </ul>
+                </nav>
             </div>
+
             <div class="row mt-3">
                 @foreach($contents as $content)
                     <div class="col-3 s-12">
@@ -35,8 +40,8 @@
                             <div class="card-body">
                                 <p class="card-text">{{$content->title}}</p>
                                 <div class="action">
-                                    <a href="{{route('edit-page-show-life-style',$content->id)}}" class="btn btn-primary">Edit</a>
-                                    <a ONCLICK="deleteItem({{$content->id}})" class="btn btn-danger">Delete</a>
+                                    <a href="{{route('educatie.edit', $content->id)}}" class="btn btn-primary">Edit</a>
+                                    <a onclick="deleteItem({{$content->id}})" class="btn btn-danger">Delete</a>
                                 </div>
                             </div>
                         </div>
@@ -58,10 +63,10 @@
                     </div>
                     <div class="d-flex justify-content-center submit mt-4">
                         <div>
-                            <form action="" id="deleteFrom" method="post">
+                            <form id="deleteFrom" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class=" btn btn-danger">Yes</button>
+                                <button type="submit" class="btn btn-danger">Yes</button>
                             </form>
 
                         </div>
@@ -89,8 +94,9 @@
         {
             const deleteFrom = document.getElementById('deleteFrom');
             popUp.style.display ='block';
-            deleteFrom.action = appUrl+"/content/delete/"+$id;
+            deleteFrom.action = appUrl+"/educatie/delete/"+$id;
         }
+
         function remove()
         {
             popUp.style.display ='none';

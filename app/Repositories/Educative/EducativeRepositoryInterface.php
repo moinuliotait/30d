@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Repositories\lifeStyle;
+namespace App\Repositories\Educative;
 
 
 interface EducativeRepositoryInterface

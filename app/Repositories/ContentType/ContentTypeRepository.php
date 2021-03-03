@@ -17,4 +17,9 @@ class ContentTypeRepository extends \App\Repositories\BasicRepository implements
     {
         return $this->model->where('content_type','lifestyle')->first();
     }
+
+    public function educativeType()
+    {
+        return $this->model->where('content_type','educative')->first();
+    }
 }
