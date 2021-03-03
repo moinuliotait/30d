@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ContentType;
 use Illuminate\Http\Request;
+use App\Repositories\Content\ContentRepository;
 
 class ContentTypeController extends Controller
 {
