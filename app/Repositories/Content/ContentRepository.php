@@ -85,6 +85,16 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         return $this->model->find($id)->delete();
     }
 
+    public function contentForSpecificItem($name)
+    {
+        return $this->model->with('categoryId')
+                            ->whereHas('categoryId',function($app) use ($name){
+                                $app->where('category_name',$name);
+                            })
+                            ->OrderBy('created_at','desc')
+                            ->paginate();
+    }
+
     public function deteFile($data)
     {
         $description = $data;

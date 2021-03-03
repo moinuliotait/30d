@@ -78,6 +78,11 @@ class LifeStyleContentController extends Controller
     {
         $delete = $this->content->deleteItem($id);
         return redirect()->back()->with('message','Item delete successfully');
+    }
 
+    public function lifeStyleSportsItem($name)
+    {
+        $contents = $this->content->contentForSpecificItem($name);
+        return view('lifeStyle.index',['contents'=>$contents]);
     }
 }

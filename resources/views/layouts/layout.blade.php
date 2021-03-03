@@ -226,7 +226,7 @@
         <!-- ============================================================== -->
         <div class="container-fluid mt-5">
             <div class="contentContainer">
-                @yield('lifeStyle')
+                @yield('content')
             </div>
 
         </div>

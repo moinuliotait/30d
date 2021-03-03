@@ -20,19 +20,32 @@
   background-color: white;
   border-radius: 8px; }
 
-.listOfContentType .PillButton a {
-  font-size: 18px;
-  padding: 5px 20px;
-  background-color: #26c6da;
-  border-radius: 25px;
-  color: white;
-  margin-right: 15px; }
-  .listOfContentType .PillButton a:hover {
-    background-color: Black;
-    transition: 1.5s; }
+.listOfContentType .PillButton nav ul li {
+  list-style: none;
+  display: inline-block; }
+  .listOfContentType .PillButton nav ul li a {
+    font-size: 18px;
+    padding: 5px 20px;
+    background-color: #26c6da;
+    border-radius: 25px;
+    color: white;
+    margin-right: 15px; }
+    .listOfContentType .PillButton nav ul li a:hover {
+      background-color: Black;
+      transition: 1.5s; }
+  .listOfContentType .PillButton nav ul li .active {
+    background-color: Black; }
 
-.listOfContentType .PillButton .active {
-  background-color: Black; }
+.card {
+  position: relative; }
+  .card .tag {
+    position: absolute; }
+    .card .tag p {
+      background-color: rgba(46, 42, 44, 0.6);
+      color: white;
+      padding: 8px;
+      font-size: 13px;
+      border-radius: 25px 25px 25px 25px; }
 
 .inputGroup label {
   font-size: 18px; }
