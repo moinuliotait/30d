@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('lifeStyle')
+@section('content')
     <div class="contentInputFrom p-3">
         <div class="header">
             <h2>Edit Life Style</h2>
@@ -11,7 +11,7 @@
             </div>
         @endif
         <div class="inputGroup mt-5">
-            <form action="{{route('life-style-update')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('educatie.update')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="row">

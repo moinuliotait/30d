@@ -1,6 +1,5 @@
 @extends('layouts.layout')
-
-@section('lifeStyle')
+@section('content')
     <div class="contentInputFrom p-3">
         <div class="header">
             <h2>Create Life Style</h2>
@@ -11,7 +10,7 @@
             </div>
         @endif
         <div class="inputGroup mt-5">
-            <form action="{{route('create-life-style')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('educatie.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('post')
                 <div class="row">

@@ -2,82 +2,82 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LifeStyle\LifeStyleCreateRequest;
-use App\Http\Requests\LifeStyle\LifeStyleUpdateRequest;
+use App\Http\Requests\Content\ContentCreateRequest;
+use App\Http\Requests\Content\ContentUpdateRequest;
 use App\Repositories\Content\ContentRepositoryInterface;
-use App\Repositories\lifeStyle\LifeStyleRepositoryInterface;
-use Illuminate\Http\Request;
+use App\Repositories\Educative\EducativeRepositoryInterface;
 
 class EducativeController extends Controller
 {
 
     /**
-     * @var LifeStyleRepositoryInterface
+     * @var EducativeRepositoryInterface
      */
-    private $lifeStyle;
+    private $educative;
     /**
      * @var ContentRepositoryInterface
      */
     private $content;
 
     public function __construct(
-        LifeStyleRepositoryInterface $lifeStyleRepository,
+        EducativeRepositoryInterface $educativeRepository,
         ContentRepositoryInterface $contentRepository
-    )
-    {
-        $this->lifeStyle = $lifeStyleRepository;
-        $this->content = $contentRepository;
+    ) {
+        $this->educative = $educativeRepository;
+        $this->content   = $contentRepository;
     }
 
     public function index()
     {
-        $allContent = $this->content->getAllLifeStyleContent();
-        return view('lifeStyle.index', ['contents'=>$allContent]);
+        $allContent = $this->content->getAllEducativeContent();
+        return view('educative.index', ['contents' => $allContent]);
     }
 
-    public function lifeStyleCreatePageShow()
+    public function create()
     {
-        $categories = $this->lifeStyle->getCategoryList();
-        return view('lifeStyle.content-create-page',['categories'=>$categories]);
+        $categories = $this->educative->getCategoryList();
+        return view('educative.content-create-page', ['categories' => $categories]);
     }
 
-    public function createLifeStyle(LifeStyleCreateRequest $request)
+    public function store(ContentCreateRequest $request)
     {
-        $data = $request->only('title','category','video_url','short_description','content','image');
+        $data = $request->only('title', 'category', 'video_url', 'short_description', 'content', 'image');
+
         try {
             $result = $this->content->createContent($data);
-            return redirect()->route('life-style')->with('message','Life style Added successfully');
-        }
-        catch (\Exception $e)
-        {
-            return redirect()->back()->with('message','Something went wrong,Please try again letter');
+            return redirect()->route('educatie')->with('message', 'Life style Added successfully');
+
+        } catch (\Exception $e) {
+
+            return redirect()->back()->with('message', 'Something went wrong, Please try again letter');
         }
     }
 
-    public function editLifeStyleContent($id)
+    public function edit($id)
     {
-        $categories = $this->lifeStyle->getCategoryList();
-        $data = $this->content->getSingleItem($id);
-        return view('lifeStyle.edit-page-show',['categories'=>$categories,'data'=>$data]);
+        $categories = $this->educative->getCategoryList();
+        $data       = $this->content->getSingleItem($id);
+
+        return view('educative.edit', ['categories' => $categories, 'data' => $data]);
     }
 
-    public function updateLifeStyleContent(LifeStyleUpdateRequest $request)
+    public function update(ContentUpdateRequest $request)
     {
-        $data = $request->only('title','id','category','video_url','short_description','content','image');
+        $data = $request->only('title', 'id', 'category', 'video_url', 'short_description', 'content', 'image');
+
         try {
             $result = $this->content->updateContent($data);
-            return redirect()->route('life-style')->with('message','Life style Update successfully');
-        }
-        catch (\Exception $e)
-        {
-            return redirect()->back()->with('message','Something went wrong,Please try again letter');
+            return redirect()->route('educatie')->with('message', 'Life style Update successfully');
+
+        } catch (\Exception $e) {
+            dd($e);
+            return redirect()->back()->with('message', 'Something went wrong,Please try again letter');
         }
     }
 
-    public function deleteContent($id)
+    public function delete($id)
     {
         $delete = $this->content->deleteItem($id);
-        return redirect()->back()->with('message','Item delete successfully');
-
+        return redirect()->back()->with('message', 'Item delete successfully');
     }
 }
