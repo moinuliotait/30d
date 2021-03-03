@@ -147,4 +147,13 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
             })->OrderBy('created_at', 'desc')
             ->paginate(16);
     }
+
+    public function getContentByType($type)
+    {
+        return $this->model->with('categoryId.contentType')
+            ->whereHas('categoryId.contentType', function ($app) use ($type){
+                $app->where('content_type', 'lifestyle');
+            })->OrderBy('created_at', 'desc')
+            ->paginate(16);
+    }
 }
