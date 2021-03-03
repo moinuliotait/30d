@@ -22,10 +22,10 @@
                 <nav>
                     <ul class="p-0">
                         <li><a class="{{ (request()->is('educatie')) ? 'active':'' }}"
-                               href="{{route('life-style')}}">All</a></li>
-                        <li><a href="{{route('specific-content','cursussen')}}"  class="{{ (\Request::getRequestUri() == '/educatie/content/Cursussen' ? 'active':'' )}}">Cursussen</a></li>
-                        <li><a href="{{route('specific-content','inspiratie')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/inspiratie' ? 'active':'' )}}">Inspiratie</a></li>
-                        <li><a href="{{route('specific-content','kids')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/kids' ? 'active':'' )}}">Kids</a></li>
+                               href="{{route('educatie')}}">All</a></li>
+                        <li><a href="{{route('educatie.content','cursussen')}}"  class="{{ (\Request::getRequestUri() == '/educatie/content/cursussen' ? 'active':'' )}}">Cursussen</a></li>
+                        <li><a href="{{route('educatie.content','inspiratie')}}"  class="{{ (\Request::getRequestUri() == '/educatie/content/inspiratie' ? 'active':'' )}}">Inspiratie</a></li>
+                        <li><a href="{{route('educatie.content','kids')}}"  class="{{ (\Request::getRequestUri() == '/educatie/content/kids' ? 'active':'' )}}">Kids</a></li>
                     </ul>
                 </nav>
             </div>

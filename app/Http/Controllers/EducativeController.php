@@ -70,7 +70,6 @@ class EducativeController extends Controller
             return redirect()->route('educatie')->with('message', 'Life style Update successfully');
 
         } catch (\Exception $e) {
-            dd($e);
             return redirect()->back()->with('message', 'Something went wrong,Please try again letter');
         }
     }
@@ -79,5 +78,11 @@ class EducativeController extends Controller
     {
         $delete = $this->content->deleteItem($id);
         return redirect()->back()->with('message', 'Item delete successfully');
+    }
+
+    public function educativeContent($name)
+    {
+        $contents = $this->content->contentForSpecificItem($name);
+        return view('Educative.index', ['contents' => $contents]);
     }
 }
