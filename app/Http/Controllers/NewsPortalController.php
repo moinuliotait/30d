@@ -67,4 +67,15 @@ class NewsPortalController extends Controller
         $delete = $this->newsPortalRepo->deleteItem($id);
         return redirect()->back()->with('message', 'Item delete successfully');
     }
+
+    public function getAllNewsList()
+    {
+        return $this->newsPortalRepo->getNewsList();
+    }
+
+    public function getSingleNewsWithId($id)
+    {
+        $result = $this->newsPortalRepo->getSingleItem($id);
+        return ['status'=>1,'data'=>$result];
+    }
 }

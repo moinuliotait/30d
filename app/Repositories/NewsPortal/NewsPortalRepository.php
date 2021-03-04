@@ -24,7 +24,7 @@ class NewsPortalRepository extends BasicRepository implements NewsPortalReposito
     {
         return $this->model
             ->OrderBy('created_at', 'desc')
-            ->paginate(16);
+            ->simplePaginate(16);
     }
 
     public function createNews($data)
