@@ -57,9 +57,15 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     /// all News Portal Route are mention bellow
-    Route::prefix('news-portal')->group(function () {
-        Route::get('/',[NewsPortalController::class,'index'])->name('news-portal');
+    Route::group(['as' => 'newsPortal', 'prefix' => 'news-portal'], function () {
+        Route::get('/', [NewsPortalController::class, 'index']);
+        Route::get('create', [NewsPortalController::class, 'create'])->name('.create');
+        Route::post('store', [NewsPortalController::class, 'store'])->name('.store');
+        Route::get('edit/{id}', [NewsPortalController::class, 'edit'])->name('.edit');
+        Route::put('update', [NewsPortalController::class, 'update'])->name('.update');
+        Route::delete('delete/{id}', [NewsPortalController::class, 'delete'])->name('.delete');
     });
+    
 });
 
 Route::get('/login', [BaseUserController::class, 'LoginPageShow'])->name('login');

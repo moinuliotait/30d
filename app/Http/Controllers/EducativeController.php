@@ -45,7 +45,7 @@ class EducativeController extends Controller
 
         try {
             $result = $this->content->createContent($data);
-            return redirect()->route('educatie')->with('message', 'Life style Added successfully');
+            return redirect()->route('educatie')->with('message', 'Educatie Added successfully');
 
         } catch (\Exception $e) {
 
@@ -67,7 +67,7 @@ class EducativeController extends Controller
 
         try {
             $result = $this->content->updateContent($data);
-            return redirect()->route('educatie')->with('message', 'Life style Update successfully');
+            return redirect()->route('educatie')->with('message', 'Educatie Update successfully');
 
         } catch (\Exception $e) {
             return redirect()->back()->with('message', 'Something went wrong,Please try again letter');
