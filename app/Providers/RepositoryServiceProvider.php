@@ -7,16 +7,19 @@ use App\Models\ContentType;
 use App\Models\ContentTypeCategory;
 use App\Models\HadithContent;
 use App\Models\MetalConvertablePrice;
+use App\Models\NewsPortal;
 use App\Repositories\Calculation\CalculationRepository;
 use App\Repositories\Calculation\CalculationRepositoryInterface;
-use App\Repositories\Content\ContentRepository;
-use App\Repositories\Content\ContentRepositoryInterface;
-use App\Repositories\ContentType\ContentTypeRepository;
-use App\Repositories\ContentType\ContentTypeRepositoryInterface;
 use App\Repositories\ContentTypeCategory\ContentTypeCategoryRepository;
 use App\Repositories\ContentTypeCategory\ContentTypeCategoryRepositoryInterface;
+use App\Repositories\ContentType\ContentTypeRepository;
+use App\Repositories\ContentType\ContentTypeRepositoryInterface;
+use App\Repositories\Content\ContentRepository;
+use App\Repositories\Content\ContentRepositoryInterface;
 use App\Repositories\Converter\ConverterRepository;
 use App\Repositories\Converter\ConverterRepositoryInterface;
+use App\Repositories\Educative\EducativeRepository;
+use App\Repositories\Educative\EducativeRepositoryInterface;
 use App\Repositories\Hadith\HadithRepository;
 use App\Repositories\Hadith\HadithRepositoryInterface;
 use App\Repositories\lifeStyle\LifeStyleRepository;
@@ -25,11 +28,11 @@ use App\Repositories\MetalPrice\MetalPriceRepository;
 use App\Repositories\MetalPrice\MetalPriceRepositoryInterface;
 use App\Repositories\Namaz\NamazRepository;
 use App\Repositories\Namaz\NamazRepositoryInterface;
+use App\Repositories\NewsPortal\NewsPortalRepository;
+use App\Repositories\NewsPortal\NewsPortalRepositoryInterface;
 use App\Repositories\Zakat\ZakatRepository;
 use App\Repositories\Zakat\ZakatRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\Educative\EducativeRepository;
-use App\Repositories\Educative\EducativeRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -98,7 +101,7 @@ class RepositoryServiceProvider extends ServiceProvider
         // Hadith
         $this->app->singleton(HadithRepositoryInterface::class, function ($app) {
             return new HadithRepository(new HadithContent(),
-            resolve(ContentRepositoryInterface::class)
+                resolve(ContentRepositoryInterface::class)
             );
         });
 
@@ -106,6 +109,14 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->singleton(EducativeRepositoryInterface::class, function ($app) {
             return new EducativeRepository(
                 resolve(ContentTypeCategoryRepositoryInterface::class),
+                resolve(ContentRepositoryInterface::class)
+            );
+        });
+
+        // News Portal
+        $this->app->singleton(NewsPortalRepositoryInterface::class, function ($app) {
+            return new NewsPortalRepository(
+                new NewsPortal,
                 resolve(ContentRepositoryInterface::class)
             );
         });

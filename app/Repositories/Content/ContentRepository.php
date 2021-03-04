@@ -41,7 +41,7 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
     {
         $result          = $this->model;
         $result['title'] = $data['title'];
-        $description     = $this->converFIle($data);
+        $description     = $this->convertFile($data);
         $category        = $this->category->getWithId($data['category']);
         $result->categoryId()->associate($category);
         $result['short_description'] = $data['short_description'];
@@ -57,15 +57,10 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
     public function updateContent($data)
     {
 
-        $value = $this->model->find($data['id']);
-        $value['title'] = $data['title'];
+        $value                      = $this->model->find($data['id']);
+        $value['title']             = $data['title'];
         $value['short_description'] = $data['short_description'];
-        $value['content'] = $this->converFIle($data);
-//        $value                      = $this->model->find($data['id']);
-//        $value['title']             = $data['title'];
-//        $value['short_description'] = $data['short_description'];
-//        $value['content']           = $this->converFIle($data);
-
+        $value['content']           = $this->convertFile($data);
         if (isset($data['video_url'])) {
             $value['video_url'] = $data['video_url'];
         }
@@ -112,20 +107,20 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         return $description;
     }
 
-    public function converFIle($dataT)
+    public function convertFile($dataT)
     {
         $description = $dataT['content'];
-        $dom = new \DomDocument();
+        $dom         = new \DomDocument();
         @$dom->loadHtml($description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $images = $dom->getElementsByTagName('img');
 
         foreach ($images as $k => $img) {
             $data = $img->getattribute('src');
             if (strpos($data, 'data') !== false) {
-                list($type, $data) = array_pad(explode(';', $data),2,null);
-                list(, $data) = array_pad(explode(',', $data),2,null);
-                $dataConvert = base64_decode($data);
-                $image_name = time() . $k . '.png';
+                list($type, $data) = array_pad(explode(';', $data), 2, null);
+                list(, $data)      = array_pad(explode(',', $data), 2, null);
+                $dataConvert       = base64_decode($data);
+                $image_name        = time() . $k . '.png';
 
                 Storage::disk('public')->put('content' . DIRECTORY_SEPARATOR . $image_name, $dataConvert);
                 $path = Storage::url('content/' . $image_name);
@@ -150,6 +145,7 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
 
     public function getContentByType($type)
     {
+
         $getCategroy = $this->category->getCategoryList($type);
         $all = [];
         foreach ($getCategroy as $category)
@@ -174,5 +170,12 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         return $this->model->with('categoryId','categoryId.contentType')
                             ->where('id',$id)
                             ->first();
+
+        return $this->model->with('categoryId.contentType')
+            ->whereHas('categoryId.contentType', function ($app) use ($type) {
+                $app->where('content_type', 'lifestyle');
+            })->OrderBy('created_at', 'desc')
+            ->paginate(16);
+
     }
 }
