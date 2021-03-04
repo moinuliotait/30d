@@ -30,6 +30,8 @@ use App\Repositories\Namaz\NamazRepository;
 use App\Repositories\Namaz\NamazRepositoryInterface;
 use App\Repositories\NewsPortal\NewsPortalRepository;
 use App\Repositories\NewsPortal\NewsPortalRepositoryInterface;
+use App\Repositories\Quran\QuranRepository;
+use App\Repositories\Quran\QuranRepositoryInterface;
 use App\Repositories\Zakat\ZakatRepository;
 use App\Repositories\Zakat\ZakatRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
@@ -121,6 +123,11 @@ class RepositoryServiceProvider extends ServiceProvider
             );
         });
 
+        // Quran Repository
+
+        $this->app->singleton(QuranRepositoryInterface::class, function ($app) {
+            return new QuranRepository();
+        });
     }
 
     /**

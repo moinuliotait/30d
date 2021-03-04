@@ -27,6 +27,7 @@
                                  alt="Card image cap ">
                             <div class="card-body">
                                 <p class="card-text">{{$item->title}}</p>
+                                <p class="card-blockquote">{{$item->short_description}}</p>
                                 <div class="action">
                                     <a href="{{route('newsPortal.edit', $item->id)}}" class="btn btn-primary">Edit</a>
                                     <a onclick="deleteItem({{$item->id}})" class="btn btn-danger">Delete</a>

@@ -5,6 +5,8 @@ use App\Http\Controllers\ContentCategoryController;
 use App\Http\Controllers\ContentTypeController;
 use App\Http\Controllers\MetalPriceConverterController;
 use App\Http\Controllers\NamazDataFormationController;
+use App\Http\Controllers\NewsPortalController;
+use App\Http\Controllers\QuranController;
 use App\Http\Controllers\ZakatCalculatorController;
 use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
@@ -35,3 +37,8 @@ Route::post('/content-category', [ContentCategoryController::class, 'insert']);
 Route::get('content', [ContentController::class, 'getContentByType']);
 Route::get('/content/with-category',[ContentController::class,'contentWithCategory']);
 Route::get('/specific-content/{id}',[ContentController::class,'contentSpecificDetails']);
+Route::get('/news-list',[NewsPortalController::class,'getAllNewsList']);
+Route::get('/news-list/{id}',[NewsPortalController::class,'getSingleNewsWithId']);
+
+Route::get('/quran-ul-karim-all-chapter',[QuranController::class,'getListOfQuranChapter']);
+Route::get('/verse-chapter',[QuranController::class,'getSpecificChapter']);

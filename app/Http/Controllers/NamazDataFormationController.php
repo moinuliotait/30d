@@ -26,7 +26,6 @@ class NamazDataFormationController extends Controller
         $currentDay = $this->DateFormat($request->timestamp,'d');
         $currentMonth = $this->DateFormat($request->timestamp,'m');
         $currentYear =  $this->DateFormat($request->timestamp,'Y');
-
         $recentDay = '';
 
         $get = $this->namazRepository->prayerTimeForSpecificDay($currentMonth,$currentYear,$request->lat,$request->lon);

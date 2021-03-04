@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Quran;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class test extends JsonResource
+class QuranDataFormatForPagination extends JsonResource
 {
     /**
      * Transform the resource into an array.
