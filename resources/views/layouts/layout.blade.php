@@ -158,7 +158,7 @@
                                 class="mdi mr-2 mdi-book-open-variant"></i><span class="hide-menu">Hadith</span></a></li>
 
                     <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link {{ (request()->is('news-portal*')) ? 'active':'' }}"
-                                                href="{{route('news-portal')}}" aria-expanded="false"><i
+                                                href="{{route('newsPortal')}}" aria-expanded="false"><i
                                 class="mdi mr-2 mdi-note-multiple-outline"></i><span class="hide-menu">New Portal</span></a></li>
                 </ul>
 
