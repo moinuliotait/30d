@@ -14,7 +14,12 @@ class CreateNewsPortalsTable extends Migration
     public function up()
     {
         Schema::create('news_portals', function (Blueprint $table) {
-            $table->id();
+            $table->bigInteger('id')->autoIncrement();
+            $table->string('title');
+            $table->string('short_description')->nullable();
+            $table->longText('content');
+            $table->string('featured_image');
+            $table->string('video_url')->nullable();
             $table->timestamps();
         });
     }
