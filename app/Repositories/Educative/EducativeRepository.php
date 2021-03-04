@@ -32,7 +32,7 @@ class EducativeRepository  implements EducativeRepositoryInterface
 
     public function getCategoryList()
     {
-        return $this->category->getEducativeList();
+        return $this->category->getCategoryList('educative');
     }
 
 

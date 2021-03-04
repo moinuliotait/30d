@@ -33,3 +33,5 @@ Route::post('/content-type', [ContentTypeController::class, 'insert']);
 Route::post('/content-category', [ContentCategoryController::class, 'insert']);
 
 Route::get('content', [ContentController::class, 'getContentByType']);
+Route::get('/content/with-category',[ContentController::class,'contentWithCategory']);
+Route::get('/specific-content/{id}',[ContentController::class,'contentSpecificDetails']);

@@ -32,7 +32,7 @@ class LifeStyleRepository  implements LifeStyleRepositoryInterface
 
     public function getCategoryList()
     {
-        return $this->category->getLifeStyleList();
+        return $this->category->getCategoryList('lifestyle');
     }
 
 

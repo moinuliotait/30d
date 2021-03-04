@@ -31,20 +31,14 @@ class ContentTypeCategoryRepository extends \App\Repositories\BasicRepository im
         return ['status'=>1,'data'=>$value];
     }
 
-    public function getLifeStyleList()
+    public function getCategoryList($type)
     {
-        $lifestyle = $this->type->lifeStyleType();
+        $lifestyle = $this->type->getType($type);
         return $this->model->where('content_type_id',$lifestyle->id)->get();
     }
 
     public function getWithId($id)
     {
         return $this->model->find($id);
-    }
-
-    public function getEducativeList()
-    {
-        $educative = $this->type->educativeType();
-        return $this->model->where('content_type_id', $educative->id)->get();
     }
 }
