@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ContentWithCategory;
+use App\Http\Resources\LinkCollectionResource;
 use App\Models\ContentType;
 use Illuminate\Http\Request;
 use App\Repositories\Content\ContentRepositoryInterface;
@@ -20,6 +22,20 @@ class ContentController extends Controller
 
     public function getContentByType(Request $request)
     {
-        return $this->content->getContentByType($request->type);
+        $result =  $this->content->getContentByType($request->type);
+        return ['status'=>0,'data'=>$result];
+    }
+
+    public function contentWithCategory(Request $request)
+    {
+        $result =  $this->content->getContentWithCategory($request->name);
+        return ['status'=>1,'data'=>$result];
+    }
+
+    public function contentSpecificDetails($id)
+    {
+        $result  = $this->content->specificContentWithTypeCategory($id);
+//        return $result;
+        return new ContentWithCategory($result);
     }
 }

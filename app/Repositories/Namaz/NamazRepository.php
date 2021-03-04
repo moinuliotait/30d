@@ -7,9 +7,12 @@ namespace App\Repositories\Namaz;
 class NamazRepository implements NamazRepositoryInterface
 {
 
-    public function prayerTimeForSpecificDay($month,$year)
+    public function prayerTimeForSpecificDay($month,$year,$lat  ,$lan )
     {
-        $url = "http://api.aladhan.com/v1/calendar?latitude=23.8335415&longitude=90.4167688&method=1&month=".$month."&year=".$year."";
+        $lat = $lat ?? "51.3419134";
+        $lan = $lan ?? "11.821668";
+
+        $url = "http://api.aladhan.com/v1/calendar?latitude=".$lat."&longitude=".$lan."&method=1&month=".$month."&year=".$year."";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, 0);

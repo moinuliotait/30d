@@ -61,11 +61,6 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         $value['title']             = $data['title'];
         $value['short_description'] = $data['short_description'];
         $value['content']           = $this->convertFile($data);
-        $value                      = $this->model->find($data['id']);
-        $value['title']             = $data['title'];
-        $value['short_description'] = $data['short_description'];
-        $value['content']           = $this->convertFile($data);
-
         if (isset($data['video_url'])) {
             $value['video_url'] = $data['video_url'];
         }
@@ -150,10 +145,37 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
 
     public function getContentByType($type)
     {
+
+        $getCategroy = $this->category->getCategoryList($type);
+        $all = [];
+        foreach ($getCategroy as $category)
+        {
+            $result = $this->model->where('category_id',$category->id)->take(6)->get();
+            $all[$category->category_name] = $result;
+        }
+        return $all;
+    }
+
+    public function getContentWithCategory($name)
+    {
+        return $this->model->with('categoryId')
+                            ->whereHas('categoryId',function($app) use ($name){
+                                $app->where('category_name',$name);
+                            })->orderBy('created_at','desc')
+                            ->simplePaginate(15);
+    }
+
+    public function specificContentWithTypeCategory($id)
+    {
+        return $this->model->with('categoryId','categoryId.contentType')
+                            ->where('id',$id)
+                            ->first();
+
         return $this->model->with('categoryId.contentType')
             ->whereHas('categoryId.contentType', function ($app) use ($type) {
                 $app->where('content_type', 'lifestyle');
             })->OrderBy('created_at', 'desc')
             ->paginate(16);
+
     }
 }

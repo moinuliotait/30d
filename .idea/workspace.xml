@@ -21,14 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d7a4d385-a466-45bd-b2e5-d230c152e400" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NamazDataFormationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NamazDataFormationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Content/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Content/ContentRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ContentType/ContentTypeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContentType/ContentTypeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/ContentTypeCategory/ContentTypeCategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/ContentTypeCategory/ContentTypeCategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Educative/EducativeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Educative/EducativeRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Namaz/NamazRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Namaz/NamazRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/lifeStyle/LifeStyleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/lifeStyle/LifeStyleRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/content.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Hadith/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Hadith/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/educative/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educative/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lifeStyle/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lifeStyle/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +199,8 @@
       <workItem from="1614570101837" duration="8136000" />
       <workItem from="1614590087258" duration="10094000" />
       <workItem from="1614657197700" duration="30150000" />
-      <workItem from="1614741810077" duration="27234000" />
+      <workItem from="1614741810077" duration="28524000" />
+      <workItem from="1614829219809" duration="12663000" />
     </task>
     <servers />
   </component>
@@ -276,10 +280,10 @@
       <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
     <state x="-1147" y="97" key="ftp.server.browser/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614750988033" />
-    <state x="-1304" y="204" key="run.anything.popup" timestamp="1614683729744">
+    <state x="-1304" y="204" key="run.anything.popup" timestamp="1614840818641">
       <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
-    <state x="-1304" y="204" key="run.anything.popup/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614683729744" />
+    <state x="-1304" y="204" key="run.anything.popup/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614840818641" />
     <state x="-1020" y="63" width="672" height="678" key="search.everywhere.popup" timestamp="1614517329893">
       <screen x="-1366" y="4" width="1366" height="738" />
     </state>
