@@ -12,7 +12,7 @@
     <title>Ramadan Mubarak</title>
 
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/img/fav.png') }}">
 {{--    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">--}}
 <!-- chartist CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -24,7 +24,7 @@
     <link href="{{ asset('assets/plugins/c3-master/c3.min.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ asset('assets/css/style.min.css') }}" rel="stylesheet">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,20 +54,20 @@
                 <a class="navbar-brand ml-4" href="{{ route('dashboard') }}">
                     <!-- Logo icon -->
                     <h5 class="text-light">Ramadan Mubarak</h5>
-{{--                    <b class="logo-icon">--}}
-{{--                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->--}}
-{{--                        <!-- Dark Logo icon -->--}}
-{{--                        <img src="{{ asset('assets/images/logo-light-icon.png') }}" alt="homepage" class="dark-logo"/>--}}
+                    {{--                    <b class="logo-icon">--}}
+                    {{--                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->--}}
+                    {{--                        <!-- Dark Logo icon -->--}}
+                    {{--                        <img src="{{ asset('assets/images/logo-light-icon.png') }}" alt="homepage" class="dark-logo"/>--}}
 
-{{--                    </b>--}}
-{{--                    <!--End Logo icon -->--}}
-{{--                    <!-- Logo text -->--}}
-{{--                    <span class="logo-text">--}}
-{{--                            <!-- dark Logo text -->--}}
-{{--                            <img src="{{ asset('assets/images/logo-light-text.png') }}" alt="homepage"--}}
-{{--                                 class="dark-logo"/>--}}
-{{--                                    <h1>Ramdan Mubarak</h1>--}}
-{{--                        </span>--}}
+                    {{--                    </b>--}}
+                    {{--                    <!--End Logo icon -->--}}
+                    {{--                    <!-- Logo text -->--}}
+                    {{--                    <span class="logo-text">--}}
+                    {{--                            <!-- dark Logo text -->--}}
+                    {{--                            <img src="{{ asset('assets/images/logo-light-text.png') }}" alt="homepage"--}}
+                    {{--                                 class="dark-logo"/>--}}
+                    {{--                                    <h1>Ramdan Mubarak</h1>--}}
+                    {{--                        </span>--}}
                 </a>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -147,19 +147,31 @@
                     <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link
                             {{ (request()->is('educatie*')) ? 'active':'' }}"
-                                href="{{route('educatie')}}" aria-expanded="false">
-                                <i class="mdi mr-2 mdi-school"></i>
-                                <span class="hide-menu">Educatie</span>
+                           href="{{route('educatie')}}" aria-expanded="false">
+                            <i class="mdi mr-2 mdi-school"></i>
+                            <span class="hide-menu">Educatie</span>
                         </a>
                     </li>
 
-                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link {{ (request()->is('hadith*')) ? 'active':'' }}"
-                                                href="{{route('hadith')}}" aria-expanded="false"><i
-                                class="mdi mr-2 mdi-book-open-variant"></i><span class="hide-menu">Hadith</span></a></li>
+                    <li class="sidebar-item"><a
+                            class="sidebar-link waves-effect waves-dark sidebar-link {{ (request()->is('hadith*')) ? 'active':'' }}"
+                            href="{{route('hadith')}}" aria-expanded="false"><i
+                                class="mdi mr-2 mdi-book-open-variant"></i><span class="hide-menu">Hadith</span></a>
+                    </li>
 
-                    <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link {{ (request()->is('news-portal*')) ? 'active':'' }}"
-                                                href="{{route('newsPortal')}}" aria-expanded="false"><i
-                                class="mdi mr-2 mdi-note-multiple-outline"></i><span class="hide-menu">New Portal</span></a></li>
+                    <li class="sidebar-item"><a
+                            class="sidebar-link waves-effect waves-dark sidebar-link {{ (request()->is('news-portal*')) ? 'active':'' }}"
+                            href="{{route('newsPortal')}}" aria-expanded="false"><i
+                                class="mdi mr-2 mdi-note-multiple-outline"></i><span class="hide-menu">New Portal</span></a>
+                    </li>
+                    <li class="sidebar-item">
+                        <form action="{{route('logout')}}" method="post" id="myform">
+                            @csrf
+                            @method('post')
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                               onclick="document.getElementById('myform').submit()" aria-expanded="false" href="javascript:;"><i class="mdi mdi-power"></i><span class="hide-menu">Logout</span></a>
+                        </form>
+                    </li>
                 </ul>
 
             </nav>
@@ -167,17 +179,18 @@
         </div>
         <!-- End Sidebar scroll-->
         <div class="sidebar-footer">
-            <div class="row d-flex justify-content-center" >
-                <div class="link-wrap">
-                    <!-- item-->
-                    <form action="{{route('logout')}}" method="post">
-                        @csrf
-                        @method('post')
-                        <button class="link" data-toggle="tooltip" title="" data-original-title="Logout" type="submit" id="logOutbutton">
-                            <i class="mdi mdi-power"></i>
-                        </button>
-                    </form>
-                </div>
+            <div class="row d-flex justify-content-center">
+{{--                <div class="link-wrap">--}}
+{{--                    <!-- item-->--}}
+{{--                    <form action="{{route('logout')}}" method="post">--}}
+{{--                        @csrf--}}
+{{--                        @method('post')--}}
+{{--                        <button class="link" data-toggle="tooltip" title="" data-original-title="Logout" type="submit"--}}
+{{--                                id="logOutbutton">--}}
+{{--                            <i class="mdi mdi-power"></i>--}}
+{{--                        </button>--}}
+{{--                    </form>--}}
+{{--                </div>--}}
             </div>
         </div>
     </aside>
@@ -238,18 +251,20 @@
 <!--Custom JavaScript -->
 <script src="{{ asset('assets/js/pages/dashboards/dashboard1.js') }}"></script>
 <script src="{{ asset('assets/js/custom.js') }}"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('.summernote').summernote({
             height: 150,
             dialogsInBody: true,
-            callbacks:{
-                onInit:function(){
+            callbacks: {
+                onInit: function () {
                     $('body > .note-popover').hide();
                 }
             },
+
         });
+        // $(".summernote").summernote("foreColor", "blue");
     });
 
 </script>

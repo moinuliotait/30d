@@ -23,11 +23,13 @@ class NamazDataFormationController extends Controller
 
     public function prayerTimeForSpecificDay(Request $request)
     {
-        $currentDay = $this->DateFormat($request->timestamp,'d');
-        $currentMonth = $this->DateFormat($request->timestamp,'m');
-        $currentYear =  $this->DateFormat($request->timestamp,'Y');
+        $time = $request->timestamp / 1000;
+//       $test =  Carbon::createFromTimestamp( $time)->format('m/d/Y');
+//       dd($test);
+        $currentDay = $this->DateFormat($time,'d');
+        $currentMonth = $this->DateFormat($time,'m');
+        $currentYear =  $this->DateFormat($time,'Y');
         $recentDay = '';
-
         $get = $this->namazRepository->prayerTimeForSpecificDay($currentMonth,$currentYear,$request->lat,$request->lon);
 
         foreach ($get->data as $data) {

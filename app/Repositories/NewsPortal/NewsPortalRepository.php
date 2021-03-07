@@ -75,4 +75,9 @@ class NewsPortalRepository extends BasicRepository implements NewsPortalReposito
     {
         return $this->model->find($id)->delete();
     }
+
+    public function newsCount()
+    {
+        return $this->model->get()->count();
+    }
 }

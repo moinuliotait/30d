@@ -62,4 +62,9 @@ class HadithRepository extends \App\Repositories\BasicRepository implements Hadi
 
     }
 
+    public function hadithCount()
+    {
+        return $this->model->get()->count();
+    }
+
 }

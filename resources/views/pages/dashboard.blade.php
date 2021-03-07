@@ -1,6 +1,15 @@
 @extends('layouts.layout')
 @section('content')
-<div class="row">
+<div class="row p-4">
+
+    <div class="col-xl-4 col-md-4 col-lg-4 col-sm-12 mb-3">
+        <a href="{{route('life-style')}}">
+            <div class="cardBox">
+                <h5>Life Style</h5>
+                <p class="mt-4">Total Post : <span>250</span> </p>
+            </div>
+        </a>
+    </div>
     <!-- Column -->
     <div class="col-lg-8 col-md-7">
         <div class="card">

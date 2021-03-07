@@ -171,11 +171,19 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
                             ->where('id',$id)
                             ->first();
 
-        return $this->model->with('categoryId.contentType')
-            ->whereHas('categoryId.contentType', function ($app) use ($type) {
-                $app->where('content_type', 'lifestyle');
-            })->OrderBy('created_at', 'desc')
-            ->paginate(16);
+//        return $this->model->with('categoryId.contentType')
+//            ->whereHas('categoryId.contentType', function ($app) use ($type) {
+//                $app->where('content_type', 'lifestyle');
+//            })->OrderBy('created_at', 'desc')
+//            ->paginate(16);
 
+    }
+
+    public function contentTypeCount($type)
+    {
+        return $this->model->with('categoryId','categoryId.contentType')
+                        ->whereHas('categoryId.contentType',function ($app) use ($type){
+                            $app->where('content_type',$type);
+                        })->get()->count();
     }
 }
