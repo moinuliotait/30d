@@ -33,7 +33,7 @@ File: scss
 /*Top bar
 *******************/
 .topbar {
-  background: #1e88e5; }
+  background: #198C5F; }
   .topbar .navbar-header {
     background: rgba(0, 0, 0, 0.05); }
   .topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
@@ -50,10 +50,10 @@ File: scss
 /*General Elements
 *******************/
 a.link:hover, a.link:focus {
-  color: #1e88e5 !important; }
+  color: #198C5F !important; }
 
 .bg-theme {
-  background-color: #1e88e5 !important; }
+  background-color: #198C5F !important; }
 
 .pagination > .active > a,
 .pagination > .active > span,
@@ -61,44 +61,44 @@ a.link:hover, a.link:focus {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background-color: #1e88e5;
-  border-color: #1e88e5; }
+  background-color:#198C5F;
+  border-color: #198C5F; }
 
 .right-sidebar .rpanel-title {
-  background: #1e88e5; }
+  background: #198C5F; }
 
 .stylish-table tbody tr:hover, .stylish-table tbody tr.active {
-  border-left: 4px solid #1e88e5; }
+  border-left: 4px solid #198C5F; }
 
 .text-themecolor {
   color: #1e88e5 !important; }
 
 .profile-tab li a.nav-link.active,
 .customtab li a.nav-link.active {
-  border-bottom: 2px solid #1e88e5;
-  color: #1e88e5; }
+  border-bottom: 2px solid #198C5F;
+  color:#198C5F; }
 
 .profile-tab li a.nav-link:hover,
 .customtab li a.nav-link:hover {
-  color: #1e88e5; }
+  color: #198C5F; }
 
 /*******************
 /*Buttons
 *******************/
 .btn-themecolor,
 .btn-themecolor.disabled {
-  background: #1e88e5;
+  background: #198C5F;
   color: #ffffff;
-  border: 1px solid #1e88e5; }
+  border: 1px solid #198C5F; }
   .btn-themecolor:hover,
   .btn-themecolor.disabled:hover {
-    background: #1e88e5;
+    background:#198C5F;
     opacity: 0.7;
-    border: 1px solid #1e88e5; }
+    border: 1px solid #198C5F; }
   .btn-themecolor.active, .btn-themecolor:focus,
   .btn-themecolor.disabled.active,
   .btn-themecolor.disabled:focus {
-    background: #028ee1; }
+    background: #198C5F; }
 
 /*******************
 /*sidebar navigation
