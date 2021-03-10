@@ -20,6 +20,7 @@ class CreateNewsPortalsTable extends Migration
             $table->longText('content');
             $table->string('featured_image');
             $table->string('video_url')->nullable();
+            $table->string('type')->default('text');
             $table->timestamps();
         });
     }

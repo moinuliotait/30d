@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsPortal\NewsPortalCreateRequest;
 use App\Http\Requests\NewsPortal\NewsPortalUpdateRequest;
+use App\Http\Resources\HadithResource;
 use App\Repositories\NewsPortal\NewsPortalRepositoryInterface;
 
 class NewsPortalController extends Controller
@@ -76,6 +77,7 @@ class NewsPortalController extends Controller
     public function getSingleNewsWithId($id)
     {
         $result = $this->newsPortalRepo->getSingleItem($id);
+
         return ['status'=>1,'data'=>$result];
     }
 }

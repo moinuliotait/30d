@@ -25,7 +25,7 @@ class ContentWithCategory extends JsonResource
             'content' => $this->content,
             'short_description' => $this->short_description,
             'featured_image' => $this->featured_image,
-            'video_url' => $this->video_url,
+            'type' => $this->type,
             'created_at' => $this->created_at,
         ];
 

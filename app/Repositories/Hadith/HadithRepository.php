@@ -67,4 +67,9 @@ class HadithRepository extends \App\Repositories\BasicRepository implements Hadi
         return $this->model->get()->count();
     }
 
+    public function getHadtihToday($time)
+    {
+        return $this->model->where('visible_time',$time)->first();
+    }
+
 }

@@ -9,6 +9,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="3bd31628-0cba-4e11-9466-cc6718f3bc29" name="bhgh" url="http://3.121.228.210 ">
+        <fileTransfer host="3.121.228.210 " port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

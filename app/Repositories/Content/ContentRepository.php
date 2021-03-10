@@ -47,8 +47,8 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         $result['short_description'] = $data['short_description'];
         $result['content']           = $description;
         $result['featured_image']    = $data['image']->store('content', 'public');
-        if (!empty($data['video_url'])) {
-            $result['video_url'] = $data['video_url'];
+        if (!empty($data['type'])) {
+            $result['type'] = $data['type'];
         }
         $result->save();
         return $result;
@@ -61,8 +61,8 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         $value['title']             = $data['title'];
         $value['short_description'] = $data['short_description'];
         $value['content']           = $this->convertFile($data);
-        if (isset($data['video_url'])) {
-            $value['video_url'] = $data['video_url'];
+        if (isset($data['type'])) {
+            $value['type'] = $data['type'];
         }
         $category = $this->category->getWithId($data['category']);
         $value->categoryId()->associate($category);
@@ -111,7 +111,7 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
     {
         $description = $dataT['content'];
         $dom         = new \DomDocument();
-        @$dom->loadHtml($description, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        @$dom->loadHtml(mb_convert_encoding($description, 'HTML-ENTITIES', 'UTF-8'));
         $images = $dom->getElementsByTagName('img');
 
         foreach ($images as $k => $img) {
