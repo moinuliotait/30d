@@ -2,14 +2,15 @@
 <html dir="ltr" lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta name="keywords"
           content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 4 admin, bootstrap 4, css3 dashboard, bootstrap 4 dashboard, materialpro admin bootstrap 4 dashboard, frontend, responsive bootstrap 4 admin template, materialpro admin lite design, materialpro admin lite dashboard bootstrap 4 dashboard template">
     <meta name="robots" content="noindex,nofollow">
-    <title>Ramadan Mubarak</title>
+    <title>30D</title>
 
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/img/fav.png') }}">
@@ -51,23 +52,23 @@
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->
-                <a class="navbar-brand ml-4" href="{{ route('dashboard') }}">
+                <a class="navbar-brand ml-4 text-center" href="{{ route('dashboard') }}">
                     <!-- Logo icon -->
-                    <h5 class="text-light">Ramadan Mubarak</h5>
-                    {{--                    <b class="logo-icon">--}}
-                    {{--                        <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->--}}
-                    {{--                        <!-- Dark Logo icon -->--}}
-                    {{--                        <img src="{{ asset('assets/images/logo-light-icon.png') }}" alt="homepage" class="dark-logo"/>--}}
+{{--                    <h5 class="text-light">Ramadan Mubarak</h5>--}}
+                                        <b class="logo-icon " >
+                                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                                            <!-- Dark Logo icon -->
+                                            <img src="{{ asset('/img/icon.png') }}" alt="homepage" class="dark-logo" style="width: 90%;height: 60px"/>
 
-                    {{--                    </b>--}}
+                                        </b>
                     {{--                    <!--End Logo icon -->--}}
                     {{--                    <!-- Logo text -->--}}
-                    {{--                    <span class="logo-text">--}}
-                    {{--                            <!-- dark Logo text -->--}}
-                    {{--                            <img src="{{ asset('assets/images/logo-light-text.png') }}" alt="homepage"--}}
-                    {{--                                 class="dark-logo"/>--}}
-                    {{--                                    <h1>Ramdan Mubarak</h1>--}}
-                    {{--                        </span>--}}
+{{--                                        <span class="logo-text">--}}
+{{--                                                <!-- dark Logo text -->--}}
+{{--                                                <img src="{{ asset('/img/fav.png') }}" alt="homepage"--}}
+{{--                                                     class="dark-logo" style="width: 52px;"/>--}}
+{{--                                                        <h1>30 D</h1>--}}
+{{--                                            </span>--}}
                 </a>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -162,7 +163,7 @@
                     <li class="sidebar-item"><a
                             class="sidebar-link waves-effect waves-dark sidebar-link {{ (request()->is('news-portal*')) ? 'active':'' }}"
                             href="{{route('newsPortal')}}" aria-expanded="false"><i
-                                class="mdi mr-2 mdi-note-multiple-outline"></i><span class="hide-menu">New Portal</span></a>
+                                class="mdi mr-2 mdi-note-multiple-outline"></i><span class="hide-menu">News Portal</span></a>
                     </li>
                     <li class="sidebar-item">
                         <form action="{{route('logout')}}" method="post" id="myform">

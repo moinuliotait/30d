@@ -61,14 +61,24 @@
                     </div>
                     <div class="col-6 s-12">
                         {{--                        // title --}}
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Video Url</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                   placeholder="Enter Url" name="video_url">
-                            <small id="emailHelp" class="form-text text-muted">you can skip this</small>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="exampleInputEmail1">Video Url</label>--}}
+{{--                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"--}}
+{{--                                   placeholder="Enter Url" name="video_url">--}}
+{{--                            <small id="emailHelp" class="form-text text-muted">you can skip this</small>--}}
 
+{{--                        </div>--}}
+                        <div class="form-group">
+                            <label for="inputState">Select Type</label>
+                            <select id="inputState" class="form-control" name="type" required>
+                                <option selected>Choose Type...</option>
+                               <option value="image">Image</option>
+                               <option value="video">Video</option>
+                               <option value="podcast">Podcast</option>
+                               <option value="text">Text</option>
+                            </select>
                         </div>
-                        @error('video_url')
+                        @error('type')
                         <p class="mb-0 pb-4 text-caption text-danger">{{ $message }}</p>
                         @enderror
                         {{--                        // featured image --}}

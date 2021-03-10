@@ -28,7 +28,7 @@ class LifeStyleCreateRequest extends FormRequest
             'category'=>'required|integer',
             'short_description'=>'nullable|string',
             'content'=>'required|string',
-            'video_url'=>'nullable|active_url',
+            'type'=>'required|string|in:text,image,video,podcast',
             'image'=>'required|mimes:jpeg,jpg,png,gif|max:5000'
         ];
     }
@@ -41,7 +41,9 @@ class LifeStyleCreateRequest extends FormRequest
           'short_description'=>'Short Description format is not correct',
           'content.required'=>'Content field is required',
           'content.string'=>'Content format is not correct',
-          'video_url.active_url'=>'Video url is not valid',
+          'type.string'=>'Type is not valid',
+          'type.required'=>'Type is required',
+          'type.in'=>'Type is not supported',
           'image.required'=>'Featured image field is required',
           'image.mimes'=>'Image type is not allowed please enter JPEG,JPG,PNG,GIF format',
           'image.max'=>'Image not more than 5MB'

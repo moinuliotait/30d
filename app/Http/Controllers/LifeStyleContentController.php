@@ -43,7 +43,7 @@ class LifeStyleContentController extends Controller
 
     public function createLifeStyle(LifeStyleCreateRequest $request)
     {
-        $data = $request->only('title','category','video_url','short_description','content','image');
+        $data = $request->only('title','category','type','short_description','content','image');
         try {
             $result = $this->content->createContent($data);
             return redirect()->route('life-style')->with('message','Life style Added successfully');
@@ -63,14 +63,13 @@ class LifeStyleContentController extends Controller
 
     public function updateLifeStyleContent(LifeStyleUpdateRequest $request)
     {
-        $data = $request->only('title','id','category','video_url','short_description','content','image');
+        $data = $request->only('title','id','category','type','short_description','content','image');
         try {
             $result = $this->content->updateContent($data);
             return redirect()->route('life-style')->with('message','Life style Update successfully');
         }
         catch (\Exception $e)
         {
-            dd($e);
             return redirect()->back()->with('message','Something went wrong,Please try again letter');
         }
     }

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Hadith\HadithCreateRequest;
 use App\Http\Requests\Hadith\HadithUpdateRequest;
+use App\Http\Resources\HadithResource;
 use App\Repositories\Content\ContentRepositoryInterface;
 use App\Repositories\Hadith\HadithRepositoryInterface;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HadithContentController extends Controller
@@ -53,7 +55,7 @@ class HadithContentController extends Controller
         $data = $request->only('title', 'short_description', 'medium_description', 'content', 'image', 'visible_time', 'id');
         try {
             $update = $this->hadith->updateHadith($data);
-            return redirect()->route('hadith')->with('message', 'Hadith add successfully');
+            return redirect()->route('hadith')->with('message', 'Hadith update successfully');
         } catch (\Exception $e) {
             return redirect()->back()->with('message', 'Something went wrong Please try again');
         }
@@ -67,5 +69,20 @@ class HadithContentController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('message', 'Something went wrong Please try again');
         }
+    }
+
+    public function hadithGet(Request $request)
+    {
+        $time = $request->timestamp / 1000;
+        $currentDay = $this->DateFormat($time,'Y-m-d');
+        $result = $this->hadith->getHadtihToday($currentDay);
+        $final =$result ? new HadithResource($result):['message'=>'No data for today'];
+
+        return ['status'=>1,'data'=>$final];
+    }
+
+    private function DateFormat($time,$format)
+    {
+        return  Carbon::createFromTimestamp($time)->format($format);
     }
 }

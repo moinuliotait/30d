@@ -3,6 +3,7 @@
 use App\Http\Controllers\BaseUserController;
 use App\Http\Controllers\ContentCategoryController;
 use App\Http\Controllers\ContentTypeController;
+use App\Http\Controllers\HadithContentController;
 use App\Http\Controllers\MetalPriceConverterController;
 use App\Http\Controllers\NamazDataFormationController;
 use App\Http\Controllers\NewsPortalController;
@@ -42,3 +43,5 @@ Route::get('/news-list/{id}',[NewsPortalController::class,'getSingleNewsWithId']
 
 Route::get('/quran-ul-karim-all-chapter',[QuranController::class,'getListOfQuranChapter']);
 Route::get('/verse-chapter',[QuranController::class,'getSpecificChapter']);
+
+Route::get('/hadith-small-list',[HadithContentController::class,'hadithGet']);

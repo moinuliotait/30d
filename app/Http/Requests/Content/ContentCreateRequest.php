@@ -24,27 +24,29 @@ class ContentCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|string',
-            'category'=>'required|integer',
-            'short_description'=>'nullable|string',
-            'content'=>'required|string',
-            'video_url'=>'nullable|active_url',
-            'image'=>'required|mimes:jpeg,jpg,png,gif|max:5000'
+            'title' => 'required|string',
+            'category' => 'required|integer',
+            'short_description' => 'nullable|string',
+            'content' => 'required|string',
+            'type' => 'required|string|in:text,image,video,podcast',
+            'image' => 'required|mimes:jpeg,jpg,png,gif|max:5000'
         ];
     }
 
     public function messages()
     {
         return [
-          'title.required'=>'Title name is required',
-          'title.string'=>'Title format is not correct',
-          'short_description'=>'Short Description format is not correct',
-          'content.required'=>'Content field is required',
-          'content.string'=>'Content format is not correct',
-          'video_url.active_url'=>'Video url is not valid',
-          'image.required'=>'Featured image field is required',
-          'image.mimes'=>'Image type is not allowed please enter JPEG,JPG,PNG,GIF format',
-          'image.max'=>'Image not more than 5MB'
+            'title.required' => 'Title name is required',
+            'title.string' => 'Title format is not correct',
+            'short_description' => 'Short Description format is not correct',
+            'content.required' => 'Content field is required',
+            'content.string' => 'Content format is not correct',
+            'type.string' => 'Type is not valid',
+            'type.required' => 'Type is required',
+            'type.in' => 'Type is not supported',
+            'image.required' => 'Featured image field is required',
+            'image.mimes' => 'Image type is not allowed please enter JPEG,JPG,PNG,GIF format',
+            'image.max' => 'Image not more than 5MB'
         ];
     }
 }

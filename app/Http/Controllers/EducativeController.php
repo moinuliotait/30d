@@ -41,7 +41,7 @@ class EducativeController extends Controller
 
     public function store(ContentCreateRequest $request)
     {
-        $data = $request->only('title', 'category', 'video_url', 'short_description', 'content', 'image');
+        $data = $request->only('title', 'category', 'type', 'short_description', 'content', 'image');
 
         try {
             $result = $this->content->createContent($data);
@@ -83,6 +83,6 @@ class EducativeController extends Controller
     public function educativeContent($name)
     {
         $contents = $this->content->contentForSpecificItem($name);
-        return view('Educative.index', ['contents' => $contents]);
+        return view('educative.index', ['contents' => $contents]);
     }
 }
