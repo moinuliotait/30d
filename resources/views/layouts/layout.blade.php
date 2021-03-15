@@ -165,6 +165,12 @@
                             href="{{route('newsPortal')}}" aria-expanded="false"><i
                                 class="mdi mr-2 mdi-note-multiple-outline"></i><span class="hide-menu">News Portal</span></a>
                     </li>
+                    <!-- New item Rules -->
+                    <li class="sidebar-item"><a
+                            class="sidebar-link waves-effect waves-dark sidebar-link {{ (request()->is('rules*')) ? 'active':'' }}"
+                            href="{{route('rules')}}" aria-expanded="false"><i
+                                class="mdi mr-2 mdi-format-align-justify"></i><span class="hide-menu">Rules</span></a>
+                    </li>
                     <li class="sidebar-item">
                         <form action="{{route('logout')}}" method="post" id="myform">
                             @csrf
