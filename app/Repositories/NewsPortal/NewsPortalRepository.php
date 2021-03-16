@@ -24,7 +24,7 @@ class NewsPortalRepository extends BasicRepository implements NewsPortalReposito
     {
         return $this->model
             ->OrderBy('created_at', 'desc')
-            ->simplePaginate(16);
+            ->paginate(15);
     }
 
     public function createNews($data)
@@ -66,9 +66,11 @@ class NewsPortalRepository extends BasicRepository implements NewsPortalReposito
 
     public function getSingleItem($id)
     {
-        return $this->model
+        $data =  $this->model
             ->where('id', $id)
             ->first();
+        $data['content'] = $this->contentRepo->postProccessing($data['content']);
+        return $data;
     }
 
     public function deleteItem($id)

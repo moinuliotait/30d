@@ -42,7 +42,7 @@ class CalculationRepository extends BasicRepository implements CalculationReposi
         return ['silver_nishab' => $nishabSilver, 'gold_nishab' => $nishabGold]; // return total amount of nishab
     }
 
-    public function allCalculationForZakat($data,$neshab)
+    public function allCalculationForZakat($data, $neshab)
     {
         //// for pension
         if (empty($data['pension'])) {
@@ -52,15 +52,13 @@ class CalculationRepository extends BasicRepository implements CalculationReposi
             $pension = $data['pension'] ?? 0;
         }
         /// trust fund
-       if (isset($data['trust']))
-       {
-           $trustCovert = $this->TwentyFivePercentOfMainAmount($data['trust']['stock']);
-           $totallTrust = $trustCovert + $data['trust']['others'];
-       }
+        if (isset($data['trust'])) {
+            $trustCovert = $this->TwentyFivePercentOfMainAmount($data['trust']['stock']);
+            $totallTrust = $trustCovert + $data['trust']['others'];
+        }
 
         /// share
-        if (isset($data['share']))
-        {
+        if (isset($data['share'])) {
             $covertedTrust = $this->TwentyFivePercentOfMainAmount($data['share']['other']);
             $totallShare = $covertedTrust + $data['share']['capital'];
         }
@@ -83,7 +81,7 @@ class CalculationRepository extends BasicRepository implements CalculationReposi
         $business = $data['business'] ?? 0;
         $crypto = $data['crypto'] ?? 0;
         $metal = $gold + $silver;
-        $finalAdditionalOutput = $this->totalAdditionMoney($cash, $owe, $metal, $totallShare ?? 0, $pension??0, $crypto, $business, $totallTrust??0);
+        $finalAdditionalOutput = $this->totalAdditionMoney($cash, $owe, $metal, $totallShare ?? 0, $pension ?? 0, $crypto, $business, $totallTrust ?? 0);
         $oweT = $data['owe'] ?? 0;
         $out = $finalAdditionalOutput - $oweT;
         $finalResult = $out >= 0 ? $out : 0;
@@ -97,17 +95,16 @@ class CalculationRepository extends BasicRepository implements CalculationReposi
         }
 
         return [
-            'add' => round($finalAdditionalOutput,2),
+            'add' => round($finalAdditionalOutput, 2),
             'minus' => $oweT,
-            'equal' => round($finalResult,2),
-            'final_zakat'=>round($finalZakat,2)
+            'equal' => round($finalResult, 2),
+            'final_zakat' => round($finalZakat, 2)
         ];
     }
 
     public function totalAdditionMoney($cash = 0, $owed_to_me = 0, $metal = 0, $share = 0, $pension = 0, $crypto = 0, $business = 0, $trust = 0)
     {
         return ($cash + $owed_to_me + $metal + $share + $pension + $crypto + $business + $trust);
-
     }
 
     public function pensionCalculation($data)
@@ -142,6 +139,5 @@ class CalculationRepository extends BasicRepository implements CalculationReposi
         $value = $this->metalPrice->getMetalPriceInOunce($name);
         $gramToOunce = $amount / 28.3495;
         return ($gramToOunce * $value->price);
-
     }
 }
