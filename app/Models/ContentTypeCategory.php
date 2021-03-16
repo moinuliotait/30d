@@ -20,4 +20,9 @@ class ContentTypeCategory extends Model
     {
         return $this->belongsTo(Content::class);
     }
+
+    public function  rules()
+    {
+        return $this->hasMany(Rules::class);
+    }
 }

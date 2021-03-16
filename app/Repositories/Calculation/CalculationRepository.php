@@ -86,9 +86,11 @@ class CalculationRepository extends BasicRepository implements CalculationReposi
         $out = $finalAdditionalOutput - $oweT;
         $finalResult = $out >= 0 ? $out : 0;
 
-        if ($finalResult > $neshab) {
+        if ($finalResult > $neshab)
+        {
             $finalZakat = $finalResult * .025;
-        } else {
+        }
+        else{
             $finalZakat = 0;
         }
 

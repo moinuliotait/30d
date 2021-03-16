@@ -34,7 +34,4 @@ class LifeStyleRepository  implements LifeStyleRepositoryInterface
     {
         return $this->category->getCategoryList('lifestyle');
     }
-
-
-
 }

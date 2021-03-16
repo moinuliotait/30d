@@ -8,6 +8,7 @@ use App\Models\ContentTypeCategory;
 use App\Models\HadithContent;
 use App\Models\MetalConvertablePrice;
 use App\Models\NewsPortal;
+use App\Models\Rules;
 use App\Repositories\Calculation\CalculationRepository;
 use App\Repositories\Calculation\CalculationRepositoryInterface;
 use App\Repositories\ContentTypeCategory\ContentTypeCategoryRepository;
@@ -32,6 +33,8 @@ use App\Repositories\NewsPortal\NewsPortalRepository;
 use App\Repositories\NewsPortal\NewsPortalRepositoryInterface;
 use App\Repositories\Quran\QuranRepository;
 use App\Repositories\Quran\QuranRepositoryInterface;
+use App\Repositories\Rules\RulesRepository;
+use App\Repositories\Rules\RulesRepositoryInterface;
 use App\Repositories\Zakat\ZakatRepository;
 use App\Repositories\Zakat\ZakatRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
@@ -127,6 +130,16 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->singleton(QuranRepositoryInterface::class, function ($app) {
             return new QuranRepository();
+        });
+
+        // Rules
+
+        $this->app->singleton(RulesRepositoryInterface::class,function ($app){
+            return new RulesRepository(
+                new Rules,
+                resolve(ContentTypeCategoryRepositoryInterface::class),
+                resolve(ContentRepositoryInterface::class),
+            );
         });
     }
 

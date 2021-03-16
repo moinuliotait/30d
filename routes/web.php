@@ -6,6 +6,7 @@ use App\Http\Controllers\EducativeController;
 use App\Http\Controllers\HadithContentController;
 use App\Http\Controllers\LifeStyleContentController;
 use App\Http\Controllers\NewsPortalController;
+use App\Http\Controllers\RulesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,6 +66,19 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('update', [NewsPortalController::class, 'update'])->name('.update');
         Route::delete('delete/{id}', [NewsPortalController::class, 'delete'])->name('.delete');
     });
+
+    /// Rules route
+    Route::group(['as'=>'rules','prefix'=>'rules'],function (){
+        Route::get('/', [RulesController::class, 'index']);
+        Route::get('/create', [RulesController::class, 'create'])->name('.create');
+        Route::post('/create-rules', [RulesController::class, 'createRules'])->name('.create-rules');
+    });
+
+
+
+
+
+});
 
 });
 Route::get('/test',[NewsPortalController::class,'test']);
