@@ -231,6 +231,7 @@
 <!-- All Jquery -->
 <!-- ============================================================== -->
 <script src="{{ asset('js/app.js') }}"></script>
+
 <script src="{{ asset('assets/plugins/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap tether Core JavaScript -->
 <script src="{{ asset('assets/plugins/popper.js/dist/umd/popper.min.js') }}"></script>
@@ -253,19 +254,33 @@
 <script src="{{ asset('assets/js/pages/dashboards/dashboard1.js') }}"></script>
 <script src="{{ asset('assets/js/custom.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
+{{--<script src="{{ asset('js/sumernote/summernote-lite.js') }}"></script>--}}
 <script type="text/javascript">
     $(document).ready(function () {
         $('.summernote').summernote({
+            onCreateLink: function (url) {
+                if (url.indexOf('http://') !== 0) {
+                    url = 'http://' + url;
+                }
+                return url;
+            },
             height: 150,
             dialogsInBody: true,
             callbacks: {
                 onInit: function () {
                     $('body > .note-popover').hide();
+                },
+                onCreateLink: function (url) {
+                    if (url.indexOf('https://') !== 0 && url.indexOf('#') !== 0) {
+                        url = 'https://' + url;
+                    }
+                    return url;
                 }
             },
 
+
         });
-        // $(".summernote").summernote("foreColor", "blue");
+
     });
 
 </script>

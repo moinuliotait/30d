@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Content;
 
+use App\Http\Resources\ContentFormatinForApi;
 use App\Repositories\ContentTypeCategory\ContentTypeCategoryRepository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -109,6 +110,8 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
 
     public function convertFile($dataT)
     {
+//        $base_url = env('APP_URL');
+
         $description = $dataT['content'];
         $dom         = new \DomDocument();
         @$dom->loadHtml(mb_convert_encoding($description, 'HTML-ENTITIES', 'UTF-8'));
@@ -126,7 +129,7 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
                 $path = Storage::url('content/' . $image_name);
 
                 $img->removeattribute('src');
-                $img->setattribute('src', $path);
+                $img->setattribute('src',$path);
             }
         }
 
@@ -151,7 +154,7 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         foreach ($getCategroy as $category)
         {
             $result = $this->model->where('category_id',$category->id)->take(6)->get();
-            $all[$category->category_name] = $result;
+            $all[$category->category_name] = ContentFormatinForApi::collection($result);
         }
         return $all;
     }
@@ -162,21 +165,16 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
                             ->whereHas('categoryId',function($app) use ($name){
                                 $app->where('category_name',$name);
                             })->orderBy('created_at','desc')
-                            ->simplePaginate(15);
+                            ->paginate(15);
     }
 
     public function specificContentWithTypeCategory($id)
     {
-        return $this->model->with('categoryId','categoryId.contentType')
+        $data =  $this->model->with('categoryId','categoryId.contentType')
                             ->where('id',$id)
                             ->first();
-
-//        return $this->model->with('categoryId.contentType')
-//            ->whereHas('categoryId.contentType', function ($app) use ($type) {
-//                $app->where('content_type', 'lifestyle');
-//            })->OrderBy('created_at', 'desc')
-//            ->paginate(16);
-
+        $data['content'] = $this->postProccessing($data['content']);
+        return $data;
     }
 
     public function contentTypeCount($type)
@@ -185,5 +183,30 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
                         ->whereHas('categoryId.contentType',function ($app) use ($type){
                             $app->where('content_type',$type);
                         })->get()->count();
+    }
+
+    public function postProccessing($data)
+    {
+        $base_url = env('APP_URL');
+
+        $description = $data;
+        $dom         = new \DomDocument();
+        @$dom->loadHtml(mb_convert_encoding($description, 'HTML-ENTITIES', 'UTF-8'));
+        $ireame = $dom->getElementsByTagName('iframe');
+        $images = $dom->getElementsByTagName('img');
+
+        foreach ($ireame as $k=>$frame)
+        {
+
+            $frame->setattribute('src',"https:".$frame->getattribute('src'));
+//            dd($frame->getattribute('src'));
+        }
+
+        foreach ($images as $k => $img) {
+//            $img->setattribute('src',.$img->getattribute('src'));
+//            $data = $img->getattribute('src');
+        }
+        $description = $dom->saveHTML();
+        return $description;
     }
 }

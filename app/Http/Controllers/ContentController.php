@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ContentFormatinForApi;
 use App\Http\Resources\ContentWithCategory;
 use App\Http\Resources\LinkCollectionResource;
 use App\Models\ContentType;
@@ -29,13 +30,12 @@ class ContentController extends Controller
     public function contentWithCategory(Request $request)
     {
         $result =  $this->content->getContentWithCategory($request->name);
-        return ['status'=>1,'data'=>$result];
+        return ContentFormatinForApi::collection($result);
     }
 
     public function contentSpecificDetails($id)
     {
         $result  = $this->content->specificContentWithTypeCategory($id);
-//        return $result;
         return new ContentWithCategory($result);
     }
 }

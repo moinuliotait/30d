@@ -20,31 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d7a4d385-a466-45bd-b2e5-d230c152e400" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EducativeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EducativeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HadithContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HadithContentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LifeStyleContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LifeStyleContentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsPortalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsPortalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Content/ContentCreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Content/ContentCreateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Content/ContentUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Content/ContentUpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/LifeStyle/LifeStyleCreateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/LifeStyle/LifeStyleCreateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/LifeStyle/LifeStyleUpdateRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/LifeStyle/LifeStyleUpdateRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/ContentWithCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/ContentWithCategory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Repositories/Content/ContentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Content/ContentRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Hadith/HadithRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Hadith/HadithRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_02_065348_create_contents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_02_065348_create_contents_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_03_115210_create_news_portals_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_03_115210_create_news_portals_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/NewsPortal/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/newsPortal/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/NewsPortal/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/newsPortal/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/NewsPortal/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/newsPortal/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/educative/content-create-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educative/content-create-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/educative/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/educative/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/NewsPortal/NewsPortalRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/NewsPortal/NewsPortalRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lifeStyle/content-create-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lifeStyle/content-create-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/lifeStyle/edit-page-show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/lifeStyle/edit-page-show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,6 +199,9 @@
       <workItem from="1614829219809" duration="26452000" />
       <workItem from="1615090545007" duration="25623000" />
       <workItem from="1615263533240" duration="5290000" />
+      <workItem from="1615356873754" duration="12597000" />
+      <workItem from="1615434791654" duration="11707000" />
+      <workItem from="1615699293004" duration="122000" />
     </task>
     <servers />
   </component>
@@ -239,6 +225,10 @@
       <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
     <state x="-1368" y="105" key="#Deployment/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1615121672427" />
+    <state x="-1213" y="237" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615438481943">
+      <screen x="-1920" y="-78" width="1920" height="1050" />
+    </state>
+    <state x="-1213" y="237" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1615438481943" />
     <state x="-1316" y="148" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1614853308060">
       <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
@@ -262,6 +252,10 @@
       <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
     <state x="-1151" y="129" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1614679467731" />
+    <state x="-1180" y="189" key="FileChooserDialogImpl" timestamp="1615699405648">
+      <screen x="-1920" y="-78" width="1920" height="1050" />
+    </state>
+    <state x="-1180" y="189" key="FileChooserDialogImpl/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1615699405648" />
     <state width="1877" height="277" key="GridCell.Tab.0.bottom" timestamp="1614592254205">
       <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
@@ -295,10 +289,10 @@
       <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
     <state x="-1147" y="97" key="ftp.server.browser/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1615110150462" />
-    <state x="-1090" y="345" key="publish.login" timestamp="1615099705436">
+    <state x="-1090" y="345" key="publish.login" timestamp="1615357275036">
       <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>
-    <state x="-1090" y="345" key="publish.login/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1615099705436" />
+    <state x="-1090" y="345" key="publish.login/0.0.1366.738/-1920.-78.1920.1050@-1920.-78.1920.1050" timestamp="1615357275036" />
     <state x="-1304" y="204" key="run.anything.popup" timestamp="1614840818641">
       <screen x="-1920" y="-78" width="1920" height="1050" />
     </state>

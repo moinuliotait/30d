@@ -65,8 +65,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('update', [NewsPortalController::class, 'update'])->name('.update');
         Route::delete('delete/{id}', [NewsPortalController::class, 'delete'])->name('.delete');
     });
-    
-});
 
+});
+Route::get('/test',[NewsPortalController::class,'test']);
 Route::get('/login', [BaseUserController::class, 'LoginPageShow'])->name('login');
 Route::post('/login-check', [BaseUserController::class, 'userLoginCheck'])->name('login-check');
