@@ -32,12 +32,12 @@ class RulesController extends Controller
     {
         $rules = $this->rules->getRulesList();
 
-        return view('rules.index');
+        return view('rules.index', ['rules' => $rules]);
     }
     public function create(Request $request)
     {
-        $cateroy = $this->contentType->getCategoryList('rules');
-        return view('rules.create',['category'=>$cateroy]);
+        $category = $this->contentType->getCategoryList('rules');
+        return view('rules.create',['category'=>$category]);
     }
 
     public function createRules(Request $request)
@@ -45,5 +45,11 @@ class RulesController extends Controller
         $data = $request->only('title','content','category_id');
         $result = $this->rules->createRulesNew($data);
         return redirect()->route('rules')->with('message','Rules create successful');
+    }
+    public function edit($id)
+    {
+        $rulesData = $this->rules->getSingleItem($id);
+        $category = $this->contentType->getCategoryList('rules');
+        return view('rules.edit', ['rulesData' => $rulesData,'category'=>$category]);
     }
 }

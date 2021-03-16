@@ -11,21 +11,30 @@
             </div>
         </div>
         <div>
-            <table>
+            <table class="table">
+                <thead>
                 <tr>
-                    <th>Sl</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>category</th>
-                    <th>Status</th>
+                    <th scope="col">Sl</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">status</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>asd</td>
-                    <td>asdf</td>
-                    <td>sdf</td>
-                    <td>sdfg</td>
-                </tr>
+                </thead>
+                <tbody>
+                @foreach($rules as $item)
+                    <tr>
+                        <th scope="row">{{$item->id}}</th>
+                        <td>{{$item->title}}</td>
+                        <td>{!!  \Illuminate\Support\str::limit(strip_tags($item->description), $limit = 5, $end = '...') !!}</td>
+                        <td>{{ $item->categoryType['category_name'] }}</td>
+                        <td>
+                            <a href="{{route('rules.edit', $item->id)}}" class="btn btn-primary">Edit</a>
+                            <a onclick="deleteItem({{$item->id}})" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
             </table>
         </div>
         @if(session()->has('message'))

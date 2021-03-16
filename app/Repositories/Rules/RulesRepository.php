@@ -51,8 +51,14 @@ class RulesRepository extends \App\Repositories\BasicRepository implements Rules
     {
         return $this->model
             ->with('categoryType')
-            ->OrderBy('created_at', 'desc')
+            ->OrderBy('created_at', 'asc')
             ->paginate(15);
+    }
+    public function getSingleItem($id)
+    {
+        return $this->model
+            ->where('id', $id)
+            ->first();
     }
 
 

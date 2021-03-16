@@ -72,6 +72,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', [RulesController::class, 'index']);
         Route::get('/create', [RulesController::class, 'create'])->name('.create');
         Route::post('/create-rules', [RulesController::class, 'createRules'])->name('.create-rules');
+        Route::get('/edit/{id}', [RulesController::class, 'edit'])->name('.edit');
     });
 
 
