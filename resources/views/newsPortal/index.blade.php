@@ -44,30 +44,30 @@
         </div>
         <input type="hidden"  value="{{env('APP_URL')}}" id="appUrl">
         {{--    ///////// modal --}}
-        <div class="newmodal" id="popup" style="display: none">
-            <div class="show">
-                <div class="text-center popup">
-                    <div class="message">
-                        <h5>Do You Want To Delete This Item ?</h5>
-                    </div>
-                    <div class="d-flex justify-content-center submit mt-4">
-                        <div>
-                            <form id="deleteFrom" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" class="btn btn-danger">Yes</button>
-                            </form>
 
-                        </div>
-                        <div class="ml-4">
-                            <button onClick="remove()" class=" btn btn-primary">No</button>
-                        </div>
+    </div>
+    <div class="newmodal" id="popup" style="display: none">
+        <div class="show">
+            <div class="text-center popup">
+                <div class="message">
+                    <h5>Do You Want To Delete This Item ?</h5>
+                </div>
+                <div class="d-flex justify-content-center submit mt-4">
+                    <div>
+                        <form id="deleteFrom" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">Yes</button>
+                        </form>
+
+                    </div>
+                    <div class="ml-4">
+                        <button onClick="remove()" class=" btn btn-primary">No</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 @endsection
 @section('script')
     <script>
@@ -81,6 +81,7 @@
 
         function deleteItem($id)
         {
+            //console.log('Hi :' +$id);
             const deleteFrom = document.getElementById('deleteFrom');
             popUp.style.display ='block';
             // deleteFrom.action = appUrl+"/news-portal/delete/"+$id;

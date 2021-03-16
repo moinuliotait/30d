@@ -2,7 +2,7 @@
 @section('content')
     <div class="contentInputFrom p-3">
         <div class="header">
-            <h2>Create Rules</h2>
+            <h2>Edit Rules</h2>
         </div>
         @if(session()->has('message'))
             <div class="alert alert-danger w-100 mt-2 mb-2" id="message">
@@ -10,16 +10,17 @@
             </div>
         @endif
         <div class="inputGroup mt-5">
-            <form action="{{route('rules.create-rules')}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('rules.update')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('post')
+                @method('put')
+                <input type="hidden" name="id" value="{{$rulesData->id}}">
                 <div class="row">
                     <div class="col-6 s-12">
-                        {{--                        // title --}}
+                        {{--  {{route('rules.update')}}                       // title --}}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                   placeholder="Enter Title" name="title" required>
+                                   placeholder="Enter Title" name="title" value="{{$rulesData->title}}" required>
                         </div>
                         @error('title')
                         <p class="mb-0 pb-4 text-caption text-danger">{{ $message }}</p>
@@ -30,7 +31,7 @@
                             <select name="category_id" id="Catagories" class="form-control">
                                 <option value="">Choose One</option>
                                 @foreach($category as $cat)
-                                <option value="{{$cat->id}}">{{$cat->category_name}}</option>
+                                    <option value="{{$cat->id}}" {{$rulesData->category_id == $cat->id ? 'selected':''}}>{{$cat->category_name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -41,7 +42,7 @@
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Content</label>
                             <textarea class="form-control summernote" id="exampleFormControlTextarea1 description"
-                                      rows="3" placeholder="Write Content" name="content" required></textarea>
+                                      rows="3" placeholder="Write Content" name="content" required>{{$rulesData->description}}</textarea>
                         </div>
                         @error('content')
                         <p class="mb-0 pb-4 text-caption text-danger">{{ $message }}</p>
