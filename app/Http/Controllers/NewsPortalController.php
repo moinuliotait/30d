@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsPortal\NewsPortalCreateRequest;
 use App\Http\Requests\NewsPortal\NewsPortalUpdateRequest;
+use App\Http\Resources\AllNewsCollection;
 use App\Http\Resources\HadithResource;
 use App\Repositories\NewsPortal\NewsPortalRepositoryInterface;
 
@@ -71,7 +72,9 @@ class NewsPortalController extends Controller
 
     public function getAllNewsList()
     {
-        return $this->newsPortalRepo->getNewsList();
+
+        $data =  $this->newsPortalRepo->getNewsList();
+        return AllNewsCollection::collection($data);
     }
 
     public function getSingleNewsWithId($id)
@@ -79,5 +82,11 @@ class NewsPortalController extends Controller
         $result = $this->newsPortalRepo->getSingleItem($id);
 
         return ['status'=>1,'data'=>$result];
+    }
+
+    public function test()
+    {
+        $result = $this->newsPortalRepo->getSingleItem(2);
+        return view('newsPortal.test',['data'=>$result]);
     }
 }
