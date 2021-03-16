@@ -60,7 +60,7 @@ class RulesRepository extends \App\Repositories\BasicRepository implements Rules
             ->where('id', $id)
             ->first();
     }
-    public function  updateRules($data)
+    public function updateRules($data)
     {
         $rules                  =$this->model->find($data['id']);
 
@@ -75,6 +75,33 @@ class RulesRepository extends \App\Repositories\BasicRepository implements Rules
     public function deleteItem($id)
     {
         return $this->model->find($id)->delete();
+    }
+    public function quizSpecificItem($name)
+    {
+        $result  = $this->model->with('categoryType')
+                        ->whereHas('categoryType',function ($app) use ($name){
+                            $app->where('category_name',$name);
+                        })
+                        ->paginate(15);
+        return $result;
+    }
+    public function updateStatus($data)
+    {
+        $rules                 =$this->model->find($data);
+        $this->model->where('category_id',$rules->category_id)->update(['status'=>0]);
+        $rules['status']       = 1;
+        $rules->save();
+        return $rules;
+    }
+
+    public function getActiveRules($name)
+    {
+        $result = $this->model->with('categoryType')
+                 ->whereHas('categoryType',function ($app) use ($name){
+                         $app->where('category_name',$name);
+                    })->where('status',1)
+                    ->first();
+        return $result;
     }
 
 

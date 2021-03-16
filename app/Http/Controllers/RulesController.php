@@ -58,7 +58,7 @@ class RulesController extends Controller
 
         try {
             $result = $this->rules->updateRules($data);
-            return redirect()->route('rules')->with('message', 'News Update successfully');
+            return redirect()->route('rules')->with('message', 'Rules Update successfully');
         } catch (\Exception $e) {
             return redirect()->back()->with('message', 'Something went wrong,Please try again letter');
         }
@@ -67,5 +67,33 @@ class RulesController extends Controller
     {
         $delete = $this->rules->deleteItem($id);
         return redirect()->back()->with('message', 'Item delete successfully');
+    }
+    public function quizItems($name)
+    {
+        $rules = $this->rules->quizSpecificItem($name);
+        return view('rules.index',['rules'=>$rules]);
+    }
+    public function statusUpdate($id)
+    {
+        try {
+            $this->rules->updateStatus($id);
+            return redirect()->route('rules')->with('message', 'Status Update successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', 'Something went wrong,Please try again letter');
+        }
+    }
+
+    public function getAllActiveRules($slug)
+    {
+        $result = $this->rules->getActiveRules($slug);
+        try {
+            $finalResult = $result ?? 'No data available';
+            return ['status'=>1,'data'=>$finalResult];
+        }
+        catch (\Exception $e)
+        {
+            return ['status'=>0,'message'=>'something went wrong try again letter'];
+        }
+
     }
 }

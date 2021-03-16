@@ -8,6 +8,7 @@ use App\Http\Controllers\MetalPriceConverterController;
 use App\Http\Controllers\NamazDataFormationController;
 use App\Http\Controllers\NewsPortalController;
 use App\Http\Controllers\QuranController;
+use App\Http\Controllers\RulesController;
 use App\Http\Controllers\ZakatCalculatorController;
 use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
@@ -45,3 +46,5 @@ Route::get('/quran-ul-karim-all-chapter',[QuranController::class,'getListOfQuran
 Route::get('/verse-chapter',[QuranController::class,'getSpecificChapter']);
 
 Route::get('/hadith-small-list',[HadithContentController::class,'hadithGet']);
+
+Route::get('/rules/{slug}',[RulesController::class,'getAllActiveRules']);

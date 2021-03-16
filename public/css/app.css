@@ -147,6 +147,22 @@
 .description {
   width: 300px; }
 
+.rules .btn {
+  color: white !important; }
+
+.rules .btn-rounded {
+  width: 107px !important; }
+
+.rules .rules-active {
+  background-color: #198C5F;
+  border-radius: 25px;
+  color: white; }
+
+.rules .rules-deactive {
+  background-color: #edd679;
+  border-radius: 25px;
+  color: white; }
+
 @media only screen and (max-width: 960px) {
   .container-fluid {
     padding: 40px 4px !important; } }
