@@ -10,9 +10,10 @@
             </div>
         @endif
         <div class="inputGroup mt-5">
-            <form action=" " method="post" enctype="multipart/form-data">
+            <form action="{{route('rules.update')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('post')
+                @method('put')
+                <input type="hidden" name="id" value="{{$rulesData->id}}">
                 <div class="row">
                     <div class="col-6 s-12">
                         {{--  {{route('rules.update')}}                       // title --}}

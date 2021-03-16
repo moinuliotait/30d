@@ -60,6 +60,22 @@ class RulesRepository extends \App\Repositories\BasicRepository implements Rules
             ->where('id', $id)
             ->first();
     }
+    public function  updateRules($data)
+    {
+        $rules                  =$this->model->find($data['id']);
+
+        $rules['title']         = $data['title'];
+        $rules['description']   = $this->content->convertFile($data);
+
+        $category               = $this->categoryType->getWithId($data['category_id']);
+        $rules->categoryType()->associate($category);
+        $rules->save();
+        return $rules;
+    }
+    public function deleteItem($id)
+    {
+        return $this->model->find($id)->delete();
+    }
 
 
 }

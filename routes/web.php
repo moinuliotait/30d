@@ -73,14 +73,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/create', [RulesController::class, 'create'])->name('.create');
         Route::post('/create-rules', [RulesController::class, 'createRules'])->name('.create-rules');
         Route::get('/edit/{id}', [RulesController::class, 'edit'])->name('.edit');
+        Route::put('update', [RulesController::class, 'update'])->name('.update');
+        Route::delete('delete/{id}', [RulesController::class, 'delete'])->name('.delete');
+        //Route::get('/content/{name}', [RulesController::class, 'lifeStyleSportsItem'])->name('specific-content');
+        //Route::put('status/{id}',[RulesController::class,'status'])->name('.status');
     });
-
-
-
-
-
-});
-
 });
 Route::get('/test',[NewsPortalController::class,'test']);
 Route::get('/login', [BaseUserController::class, 'LoginPageShow'])->name('login');

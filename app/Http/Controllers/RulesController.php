@@ -52,4 +52,20 @@ class RulesController extends Controller
         $category = $this->contentType->getCategoryList('rules');
         return view('rules.edit', ['rulesData' => $rulesData,'category'=>$category]);
     }
+    public function update(Request $request)
+    {
+        $data = $request->only('id','title','content','category_id');
+
+        try {
+            $result = $this->rules->updateRules($data);
+            return redirect()->route('rules')->with('message', 'News Update successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', 'Something went wrong,Please try again letter');
+        }
+    }
+    public function delete($id)
+    {
+        $delete = $this->rules->deleteItem($id);
+        return redirect()->back()->with('message', 'Item delete successfully');
+    }
 }
