@@ -150,7 +150,7 @@
                             {{ (request()->is('educatie*')) ? 'active':'' }}"
                            href="{{route('educatie')}}" aria-expanded="false">
                             <i class="mdi mr-2 mdi-school"></i>
-                            <span class="hide-menu">Educatie</span>
+                            <span class="hide-menu">Educative</span>
                         </a>
                     </li>
 
@@ -169,7 +169,13 @@
                     <li class="sidebar-item"><a
                             class="sidebar-link waves-effect waves-dark sidebar-link {{ (request()->is('rules*')) ? 'active':'' }}"
                             href="{{route('rules')}}" aria-expanded="false"><i
-                                class="mdi mr-2 mdi-format-align-justify"></i><span class="hide-menu">Rules</span></a>
+                                class="fas mr-2 fa-shield-alt"></i><span class="hide-menu">Rules</span></a>
+                    </li>
+                    <!--  Payment History route not done yet -->
+                    <li class="sidebar-item"><a
+                            class="sidebar-link waves-effect waves-dark sidebar-link {{ (request()->is('payment-history*')) ? 'active':'' }}"
+                            href="{{route('payment-history')}}" aria-expanded="false"><i
+                                class="fas mr-2 fa-hand-holding-usd"></i><span class="hide-menu">Payment History</span></a>
                     </li>
                     <li class="sidebar-item">
                         <form action="{{route('logout')}}" method="post" id="myform">

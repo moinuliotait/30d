@@ -59,7 +59,6 @@
                             <a onclick="deleteItem({{$item->id}})" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
-{{--                {{$key++}}--}}
                 @endforeach
                 </tbody>
             </table>

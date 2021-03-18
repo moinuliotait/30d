@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class RulesRepository extends \App\Repositories\BasicRepository implements RulesRepositoryInterface
 {
-
     /**
      * @var ContentRepositoryInterface
      */

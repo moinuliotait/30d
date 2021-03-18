@@ -33,7 +33,6 @@ class RulesCreateRequest extends FormRequest
         return [
             'title.required'=>'Title name is required',
             'title.string'=>'Title format is not correct',
-            'short_description'=>'Short Description format is not correct',
             'content.required'=>'Content field is required',
             'content.string'=>'Content format is not correct'
         ];
