@@ -102,6 +102,9 @@ class RulesRepository extends \App\Repositories\BasicRepository implements Rules
                     ->first();
         return $result;
     }
-
+    public function rulesCount()
+    {
+        return $this->model->get()->count();
+    }
 
 }
