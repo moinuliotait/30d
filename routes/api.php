@@ -7,6 +7,7 @@ use App\Http\Controllers\HadithContentController;
 use App\Http\Controllers\MetalPriceConverterController;
 use App\Http\Controllers\NamazDataFormationController;
 use App\Http\Controllers\NewsPortalController;
+use App\Http\Controllers\PaymentHistoryController;
 use App\Http\Controllers\QuranController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\ZakatCalculatorController;
@@ -48,3 +49,5 @@ Route::get('/verse-chapter',[QuranController::class,'getSpecificChapter']);
 Route::get('/hadith-small-list',[HadithContentController::class,'hadithGet']);
 
 Route::get('/rules/{slug}',[RulesController::class,'getAllActiveRules']);
+
+Route::post('/payment-history', [PaymentHistoryController::class, 'insert']);

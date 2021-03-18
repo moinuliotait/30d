@@ -7,6 +7,7 @@ use App\Http\Controllers\HadithContentController;
 use App\Http\Controllers\LifeStyleContentController;
 use App\Http\Controllers\NewsPortalController;
 use App\Http\Controllers\RulesController;
+use App\Http\Controllers\PaymentHistoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -77,6 +78,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('delete/{id}', [RulesController::class, 'delete'])->name('.delete');
         Route::get('/quiz-items/{name}', [RulesController::class, 'quizItems'])->name('.specific-items');
         Route::put('/status/{id}',[RulesController::class,'statusUpdate'])->name('.status');
+    });
+    // Payment History Route
+    Route::group(['as' => 'payment-history','prefix'=>'payment-history'],function(){
+       Route::get('/',[PaymentHistoryController::class,'index']);
+        Route::post('/search',[PaymentHistoryController::class,'search'])->name('.search');
     });
 });
 Route::get('/test',[NewsPortalController::class,'test']);
