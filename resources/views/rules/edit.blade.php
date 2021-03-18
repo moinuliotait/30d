@@ -52,7 +52,7 @@
                     </div>
                     <div class="button w-100 p-4">
                         <button class="btn btn-primary w-100">
-                            SAVE
+                            UPDATE
                         </button>
                     </div>
                 </div>

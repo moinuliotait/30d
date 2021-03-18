@@ -75,8 +75,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/edit/{id}', [RulesController::class, 'edit'])->name('.edit');
         Route::put('update', [RulesController::class, 'update'])->name('.update');
         Route::delete('delete/{id}', [RulesController::class, 'delete'])->name('.delete');
-        //Route::get('/content/{name}', [RulesController::class, 'lifeStyleSportsItem'])->name('specific-content');
-        //Route::put('status/{id}',[RulesController::class,'status'])->name('.status');
+        Route::get('/quiz-items/{name}', [RulesController::class, 'quizItems'])->name('.specific-items');
+        Route::put('/status/{id}',[RulesController::class,'statusUpdate'])->name('.status');
     });
 });
 Route::get('/test',[NewsPortalController::class,'test']);

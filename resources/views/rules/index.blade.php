@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="p-3">
+    <div class="p-3 rules">
         <div class="d-flex justify-content-between align-items-center">
             <div class="header p-2">
                 <h2>Rules</h2>
@@ -18,38 +18,44 @@
         <div class="mt-4">
             <div class="listOfContentType mt-3">
                 <div class="PillButton">
-
                     <nav>
                         <ul class="p-0">
                             <li><a class="{{ (request()->is('rules')) ? 'active':'' }} mb-3"
                                    href="{{route('rules')}}">All</a></li>
-                            <li><a href="{{route('specific-content','Sports')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/Sports' ? 'active':'' )}} mb-3">Ramdan Quiz</a></li>
-                            <li><a href="{{route('specific-content','Voeding')}}"  class="{{ (\Request::getRequestUri() == '/life-style/content/Voeding' ? 'active':'' )}} mb-3">Group Quiz</a></li>
+                            <li><a href="{{route('rules.specific-items','Ramdan Quiz')}}"  class="{{ (\Request::getRequestUri() == '/rules/quiz-items/Ramdan%20Quiz' ? 'active':'' )}} mb-3">Ramdan Quiz</a></li>
+                            <li><a href="{{route('rules.specific-items','Group Quiz')}}"  class="{{ (\Request::getRequestUri() == '/rules/quiz-items/Group%20Quiz' ? 'active':'' )}} mb-3">Group Quiz</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
             <table class="table">
                 <thead>
-                <tr>
+                <tr class="text-center">
                     <th scope="col">Sl</th>
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Category</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($rules as $key=>$item)
-                    <tr>
+                    <tr class="text-center">
                         <th scope="row">{{$key+1}}</th>
                         <td>{{$item->title}}</td>
                         <td class="description"> {!!  \Illuminate\Support\str::limit(strip_tags($item->description), $limit = 150, $end = '...') !!}</td>
 {{--                        <td class="description"> {!!  substr($item->description,0,100) !!}</td>--}}
                         <td>{{ $item->categoryType['category_name'] }}</td>
                         <td>
+                            <form action="{{route('rules.status',$item->id)}}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                @method('put')
+                                <button type="submit" class="btn btn-rounded {{$item->status == 1 ? 'rules-active' : 'rules-deactive'}}">{{ $item->status == 1 ? 'ACTIVE' : 'DEACTIVE' }}</button>
+                            </form>
+                        </td>
+                        <td>
                             <a href="{{route('rules.edit', $item->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="" class="btn btn-primary">Status</a>
                             <a onclick="deleteItem({{$item->id}})" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
