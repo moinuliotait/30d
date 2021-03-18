@@ -24,7 +24,6 @@ class RulesRepository extends \App\Repositories\BasicRepository implements Rules
         Model $model,
         ContentTypeCategoryRepositoryInterface $contentTypeCategoryRepository,
         ContentRepositoryInterface $contentRepository
-
     )
     {
         parent::__construct($model);

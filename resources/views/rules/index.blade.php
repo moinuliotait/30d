@@ -43,7 +43,7 @@
                 @foreach($rules as $key=>$item)
                     <tr class="text-center">
                         <th scope="row">{{$key+1}}</th>
-                        <td>{{$item->title}}{{$item->status}}</td>
+                        <td>{{$item->title}}</td>
                         <td class="description"> {!!  \Illuminate\Support\str::limit(strip_tags($item->description), $limit = 150, $end = '...') !!}</td>
 {{--                        <td class="description"> {!!  substr($item->description,0,100) !!}</td>--}}
                         <td>{{ $item->categoryType['category_name'] }}</td>

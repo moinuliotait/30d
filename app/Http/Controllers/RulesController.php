@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Rules\RulesCreateRequest;
+use App\Http\Requests\Rules\RulesUpdateRequest;
 use App\Repositories\ContentTypeCategory\ContentTypeCategoryRepository;
 use App\Repositories\ContentTypeCategory\ContentTypeCategoryRepositoryInterface;
 use App\Repositories\Rules\RulesRepositoryInterface;
@@ -26,8 +28,6 @@ class RulesController extends Controller
         $this->rules = $rulesRepository;
         $this->contentType = $contentTypeCategoryRepository;
     }
-
-    //
     public function index(Request $request)
     {
         $rules = $this->rules->getRulesList();
@@ -39,8 +39,7 @@ class RulesController extends Controller
         $category = $this->contentType->getCategoryList('rules');
         return view('rules.create',['category'=>$category]);
     }
-
-    public function createRules(Request $request)
+    public function createRules(RulesCreateRequest $request)
     {
         $data = $request->only('title','content','category_id');
         $result = $this->rules->createRulesNew($data);
@@ -52,7 +51,7 @@ class RulesController extends Controller
         $category = $this->contentType->getCategoryList('rules');
         return view('rules.edit', ['rulesData' => $rulesData,'category'=>$category]);
     }
-    public function update(Request $request)
+    public function update(RulesUpdateRequest $request)
     {
         $data = $request->only('id','title','content','category_id');
 
@@ -82,7 +81,6 @@ class RulesController extends Controller
             return redirect()->back()->with('message', 'Something went wrong,Please try again letter');
         }
     }
-
     public function getAllActiveRules($slug)
     {
         $result = $this->rules->getActiveRules($slug);
