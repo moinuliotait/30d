@@ -54,7 +54,7 @@ class AdminDashboardController extends Controller
         $hadith =  $this->hadith->hadithCount();
         $news = $this->news->newsCount();
         $rules = $this->rules->rulesCount();
-        $payment =$this->payment->totalPaymentCost();
+        $payment =round($this->payment->totalPaymentCost(),2);
         return view('pages.newDashboard',[
             'life'=>$life,
             'educate'=>$educate,
