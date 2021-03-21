@@ -33,7 +33,7 @@
                 <tbody>
                 @foreach($data as $key => $item)
                     <tr class="text-center">
-                        <th scope="row">{{$key+1}}</th>
+                        <td>{{ ($data ->currentpage()-1) * $data ->perpage() + $loop->index + 1 }}</td>
                         <td>{{$item->first_name }} {{ $item->last_name}}</td>
                         <td>{{$item->email}}</td>
                         <td>{{$item->zakat}}</td>
@@ -43,6 +43,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{ $data->links() }}
         </div>
     </div>
 @endsection

@@ -21,10 +21,66 @@
 
 }
 
-
 @media only screen and (max-width: 960px) {
     .container-fluid{
         padding: 40px 4px !important;
+    }
+}
+@media only screen and (max-width: 640px) {
+    .mt-4{
+        .table ,thead,tbody,th, td, tr {
+            display: block;
+        }
+
+        /* Hide table headers (but not display: none;, for accessibility) */
+        .table thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+
+        .table tr { border: 1px solid #ccc; }
+
+        .table tr td {
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+            white-space: normal;
+            text-align:left;
+        }
+        .table td:before{
+            content: attr(data-title);
+        }
+        .table tbody tr th :before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            //top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            text-align:left;
+            font-weight: bold;
+        }
+        .table tbody tr th:before{
+            content: attr(data-title);
+        }
+        .table tr td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            //top: 6px;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            text-align:left;
+            font-weight: bold;
+        }
+
     }
 }
 

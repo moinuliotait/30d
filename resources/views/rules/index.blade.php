@@ -30,31 +30,31 @@
             </div>
             <table class="table">
                 <thead>
-                <tr class="text-center">
-                    <th scope="col">Sl</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
-                </tr>
+                    <tr class="text-center">
+                        <th scope="col">Sl</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
                 </thead>
                 <tbody>
                 @foreach($rules as $key=>$item)
                     <tr class="text-center">
-                        <th scope="row">{{$key+1}}</th>
-                        <td>{{$item->title}}</td>
-                        <td class="description"> {!!  \Illuminate\Support\str::limit(strip_tags($item->description), $limit = 150, $end = '...') !!}</td>
+                        <th data-title="Sl" scope="row" class="sl">{{ ($rules ->currentpage()-1) * $rules ->perpage() + $loop->index + 1 }}</th>
+                        <td data-title="Title">{{$item->title}}</td>
+                        <td data-title="Description" class="description"> {!!  \Illuminate\Support\str::limit(strip_tags($item->description), $limit = 150, $end = '...') !!}</td>
 {{--                        <td class="description"> {!!  substr($item->description,0,100) !!}</td>--}}
-                        <td>{{ $item->categoryType['category_name'] }}</td>
-                        <td>
+                        <td data-title="Category">{{ $item->categoryType['category_name'] }}</td>
+                        <td data-title="Status">
                             <form action="{{route('rules.status',$item->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <button type="submit" class="btn btn-rounded {{$item->status == 1 ? 'rules-active' : 'rules-deactive'}}">{{ $item->status == 1 ? 'ACTIVE' : 'DEACTIVE' }}</button>
                             </form>
                         </td>
-                        <td>
+                        <td data-title="Action">
                             <a href="{{route('rules.edit', $item->id)}}" class="btn btn-primary">Edit</a>
                             <a onclick="deleteItem({{$item->id}})" class="btn btn-danger">Delete</a>
                         </td>
@@ -62,6 +62,7 @@
                 @endforeach
                 </tbody>
             </table>
+            {{ $rules->links() }}
         </div>
         {{--    ///////// modal for delete --}}
         <div class="newmodal" id="popup" style="display: none">
