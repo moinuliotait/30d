@@ -30,15 +30,14 @@ class PaymentHistoryRepository extends \App\Repositories\BasicRepository impleme
         $result = $value;
         return $result;
     }
-    public function totalPaymentCost()
+    public function totalPaymentCount()
     {
-        $zakat=$this->model->sum('zakat');
-        $sadaqah=$this->model->sum('sadaqah');
-        $riba=$this->model->sum('riba');
-
-        $totalCost=$zakat+$sadaqah+$riba;
-
-        return $totalCost;
+        //$zakat=$this->model->sum('zakat');
+        //$sadaqah=$this->model->sum('sadaqah');
+        //$riba=$this->model->sum('riba');
+        //$totalCost=$zakat+$sadaqah+$riba;
+        $count = $this->model->get()->count();
+        return $count;
     }
     public function searchData($name){
         $result=$this->model->where('email', 'LIKE', "%$name%")

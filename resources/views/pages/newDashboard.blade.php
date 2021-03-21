@@ -61,7 +61,7 @@
                 <div class="cardBox  d-flex justify-content-between  align-items-center">
                     <div>
                         <h5>Payment History</h5>
-                        <p class="mt-4">Total Cost : <span>{{$payment ?? 0}}</span> </p>
+                        <p class="mt-4">Total Payment : <span>{{$payment ?? 0}}</span> </p>
                     </div>
                     <i class="fas mr-2 fa-hand-holding-usd"></i>
                 </div>

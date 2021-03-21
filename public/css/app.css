@@ -167,3 +167,47 @@
   .container-fluid {
     padding: 40px 4px !important; } }
 
+@media only screen and (max-width: 640px) {
+  .mt-4 {
+    /* Hide table headers (but not display: none;, for accessibility) */ }
+    .mt-4 .table, .mt-4 thead, .mt-4 tbody, .mt-4 th, .mt-4 td, .mt-4 tr {
+      display: block; }
+    .mt-4 .table thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px; }
+    .mt-4 .table tr {
+      border: 1px solid #ccc; }
+    .mt-4 .table tr td {
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+      white-space: normal;
+      text-align: left; }
+    .mt-4 .table td:before {
+      content: attr(data-title); }
+    .mt-4 .table tbody tr th :before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align: left;
+      font-weight: bold; }
+    .mt-4 .table tbody tr th:before {
+      content: attr(data-title); }
+    .mt-4 .table tr td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align: left;
+      font-weight: bold; } }
+
