@@ -34,7 +34,7 @@ class PaymentHistoryController extends Controller
         try {
             $data = $request->only('first_name','last_name','email','zakat','sadaqah','riba');
             $result = $this->model->createPayment($data);
-            return ['status'=>1,'data'=>$result];
+            return ['status'=>1,'data'=>'Payment successfully done.'];
         }
         catch (\Exception $e)
         {

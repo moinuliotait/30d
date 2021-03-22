@@ -15,7 +15,7 @@
                 {{ session()->get('message') }}
             </div>
         @endif
-        <div class="mt-4">
+        <div class="mt-4 card-view">
             <div class="listOfContentType mt-3">
                 <div class="PillButton">
                     <nav>
@@ -28,41 +28,41 @@
                     </nav>
                 </div>
             </div>
-            <table class="table">
-                <thead>
-                    <tr class="text-center">
-                        <th scope="col">Sl</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                @foreach($rules as $key=>$item)
-                    <tr class="text-center">
-                        <th data-title="Sl" scope="row" class="sl">{{ ($rules ->currentpage()-1) * $rules ->perpage() + $loop->index + 1 }}</th>
-                        <td data-title="Title">{{$item->title}}</td>
-                        <td data-title="Description" class="description"> {!!  \Illuminate\Support\str::limit(strip_tags($item->description), $limit = 150, $end = '...') !!}</td>
-{{--                        <td class="description"> {!!  substr($item->description,0,100) !!}</td>--}}
-                        <td data-title="Category">{{ $item->categoryType['category_name'] }}</td>
-                        <td data-title="Status">
-                            <form action="{{route('rules.status',$item->id)}}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                @method('put')
-                                <button type="submit" class="btn btn-rounded {{$item->status == 1 ? 'rules-active' : 'rules-deactive'}}">{{ $item->status == 1 ? 'ACTIVE' : 'DEACTIVE' }}</button>
-                            </form>
-                        </td>
-                        <td data-title="Action">
-                            <a href="{{route('rules.edit', $item->id)}}" class="btn btn-primary">Edit</a>
-                            <a onclick="deleteItem({{$item->id}})" class="btn btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-            {{ $rules->links() }}
+            <!-- Card view for rules -->
+            <div class="listOfContentType mt-4">
+                <div class="row mt-4 pl-3">
+                    @foreach($rules as $item)
+                        <div class="col-lg-4 col-xl-4 col-md-4 col-sm-12 card-space">
+                            <div class="card w-100">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-column card-responsive">
+                                            <label class="card-title text-size font-weight-bold">{{ ($rules ->currentpage()-1) * $rules ->perpage() + $loop->index + 1 }}. {!!  \Illuminate\Support\str::limit(strip_tags($item->title), $limit = 10, $end = '...') !!}</label>
+                                            <label class="card-subtitle mb-2 text-size">{{ $item->categoryType['category_name'] }}</label>
+                                        </div>
+                                        <div class="d-flex">
+                                            <form action="{{route('rules.status',$item->id)}}" method="post" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('put')
+                                                <button type="submit" class="btn {{$item->status == 1 ? 'rules-active' : 'rules-deactive'}}">{{ $item->status == 1 ? 'ACTIVE' : 'DEACTIVE' }}</button>
+                                            </form>
+                                        </div>
+                                        <div class="action flex-row d-flex">
+                                            <a href="{{route('rules.edit', $item->id)}}" class="pr-3"><img src="{{ asset('/img/edit.svg') }}" class="logo-size"/></a>
+                                            <a onclick="deleteItem({{$item->id}})"><img src="{{ asset('/img/delete.svg') }}" class="logo-size"/></a>
+                                        </div>
+                                    </div>
+                                    <p class="card-text pt-1">{!!  \Illuminate\Support\str::limit(strip_tags($item->description), $limit = 150, $end = '...') !!}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="tpagination mt-4">
+                    {{$rules->links()}}
+                </div>
+            </div>
         </div>
         {{--    ///////// modal for delete --}}
         <div class="newmodal" id="popup" style="display: none">
