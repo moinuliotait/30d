@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="p-3">
+    <div class="p-3 payment">
         <div class="d-flex justify-content-between align-items-center">
             <div class="header p-2">
                 <h2>Payment History</h2>
@@ -18,32 +18,39 @@
                 </div>
             </form>
         </div>
-        <div class="mt-4">
-            <table class="table">
-                <thead>
-                <tr class="text-center">
-                    <th scope="col">Sl</th>
-                    <th scope="col">Full Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Zakat</th>
-                    <th scope="col">Sadaqah</th>
-                    <th scope="col">Riba</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($data as $key => $item)
-                    <tr class="text-center">
-                        <td>{{ ($data ->currentpage()-1) * $data ->perpage() + $loop->index + 1 }}</td>
-                        <td>{{$item->first_name }} {{ $item->last_name}}</td>
-                        <td>{{$item->email}}</td>
-                        <td>{{$item->zakat}}</td>
-                        <td>{{$item->sadaqah}}</td>
-                        <td>{{$item->riba}}</td>
-                    </tr>
+        <!-- Card view for rules -->
+        <div class="listOfContentType mt-4 card-view">
+            <div class="row mt-4 pl-3">
+                @foreach($data as $item)
+                    <div class="col-lg-4 col-xl-4 col-md-4 col-sm-12 card-space">
+                        <div class="card w-100">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="d-flex flex-column flex-fill">
+                                        <label class="card-title text-size font-weight-bold">{{ ($data ->currentpage()-1) * $data ->perpage() + $loop->index + 1 }}. {{$item->first_name }} {{ $item->last_name}}</label>
+                                        <label class="card-subtitle mb-2 text-size">{{$item->email}}</label>
+                                    </div>
+                                </div>
+                                <div class="flex-row d-flex justify-content-between">
+                                    <label>Zakat</label>
+                                    <label>{{$item->zakat}}</label>
+                                </div>
+                                <div class="flex-row d-flex justify-content-between">
+                                    <label>Sadaqah</label>
+                                    <label>{{$item->sadaqah}}</label>
+                                </div>
+                                <div class="flex-row d-flex justify-content-between">
+                                    <label>Riba</label>
+                                    <label>{{$item->riba}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
-                </tbody>
-            </table>
-            {{ $data->links() }}
+            </div>
+            <div class="tpagination mt-4">
+                {{$data->links()}}
+            </div>
         </div>
     </div>
 @endsection
