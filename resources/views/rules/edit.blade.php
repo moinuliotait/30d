@@ -15,7 +15,7 @@
                 @method('put')
                 <input type="hidden" name="id" value="{{$rulesData->id}}">
                 <div class="row">
-                    <div class="col-6 s-12">
+                    <div class="col-lg-6">
                         {{--  {{route('rules.update')}}                       // title --}}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
