@@ -52,7 +52,7 @@
                                             <a onclick="deleteItem({{$item->id}})"><img src="{{ asset('/img/delete.svg') }}" class="logo-size"/></a>
                                         </div>
                                     </div>
-                                    <p class="card-text pt-1">{!!  \Illuminate\Support\str::limit(strip_tags($item->description), $limit = 150, $end = '...') !!}</p>
+                                    <p class="card-block pt-1 card-text">{!!  \Illuminate\Support\str::limit(strip_tags($item->description), $limit = 150, $end = '...') !!}</p>
                                 </div>
                             </div>
                         </div>
