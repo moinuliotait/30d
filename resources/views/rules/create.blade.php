@@ -14,7 +14,7 @@
                 @csrf
                 @method('post')
                 <div class="row">
-                    <div class="col-6 s-12">
+                    <div class="col-lg-12">
                         {{--                        // title --}}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Title</label>
