@@ -26,7 +26,7 @@
                         <div class="card w-100">
                             <div class="card-body">
                                 <div class="d-flex">
-                                    <div class="d-flex flex-column flex-fill">
+                                    <div class="d-flex flex-column flex-fill w-100">
                                         <label class="card-title text-size font-weight-bold">{{ ($data ->currentpage()-1) * $data ->perpage() + $loop->index + 1 }}. {{$item->first_name }} {{ $item->last_name}}</label>
                                         <label class="card-subtitle mb-2 text-size">{{$item->email}}</label>
                                     </div>

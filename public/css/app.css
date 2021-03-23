@@ -181,36 +181,35 @@
     .rules .card-view .card .card-body .logo-size {
       width: 1rem; }
     .rules .card-view .card .card-body .card-text {
-      height: 90px;
       word-break: break-all; }
 
 .rules .mt-4 .listOfContentType .row .col-lg-3 .card .card-body {
   padding: 0px !important; }
 
 @media only screen and (max-width: 1200px) {
-  .rules .card-view .card {
-    height: 235px; }
-    .rules .card-view .card .card-body .action .pr-3 {
-      padding-right: 10px !important;
-      padding-left: 5px; } }
+  .rules .card-view .card .card-body .action .pr-3 {
+    padding-right: 10px !important;
+    padding-left: 5px; } }
+
+@media only screen and (max-width: 1024px) {
+  .rules .card-view .card .card-body .card-responsive {
+    width: 50px; }
+    .rules .card-view .card .card-body .card-responsive .card-subtitle {
+      width: 120px; } }
 
 @media only screen and (max-width: 960px) {
   .container-fluid {
     padding: 40px 4px !important; } }
 
-@media only screen and (max-width: 768px) {
-  .rules .card-view .card {
-    height: 230px; } }
+@media only screen and (max-width: 760px) {
+  .rules .card-view .card .card-body .card-responsive {
+    width: 130px !important; } }
 
-@media only screen and (max-width: 620px) {
-  .rules .card-view .card {
-    height: 200px; } }
-
-@media only screen and (max-width: 320px) {
-  .rules .card-view .card {
-    height: 230px; }
-    .rules .card-view .card .card-body .card-responsive {
-      width: 70px; } }
+@media only screen and (max-width: 340px) {
+  .rules .card-view .card .card-body .card-responsive {
+    width: 50px !important; }
+    .rules .card-view .card .card-body .card-responsive .card-subtitle {
+      width: 120px; } }
 
 .payment .card-view .card-space {
   padding-left: 0px; }
