@@ -16,6 +16,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="368b8203-0481-445e-93e7-d69bd9163195" name="opiosshop">
+        <fileTransfer rootFolder="/home/opioshop/www" accessType="SFTP" host="3.65.75.147" port="22" sshConfigId="42582eec-a235-49fe-a7d7-0ab6b5b8645b" sshConfig="opioshop@3.65.75.147:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
