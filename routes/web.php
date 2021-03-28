@@ -68,7 +68,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('delete/{id}', [NewsPortalController::class, 'delete'])->name('.delete');
     });
 
-    /// Rules route
+    // Rules route
     Route::group(['as'=>'rules','prefix'=>'rules'],function (){
         Route::get('/', [RulesController::class, 'index']);
         Route::get('/create', [RulesController::class, 'create'])->name('.create');
