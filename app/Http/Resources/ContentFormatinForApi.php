@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
@@ -15,6 +16,7 @@ class ContentFormatinForApi extends JsonResource
      */
     public function toArray($request)
     {
+        setlocale(LC_ALL, 'nl_NL'.'.utf8');
         return [
             'id'=>$this->id,
             'title'=>$this->title,
@@ -22,8 +24,8 @@ class ContentFormatinForApi extends JsonResource
             'type'=>$this->type,
             'short_description'=>$this->short_description,
             'featured_image'=>$this->featured_image,
-            'created_at'=>$this->created_at,
-            'updated_at'=>$this->updated_at,
+            'created_at'=>ucwords(strftime('%B %d,%Y', strtotime($this->created_at))),
+            'updated_at'=>ucwords(strftime('%B %d,%Y', strtotime($this->updated_at))),
 
         ];
     }

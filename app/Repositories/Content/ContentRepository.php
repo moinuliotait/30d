@@ -87,7 +87,7 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
                 $app->where('category_name', $name);
             })
             ->OrderBy('created_at', 'desc')
-            ->paginate();
+            ->paginate(16);
     }
 
     public function deteFile($data)
@@ -153,7 +153,7 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         $all = [];
         foreach ($getCategroy as $category)
         {
-            $result = $this->model->where('category_id',$category->id)->take(6)->get();
+            $result = $this->model->where('category_id',$category->id)->orderBy('created_at','desc')->take(6)->get();
             $all[$category->category_name] = ContentFormatinForApi::collection($result);
         }
         return $all;
