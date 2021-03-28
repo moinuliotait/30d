@@ -162,17 +162,17 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
     public function getContentWithCategory($name)
     {
         return $this->model->with('categoryId')
-                            ->whereHas('categoryId',function($app) use ($name){
-                                $app->where('category_name',$name);
-                            })->orderBy('created_at','desc')
-                            ->paginate(15);
+            ->whereHas('categoryId',function($app) use ($name){
+                $app->where('category_name',$name);
+            })->orderBy('created_at','desc')
+            ->paginate(15);
     }
 
     public function specificContentWithTypeCategory($id)
     {
         $data =  $this->model->with('categoryId','categoryId.contentType')
-                            ->where('id',$id)
-                            ->first();
+            ->where('id',$id)
+            ->first();
         $data['content'] = $this->postProccessing($data['content']);
         return $data;
     }
@@ -180,9 +180,9 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
     public function contentTypeCount($type)
     {
         return $this->model->with('categoryId','categoryId.contentType')
-                        ->whereHas('categoryId.contentType',function ($app) use ($type){
-                            $app->where('content_type',$type);
-                        })->get()->count();
+            ->whereHas('categoryId.contentType',function ($app) use ($type){
+                $app->where('content_type',$type);
+            })->get()->count();
     }
 
     public function postProccessing($data)

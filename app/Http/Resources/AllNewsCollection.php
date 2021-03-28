@@ -15,6 +15,7 @@ class AllNewsCollection extends JsonResource
      */
     public function toArray($request)
     {
+        setlocale(LC_ALL, 'nl_NL'.'.utf8');
         return [
             'id' => $this->id,
             'title' => $this->title,
@@ -23,8 +24,8 @@ class AllNewsCollection extends JsonResource
             'featured_image' => $this->featured_image,
             'content' => $this->postProccessing($this->content),
             'video_url' => $this->video_url,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'created_at'=>ucwords(strftime('%B %d,%Y', strtotime($this->created_at))),
+            'updated_at'=>ucwords(strftime('%B %d,%Y', strtotime($this->updated_at))),
         ];
     }
 
