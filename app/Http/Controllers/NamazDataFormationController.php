@@ -24,64 +24,62 @@ class NamazDataFormationController extends Controller
     public function prayerTimeForSpecificDay(Request $request)
     {
         $time = $request->timestamp / 1000;
-//       $test =  Carbon::createFromTimestamp( $time)->format('m/d/Y');
-//       dd($test);
-        $currentDay = $this->DateFormat($time,'d');
-        $currentMonth = $this->DateFormat($time,'m');
-        $currentYear =  $this->DateFormat($time,'Y');
+        $currentDay = $this->DateFormat($time, 'd');
+        $currentMonth = $this->DateFormat($time, 'm');
+        $currentYear =  $this->DateFormat($time, 'Y');
         $recentDay = '';
-        $get = $this->namazRepository->prayerTimeForSpecificDay($currentMonth,$currentYear,$request->lat,$request->lon);
-
+        $get = $this->namazRepository->prayerTimeForSpecificDay($currentMonth, $currentYear, $request->lat, $request->lon);
+        dd($get);
         foreach ($get->data as $data) {
             if ($data->date->gregorian->day == $currentDay) {
-               $recentDay = new NamazTimeResource($data);
+                $recentDay = new NamazTimeResource($data);
             }
         }
         $currentMonthData = NamazTimeResource::collection($get->data);
-        $previousMonth= $this->previousMonthNamazTime($currentMonth,$currentYear,$request->lat,$request->lon);
-        $nextMonth= $this->NextMonthNamazTime($currentMonth,$currentYear,$request->lat,$request->lon);
+        $previousMonth = $this->previousMonthNamazTime($currentMonth, $currentYear, $request->lat, $request->lon);
+        $nextMonth = $this->NextMonthNamazTime($currentMonth, $currentYear, $request->lat, $request->lon);
 
         return [
-            'status'=>true,
-            'todayData'=>$recentDay,
-            'currentMonth'=>$currentMonthData,
-            'previousMonth'=>$previousMonth,
-            'nextMonth'=>$nextMonth
+            'status' => true,
+            'todayData' => $recentDay,
+            'currentMonth' => $currentMonthData,
+            'previousMonth' => $previousMonth,
+            'nextMonth' => $nextMonth
         ];
     }
 
-    private function previousMonthNamazTime($currentMonth,$currentYear,$lat,$lon)
+    private function previousMonthNamazTime($currentMonth, $currentYear, $lat, $lon)
     {
-        $newMonth = $currentMonth == 1 ? 12 : $currentMonth - 1 ;
+        $newMonth = $currentMonth == 1 ? 12 : $currentMonth - 1;
         $newYear = $currentMonth == 1 ? $currentYear - 1 : $currentYear;
-        $previousMonth = $this->namazRepository->prayerTimeForSpecificDay($newMonth,$newYear,$lat,$lon);
+        $previousMonth = $this->namazRepository->prayerTimeForSpecificDay($newMonth, $newYear, $lat, $lon);
         return NamazTimeResource::collection($previousMonth->data);
     }
 
-    private function NextMonthNamazTime($currentMonth,$currentYear,$lat,$lon)
+    private function NextMonthNamazTime($currentMonth, $currentYear, $lat, $lon)
     {
-        $newMonth = $currentMonth == 12 ? 1 : $currentMonth + 1 ;
+        $newMonth = $currentMonth == 12 ? 1 : $currentMonth + 1;
         $newYear = $currentMonth == 12 ? $currentYear + 1 : $currentYear;
-        $nextMonth = $this->namazRepository->prayerTimeForSpecificDay($newMonth,$newYear,$lat,$lon);
+        $nextMonth = $this->namazRepository->prayerTimeForSpecificDay($newMonth, $newYear, $lat, $lon);
         return NamazTimeResource::collection($nextMonth->data);
     }
 
     public function eachMonthAllEventList(Request $request)
     {
-        $currentMonth = $this->DateFormat($request->timestamp,'m');
-        $currentYear =  $this->DateFormat($request->timestamp,'Y');
+        $currentMonth = $this->DateFormat($request->timestamp, 'm');
+        $currentYear =  $this->DateFormat($request->timestamp, 'Y');
         $allEvent = [];
-        $get = $this->namazRepository->prayerTimeForSpecificDay($currentMonth,$currentYear,$request->lat,$request->lon);
+        $get = $this->namazRepository->prayerTimeForSpecificDay($currentMonth, $currentYear, $request->lat, $request->lon);
         foreach ($get->data as $data) {
             if (!empty($data->date->hijri->holidays)) {
-               $allEvent[] = new MonthAllEventResource($data);
+                $allEvent[] = new MonthAllEventResource($data);
             }
         }
-        return ['status'=>true,'data'=>$allEvent ? $allEvent:'No data available'];
+        return ['status' => true, 'data' => $allEvent ? $allEvent : 'No data available'];
     }
 
-    private function DateFormat($time,$format)
+    private function DateFormat($time, $format)
     {
-       return  Carbon::createFromTimestamp($time)->format($format);
+        return  Carbon::createFromTimestamp($time)->format($format);
     }
 }
