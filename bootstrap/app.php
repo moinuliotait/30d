@@ -40,7 +40,9 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
-
+//$app->withFacades(true, ['Mollie\Laravel\Facades\Mollie' => 'Mollie']);
+//
+//$app->register(Mollie\Laravel\MollieServiceProvider::class);
 /*
 |--------------------------------------------------------------------------
 | Return The Application
