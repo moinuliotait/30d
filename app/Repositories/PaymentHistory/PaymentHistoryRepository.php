@@ -15,7 +15,7 @@ class PaymentHistoryRepository extends \App\Repositories\BasicRepository impleme
 
     public function testController()
     {
-       return $this->model->paginate(15);
+       return $this->model->OrderBy('created_at', 'desc')->paginate(15);
     }
     public function createPayment($data)
     {
@@ -42,7 +42,7 @@ class PaymentHistoryRepository extends \App\Repositories\BasicRepository impleme
     public function searchData($name){
         $result=$this->model->where('email', 'LIKE', "%$name%")
             ->orWhere('first_name', 'LIKE', "%$name%")
-            ->paginate(15);
+            ->OrderBy('created_at', 'desc')->paginate(15);
         return $result;
     }
 }

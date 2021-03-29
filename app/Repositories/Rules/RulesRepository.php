@@ -49,7 +49,7 @@ class RulesRepository extends \App\Repositories\BasicRepository implements Rules
     {
         return $this->model
             ->with('categoryType')
-            ->OrderBy('created_at', 'asc')
+            ->OrderBy('created_at', 'desc')
             ->paginate(15);
     }
     public function getSingleItem($id)
