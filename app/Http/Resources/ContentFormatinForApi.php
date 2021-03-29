@@ -24,8 +24,8 @@ class ContentFormatinForApi extends JsonResource
             'type'=>$this->type,
             'short_description'=>$this->short_description,
             'featured_image'=>$this->featured_image,
-            'created_at'=>ucwords(strftime('%B %d,%Y', strtotime($this->created_at))),
-            'updated_at'=>ucwords(strftime('%B %d,%Y', strtotime($this->updated_at))),
+            'created_at'=>ucwords(strftime('%d %B,%Y', strtotime($this->created_at))),
+            'updated_at'=>ucwords(strftime('%d %B,%Y', strtotime($this->updated_at))),
 
         ];
     }
