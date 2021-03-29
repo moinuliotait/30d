@@ -2,39 +2,76 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\PaymentHistory\PaymentHistoryRepositoryInterface;
 use Illuminate\Http\Request;
 
 class MollePaymentController extends Controller
 {
 
-    public function test( Request $request)
+    public function __construct(PaymentHistoryRepositoryInterface $paymentHistoryRepository)
     {
-//        dd(env('MOLLIE_KEY'));
-        $mollie = new \Mollie\Api\MollieApiClient();
-        $mollie->setApiKey("test_Sj9AkaS48T2yqsBT7PEShzrk6pgwWR");
+        $this->model = $paymentHistoryRepository;
+    }
 
-        $payment = $mollie->payments->create([
-            "amount" => [
-                "currency" => "EUR",
-                "value" => "10.00" // You must send the correct number of decimals, thus we enforce the use of strings
-            ],
+    public function test(Request $request)
+    {
+        try {
+            $mollie = new \Mollie\Api\MollieApiClient();
+            $mollie->setApiKey(env('MOLLIE_KEY'));
 
-            "description" => "Order #12345",
-            "redirectUrl" => "https://webshop.example.org/order/12345/",
-            "webhookUrl" => "https://webshop.example.org/payments/webhook/",
-            "metadata" => [
-                "order_id" => "12345",
-            ],
-        ]);
-        return json_encode($payment);
+            $payment = $mollie->payments->create([
+                "amount" => [
+                    "currency" => "EUR",
+                    "value" => (string)$request->value // You must send the correct number of decimals, thus we enforce the use of strings
+                ],
+
+                "description" => "Order #12345",
+                "method" => 'ideal',
+                "redirectUrl" => "https://30dapp.nl/api/mollie-success",
+                "webhookUrl" => "https://30dapp.nl/api/mollie-webhook",
+                "metadata" => [
+                    "first_name" => $request->first_name,
+                    "last_name" => $request->last_name,
+                    "email" => $request->email,
+                    "zakat" => $request->zakat,
+                    "sadaqah" => $request->sadaqah,
+                    "riba" => $request->riba,
+                ],
+            ]);
+            return ['status' => true, 'redirect_url' => $payment->getCheckoutUrl()];
+        } catch (\Exception $e) {
+            return ['status' => 0, 'message' => 'something went wrong try again letter', 'error' => "Ideal Methode not active"];
+        }
     }
 
     public function webHook(Request $request)
     {
         $payment = $request->input('id');
         $mollie = new \Mollie\Api\MollieApiClient();
+        $mollie->setApiKey(env('MOLLIE_KEY'));
         $pay = $mollie->payments->get($payment);
+        if ($pay->isPaid()) {
+            try {
+                $meta = json_decode(json_encode($pay->metadata));
+                $data = [
+                    'first_name' => $meta->first_name,
+                    'last_name' => $meta->last_name,
+                    'email' => $meta->email,
+                    'zakat' => $meta->zakat,
+                    'sadaqah' => $meta->sadaqah,
+                    'riba' => $meta->riba
+                ];
+                $result = $this->model->createPayment($data);
+                return ['status' => 1, 'data' => 'Payment successfully done.'];
+            } catch (\Exception $e) {
+                return ['status' => 0, 'message' => 'something went wrong try again letter'];
+            }
+        }
+    }
 
-        return json_encode($pay);
+    public function success(Request $request)
+    {
+
+        return ['status' => true, 'message' => 'complete'];
     }
 }

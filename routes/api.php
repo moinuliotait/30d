@@ -54,3 +54,4 @@ Route::get('/rules/{slug}',[RulesController::class,'getAllActiveRules']);
 Route::post('/payment-history', [PaymentHistoryController::class, 'insert']);
 Route::post('/mollie-payment',[MollePaymentController::class,'test']);
 Route::post('/mollie-webhook',[MollePaymentController::class,'webHook']);
+Route::get('/mollie-success',[MollePaymentController::class,'success']);
