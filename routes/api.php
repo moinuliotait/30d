@@ -5,6 +5,7 @@ use App\Http\Controllers\ContentCategoryController;
 use App\Http\Controllers\ContentTypeController;
 use App\Http\Controllers\HadithContentController;
 use App\Http\Controllers\MetalPriceConverterController;
+use App\Http\Controllers\MollePaymentController;
 use App\Http\Controllers\NamazDataFormationController;
 use App\Http\Controllers\NewsPortalController;
 use App\Http\Controllers\PaymentHistoryController;
@@ -51,3 +52,5 @@ Route::get('/hadith-small-list',[HadithContentController::class,'hadithGet']);
 Route::get('/rules/{slug}',[RulesController::class,'getAllActiveRules']);
 
 Route::post('/payment-history', [PaymentHistoryController::class, 'insert']);
+Route::post('/mollie-payment',[MollePaymentController::class,'test']);
+Route::post('/mollie-webhook',[MollePaymentController::class,'webHook']);
