@@ -24,8 +24,8 @@ class AllNewsCollection extends JsonResource
             'featured_image' => $this->featured_image,
             'content' => $this->postProccessing($this->content),
             'video_url' => $this->video_url,
-            'created_at'=>ucwords(strftime('%B %d,%Y', strtotime($this->created_at))),
-            'updated_at'=>ucwords(strftime('%B %d,%Y', strtotime($this->updated_at))),
+            'created_at'=>ucwords(strftime('%d %B,%Y', strtotime($this->created_at))),
+            'updated_at'=>ucwords(strftime('%d %B,%Y', strtotime($this->updated_at))),
         ];
     }
 
