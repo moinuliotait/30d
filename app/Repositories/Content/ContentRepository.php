@@ -132,6 +132,17 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
                 $img->setattribute('src',$path);
             }
         }
+        $div = $dom->getElementsByTagName('p');
+        foreach ($div as $node)
+        {
+            $node->setAttribute('style','font-size:14px !important;');
+        }
+
+        $top = $dom->getElementById('description');
+        foreach ($top as $nodes)
+        {
+            $nodes->setAttribute('style','font-size:14px !important;');
+        }
 
         $description = $dom->saveHTML();
         return $description;
@@ -199,12 +210,8 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         {
 
             $frame->setattribute('src',"https:".$frame->getattribute('src'));
-//            dd($frame->getattribute('src'));
         }
-
         foreach ($images as $k => $img) {
-//            $img->setattribute('src',.$img->getattribute('src'));
-//            $data = $img->getattribute('src');
         }
         $description = $dom->saveHTML();
         return $description;

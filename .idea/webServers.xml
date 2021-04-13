@@ -17,7 +17,14 @@
         </fileTransfer>
       </webServer>
       <webServer id="368b8203-0481-445e-93e7-d69bd9163195" name="opiosshop">
-        <fileTransfer rootFolder="/home/opioshop/www" accessType="SFTP" host="3.65.75.147" port="22" sshConfigId="42582eec-a235-49fe-a7d7-0ab6b5b8645b" sshConfig="opioshop@3.65.75.147:22 password">
+        <fileTransfer rootFolder="/home/opioshop/www" accessType="SFTP" host="15.184.109.62" port="22" sshConfigId="42582eec-a235-49fe-a7d7-0ab6b5b8645b" sshConfig="amit@15.184.109.62:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="b9092b8a-70f9-4d9b-9372-5c2f75fbea6f" name="nke.sa">
+        <fileTransfer accessType="SFTP" host="15.184.109.62" port="22" sshConfigId="42582eec-a235-49fe-a7d7-0ab6b5b8645b" sshConfig="amit@15.184.109.62:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

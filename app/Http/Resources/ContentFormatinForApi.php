@@ -49,6 +49,7 @@ class ContentFormatinForApi extends JsonResource
             $img->setattribute('src',$base_url.$img->getattribute('src'));
             $data = $img->getattribute('src');
         }
+//        $dom->getElementsByTagName('body')
         $description = $dom->saveHTML();
         return $description;
     }

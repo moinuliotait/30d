@@ -38,4 +38,10 @@ class ContentController extends Controller
         $result  = $this->content->specificContentWithTypeCategory($id);
         return new ContentWithCategory($result);
     }
+
+    public function onlyContent($id)
+    {
+        $data = $this->content->getItemWithId($id);
+        return $data->content;
+    }
 }

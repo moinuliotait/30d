@@ -73,7 +73,7 @@ class CalculationRepository extends BasicRepository implements CalculationReposi
         if (empty($data['silver_money'])) {
             $silver = $this->convertMetalPriceGramToOunce($data['silver_gram'], 'XAG');
         } else {
-            $silver = $data['siver_money'] ?? 0;
+            $silver = $data['silver_money'] ?? 0;
         }
 
         $cash = $data['cash'] ?? 0;
@@ -116,13 +116,13 @@ class CalculationRepository extends BasicRepository implements CalculationReposi
             if ($key == 'shares') {
                 $value = ($item * 0.27);
             }
-            if ($key == 'real_estate ') {
+            if ($key == 'real_estate') {
                 $value = ($item * 0.15);
             }
-            if ($key == 'mix ') {
+            if ($key == 'mix') {
                 $value = ($item * 0.5);
             }
-            if ($key == 'sharia ') {
+            if ($key == 'sharia') {
                 $value = ($item * 0.26);
             }
         }
