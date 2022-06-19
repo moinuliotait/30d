@@ -2,7 +2,9 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig authType="PASSWORD" host="3.65.75.147" id="42582eec-a235-49fe-a7d7-0ab6b5b8645b" port="22" nameFormat="DESCRIPTIVE" username="opioshop" />
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="15.184.109.62" id="42582eec-a235-49fe-a7d7-0ab6b5b8645b" port="22" nameFormat="DESCRIPTIVE" username="amit" />
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="15.184.190.62" id="e570e4a6-be70-435f-a681-c10f12900961" port="22" nameFormat="DESCRIPTIVE" username="amit" />
+      <sshConfig authType="PASSWORD" host="15.184.109.62" id="da417b18-0676-454b-bb21-6676b6be9a6d" port="22" nameFormat="DESCRIPTIVE" username="amit" />
     </configs>
   </component>
 </project>

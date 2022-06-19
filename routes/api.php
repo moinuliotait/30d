@@ -39,19 +39,21 @@ Route::post('/content-type', [ContentTypeController::class, 'insert']);
 Route::post('/content-category', [ContentCategoryController::class, 'insert']);
 
 Route::get('content', [ContentController::class, 'getContentByType']);
-Route::get('/content/with-category',[ContentController::class,'contentWithCategory']);
-Route::get('/specific-content/{id}',[ContentController::class,'contentSpecificDetails']);
-Route::get('/news-list',[NewsPortalController::class,'getAllNewsList']);
-Route::get('/news-list/{id}',[NewsPortalController::class,'getSingleNewsWithId']);
+Route::get('/content/with-category', [ContentController::class, 'contentWithCategory']);
+Route::get('/specific-content/{id}', [ContentController::class, 'contentSpecificDetails']);
+Route::get('/news-list', [NewsPortalController::class, 'getAllNewsList']);
+Route::get('/news-list/{id}', [NewsPortalController::class, 'getSingleNewsWithId']);
 
-Route::get('/quran-ul-karim-all-chapter',[QuranController::class,'getListOfQuranChapter']);
-Route::get('/verse-chapter',[QuranController::class,'getSpecificChapter']);
+Route::get('/quran-ul-karim-all-chapter', [QuranController::class, 'getListOfQuranChapter']);
+Route::get('/verse-chapter', [QuranController::class, 'getSpecificChapter']);
 
-Route::get('/hadith-small-list',[HadithContentController::class,'hadithGet']);
+Route::get('/hadith-small-list', [HadithContentController::class, 'hadithGet']);
 
-Route::get('/rules/{slug}',[RulesController::class,'getAllActiveRules']);
+Route::get('/rules/{slug}', [RulesController::class, 'getAllActiveRules']);
 
 Route::post('/payment-history', [PaymentHistoryController::class, 'insert']);
-Route::post('/mollie-payment',[MollePaymentController::class,'test']);
-Route::post('/mollie-webhook',[MollePaymentController::class,'webHook']);
-Route::get('/mollie-success',[MollePaymentController::class,'success']);
+Route::post('/mollie-payment', [MollePaymentController::class, 'test']);
+Route::post('/mollie-webhook', [MollePaymentController::class, 'webHook']);
+Route::get('/mollie-success', [MollePaymentController::class, 'success']);
+Route::get('/ramadan-calendar', [NamazDataFormationController::class, 'ramadanCalenderFormation']);
+Route::get('/test-content/{id}',[ContentController::class, 'onlyContent']);

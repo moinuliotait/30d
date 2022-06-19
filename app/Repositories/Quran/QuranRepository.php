@@ -15,7 +15,7 @@ class QuranRepository implements QuranRepositoryInterface
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.quran.com/api/v4/chapters?language=".$lang."",
+            CURLOPT_URL => "https://api.quran.com/api/v4/chapters?language=" . $lang . "",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -33,21 +33,19 @@ class QuranRepository implements QuranRepositoryInterface
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
-          return $response;
+            return $response;
         }
     }
 
-    public function getSpecificChapter($id,$page,$amount)
+    public function getSpecificChapter($id, $page, $amount)
     {
-        $arabic =  $this->chapterWithArabicVerse($id,$page,$amount);
-        return json_decode($arabic,true);
-
-
+        $arabic =  $this->chapterWithArabicVerse($id, $page, $amount);
+        return json_decode($arabic, true);
     }
-    protected function chapterWithArabicVerse($id,$page,$amount)
+    protected function chapterWithArabicVerse($id, $page, $amount)
     {
         $curl = curl_init();
-        $url ="https://api.quran.com/api/v4/verses/by_chapter/".$id."?language=en&words=false&translations=235&fields=text_uthmani&page=".$page."&per_page=".$amount."";
+        $url = "https://api.quran.com/api/v4/verses/by_chapter/" . $id . "?language=en&words=false&translations=213&fields=text_uthmani&page=" . $page . "&per_page=" . $amount . "&audio=7";
         curl_setopt_array($curl, array(
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
@@ -71,5 +69,4 @@ class QuranRepository implements QuranRepositoryInterface
             return $response;
         }
     }
-
 }

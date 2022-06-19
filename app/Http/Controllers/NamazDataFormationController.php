@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\MonthAllEventResource;
 use App\Http\Resources\NamazTimeResource;
+use App\Http\Resources\RamdanCalenderResource;
 use App\Repositories\Namaz\NamazRepositoryInterface;
 use Carbon\Carbon;
 use Carbon\Traits\Date;
@@ -81,5 +82,13 @@ class NamazDataFormationController extends Controller
     private function DateFormat($time, $format)
     {
         return  Carbon::createFromTimestamp($time)->format($format);
+    }
+
+    public function ramadanCalenderFormation(Request $request)
+    {
+        $year = $request->year;
+       $data =   $this->namazRepository->ramadanCalender($year);
+       $result = RamdanCalenderResource::collection($data->data);
+       return ['data'=>$result];
     }
 }

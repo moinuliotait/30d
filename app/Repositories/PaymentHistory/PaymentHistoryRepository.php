@@ -15,7 +15,7 @@ class PaymentHistoryRepository extends \App\Repositories\BasicRepository impleme
 
     public function testController()
     {
-       return $this->model->OrderBy('created_at', 'desc')->paginate(15);
+        return $this->model->where('status', 'paid')->paginate(15);
     }
     public function createPayment($data)
     {
@@ -25,6 +25,7 @@ class PaymentHistoryRepository extends \App\Repositories\BasicRepository impleme
         $value['email'] = $data['email'];
         $value['zakat'] = $data['zakat'];
         $value['sadaqah'] = $data['sadaqah'];
+        $value['status'] = $data['status'];
         $value['riba'] = $data['riba'];
         $value->save();
         $result = $value;
@@ -32,17 +33,27 @@ class PaymentHistoryRepository extends \App\Repositories\BasicRepository impleme
     }
     public function totalPaymentCount()
     {
-        //$zakat=$this->model->sum('zakat');
-        //$sadaqah=$this->model->sum('sadaqah');
-        //$riba=$this->model->sum('riba');
-        //$totalCost=$zakat+$sadaqah+$riba;
-        $count = $this->model->get()->count();
+        $count = $this->model->where('status', 'paid')->get()->count();
         return $count;
     }
-    public function searchData($name){
-        $result=$this->model->where('email', 'LIKE', "%$name%")
+    public function searchData($name)
+    {
+        $result = $this->model->where('status', 'paid')
+            ->where('email', 'LIKE', "%$name%")
             ->orWhere('first_name', 'LIKE', "%$name%")
-            ->OrderBy('created_at', 'desc')->paginate(15);
+            ->paginate(15);
         return $result;
+    }
+    public function updateStatus($Ok)
+    {
+        $data = $this->model->find($Ok['id']);
+        $data['status'] = $Ok['status'];
+        $data->save();
+        return $data;
+    }
+
+    public function getSingleStatus($id)
+    {
+        return $this->model->find($id);
     }
 }

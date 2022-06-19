@@ -40,7 +40,6 @@ class NewsPortalController extends Controller
             return redirect()->route('newsPortal')->with('message', 'News Added successfully');
 
         } catch (\Exception $e) {
-
             return redirect()->back()->with('message', 'Something went wrong, Please try again letter');
         }
     }

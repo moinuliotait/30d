@@ -234,3 +234,44 @@
   .container-fluid {
     padding: 40px 4px !important; } }
 
+.parentDiv .message .backGround {
+  background-position: center;
+  min-height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding: 15px;
+  position: relative; }
+  .parentDiv .message .backGround .tile {
+    position: absolute;
+    bottom: 20px; }
+
+.parentDiv .message .bodyMessage {
+  background-color: #FFFFFF;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 68px 8px 27px 37px;
+  width: 100%;
+  margin-top: -14px;
+  z-index: 6666;
+  position: relative; }
+  .parentDiv .message .bodyMessage h3 {
+    color: #CA0405;
+    font-weight: bold; }
+  .parentDiv .message .bodyMessage p {
+    font-size: 11px;
+    color: black !important;
+    margin: 0px; }
+  .parentDiv .message .bodyMessage .blodP {
+    font-weight: bold; }
+
+.parentDiv .message .image img {
+  width: 114px; }
+
+.parentDiv .message .buttonText button {
+  background: linear-gradient(#e52629 0%, #e52629 0.29%, #b71e21 100%);
+  color: #fff;
+  padding: 6px 47px;
+  border-radius: 12px;
+  font-weight: bold; }
+

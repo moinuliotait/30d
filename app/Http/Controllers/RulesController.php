@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Rules\RulesCreateRequest;
 use App\Http\Requests\Rules\RulesUpdateRequest;
+use App\Http\Resources\RulesResources;
 use App\Repositories\ContentTypeCategory\ContentTypeCategoryRepository;
 use App\Repositories\ContentTypeCategory\ContentTypeCategoryRepositoryInterface;
 use App\Repositories\Rules\RulesRepositoryInterface;
@@ -23,8 +24,7 @@ class RulesController extends Controller
     public function __construct(
         RulesRepositoryInterface  $rulesRepository,
         ContentTypeCategoryRepositoryInterface $contentTypeCategoryRepository
-    )
-    {
+    ) {
         $this->rules = $rulesRepository;
         $this->contentType = $contentTypeCategoryRepository;
     }
@@ -37,23 +37,23 @@ class RulesController extends Controller
     public function create(Request $request)
     {
         $category = $this->contentType->getCategoryList('rules');
-        return view('rules.create',['category'=>$category]);
+        return view('rules.create', ['category' => $category]);
     }
     public function createRules(RulesCreateRequest $request)
     {
-        $data = $request->only('title','content','category_id');
+        $data = $request->only('title', 'content', 'category_id');
         $result = $this->rules->createRulesNew($data);
-        return redirect()->route('rules')->with('message','Rules create successful');
+        return redirect()->route('rules')->with('message', 'Rules create successful');
     }
     public function edit($id)
     {
         $rulesData = $this->rules->getSingleItem($id);
         $category = $this->contentType->getCategoryList('rules');
-        return view('rules.edit', ['rulesData' => $rulesData,'category'=>$category]);
+        return view('rules.edit', ['rulesData' => $rulesData, 'category' => $category]);
     }
     public function update(RulesUpdateRequest $request)
     {
-        $data = $request->only('id','title','content','category_id');
+        $data = $request->only('id', 'title', 'content', 'category_id');
 
         try {
             $result = $this->rules->updateRules($data);
@@ -70,7 +70,7 @@ class RulesController extends Controller
     public function quizItems($name)
     {
         $rules = $this->rules->quizSpecificItem($name);
-        return view('rules.index',['rules'=>$rules]);
+        return view('rules.index', ['rules' => $rules]);
     }
     public function statusUpdate($id)
     {
@@ -85,13 +85,15 @@ class RulesController extends Controller
     {
         $result = $this->rules->getActiveRules($slug);
         try {
-            $finalResult = $result ?? 'No data available';
-            return ['status'=>1,'data'=>$finalResult];
-        }
-        catch (\Exception $e)
-        {
-            return ['status'=>0,'message'=>'something went wrong try again letter'];
-        }
+            if (empty($result)) {
+                $finalResult =  'No data available';
+            } else {
+                $finalResult = new RulesResources($result);
+            }
 
+            return ['status' => 1, 'data' => $finalResult];
+        } catch (\Exception $e) {
+            return ['status' => 0, 'message' => 'something went wrong try again letter'];
+        }
     }
 }
