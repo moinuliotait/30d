@@ -34,6 +34,7 @@ class ContentTypeCategoryRepository extends \App\Repositories\BasicRepository im
     public function getCategoryList($type)
     {
         $lifestyle = $this->type->getType($type);
+
         return $this->model->where('content_type_id',$lifestyle->id)->get();
     }
 

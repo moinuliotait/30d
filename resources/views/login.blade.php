@@ -18,7 +18,7 @@
   <body>
     {{-- pt-md-5 pt-lg-5 pt-xl-5 pt-sm-5 mt-md-5 mt-lg-5 mt-xl-5 mt-sm-5 --}}
   <div class="LoginPage">
-    <div class="container">
+    <div class="container d-flex align-items-center" style="min-height: 100vh">
       <div class="row">
         <div class="col-md-6">
           <img src="{{ asset('assets/images/undraw_remotely_2j6y.svg') }}" alt="Image" class="img-fluid">

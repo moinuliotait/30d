@@ -172,4 +172,10 @@ class MollePaymentController extends Controller
         $url = 'http://iotait.tech?status=' . $test->status;
         return redirect($url, 303);
     }
+
+    public function webView(Request $request)
+    {
+        $data = $this->model->getSingleStatus($request->id);
+        return view('webView.index',['data'=>$data]);
+    }
 }

@@ -63,7 +63,7 @@ class EducativeController extends Controller
 
     public function update(ContentUpdateRequest $request)
     {
-        $data = $request->only('title', 'id', 'category', 'video_url', 'short_description', 'content', 'image');
+        $data = $request->only('title', 'id', 'category', 'video_url', 'short_description', 'content', 'image','type');
 
         try {
             $result = $this->content->updateContent($data);

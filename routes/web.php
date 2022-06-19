@@ -5,6 +5,7 @@ use App\Http\Controllers\BaseUserController;
 use App\Http\Controllers\EducativeController;
 use App\Http\Controllers\HadithContentController;
 use App\Http\Controllers\LifeStyleContentController;
+use App\Http\Controllers\MollePaymentController;
 use App\Http\Controllers\NewsPortalController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\PaymentHistoryController;
@@ -88,3 +89,4 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/test',[NewsPortalController::class,'test']);
 Route::get('/login', [BaseUserController::class, 'LoginPageShow'])->name('login');
 Route::post('/login-check', [BaseUserController::class, 'userLoginCheck'])->name('login-check');
+Route::get('/callback',[MollePaymentController::class,'webView']);

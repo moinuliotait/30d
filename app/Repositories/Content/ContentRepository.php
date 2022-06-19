@@ -116,32 +116,42 @@ class ContentRepository extends \App\Repositories\BasicRepository implements Con
         $dom         = new \DomDocument();
         @$dom->loadHtml(mb_convert_encoding($description, 'HTML-ENTITIES', 'UTF-8'));
         $images = $dom->getElementsByTagName('img');
+        if (count($images) > 0)
+        {
+            foreach ($images as $k => $img) {
+                $data = $img->getattribute('src');
+                if (strpos($data, 'data') !== false) {
+                    list($type, $data) = array_pad(explode(';', $data), 2, null);
+                    list(, $data)      = array_pad(explode(',', $data), 2, null);
+                    $dataConvert       = base64_decode($data);
+                    $image_name        = time() . $k . '.png';
 
-        foreach ($images as $k => $img) {
-            $data = $img->getattribute('src');
-            if (strpos($data, 'data') !== false) {
-                list($type, $data) = array_pad(explode(';', $data), 2, null);
-                list(, $data)      = array_pad(explode(',', $data), 2, null);
-                $dataConvert       = base64_decode($data);
-                $image_name        = time() . $k . '.png';
+                    Storage::disk('public')->put('content' . DIRECTORY_SEPARATOR . $image_name, $dataConvert);
+                    $path = Storage::url('content/' . $image_name);
 
-                Storage::disk('public')->put('content' . DIRECTORY_SEPARATOR . $image_name, $dataConvert);
-                $path = Storage::url('content/' . $image_name);
-
-                $img->removeattribute('src');
-                $img->setattribute('src',$path);
+                    $img->removeattribute('src');
+                    $img->setattribute('src',$path);
+                }
             }
         }
+
         $div = $dom->getElementsByTagName('p');
-        foreach ($div as $node)
+        if(count($div) > 0)
         {
-            $node->setAttribute('style','font-size:14px !important;');
+            foreach ($div as $node)
+            {
+                $node->setAttribute('style','font-size:14px !important;');
+            }
         }
 
         $top = $dom->getElementById('description');
-        foreach ($top as $nodes)
+//        dd($top);
+        if ($top)
         {
-            $nodes->setAttribute('style','font-size:14px !important;');
+            foreach ($top as $nodes)
+            {
+                $nodes->setAttribute('style','font-size:14px !important;');
+            }
         }
 
         $description = $dom->saveHTML();
