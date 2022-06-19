@@ -17,6 +17,7 @@ class CreatePaymentHistoriesTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
+            $table->integer('status')->default(0);
             $table->string('email');
             $table->double('zakat');
             $table->double('sadaqah');
